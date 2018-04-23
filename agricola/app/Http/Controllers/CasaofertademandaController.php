@@ -40,11 +40,17 @@ class CasaofertademandaController extends Controller
                 if ($ofertas->titulo == $demandas->titulo) {
                     $grau = $grau + 5;
                 }
+              echo "<script>console.log( $grau.$ofertas->id);</script>";
+
                 if ($ofertas->categoria == $demandas->categoria) {
-                    $grau = $grau + 1.5;
+                    $grau = $grau +2;
+                    echo "<script>console.log( $grau.$ofertas->id);</script>";
                 }
+
+
                 if ($ofertas->tipo == $demandas->tipo) {
                     $grau = $grau + 3;
+                    echo "<script>console.log( $grau.$ofertas->id);</script>";
                 }
 
 
@@ -64,10 +70,21 @@ class CasaofertademandaController extends Controller
                         $verifica2 = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('idinteressado', '=', $casa->idinteressado)->count();
                         if($verifica2==0){
                             $casa->save();
-                        }/*
+                        }
                         else{
-                            dd('chegou');
-                        }*/
+                            $ver = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('idinteressado', '=', $casa->idinteressado)->get();
+                            echo "<script>console.log($grau.$ofertas->id);</script>";
+                            foreach($ver as $veri) {
+                                echo "<script>console.log($grau.$ofertas->id);</script>";
+                                if ($veri->graucompatibilidade < $grau) {
+                                    $verif = Casaofertademanda::where('id','=',$veri->id)->get();
+                                    $verif->graucompatibilidade = $grau;
+                                    echo "<script>console.log($grau.$ofertas->id.$verif->graucompatibilidade);</script>";
+                                    $verif->save();
+
+                                }
+                            }
+                        }
                     }
                 }
             }
