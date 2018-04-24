@@ -75,7 +75,11 @@ class AnuncioController extends Controller
     {
         //
 
-        Return "chegou";
+        $detanuncio = Anuncio::selecionaum($anuncio)->get();
+
+
+       Return view('anuncios.exibe')->with('detanuncio', $detanuncio);
+
     }
 
     /**

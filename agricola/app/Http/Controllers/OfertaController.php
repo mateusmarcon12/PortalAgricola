@@ -92,7 +92,7 @@ class OfertaController extends Controller
         $a->observacao=$request->get('observacao');
         $a->situacao='ativo';
         $a->idendereco=$ideste;
-        $a->tipoanuncio='oferta';
+        $a->tipoanuncio='Oferta';
         $a->save();
         $fotoend=$a->id;
         if ($request->hasFile('images')){

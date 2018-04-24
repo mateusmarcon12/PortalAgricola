@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Anúncios</div>
+                <div class="card-header">Meus Anúncios</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,15 +21,13 @@
                             <tr>
                                 <th>Título</th>
                                 <th>Típo</th>
-                                <th>Descrição</th>
                                 <th>Situação</th>
 
-                                <th>Observação</th>
                                 <th>Validade</th>
                                 <th>Cadastro</th>
                                 <th></th>
                                 <th></th>
-
+                                <th></th>
 
                             </tr>
                             </thead>
@@ -41,12 +39,11 @@
                                 <tr>
                                     <td>{{$ticket->titulo}}</td>
                                     <td>{{$ticket->tipoanuncio}}</td>
-                                    <td>{{$ticket->descricao}}</td>
                                     <td>{{$ticket->situacao}}</td>
 
-                                    <td>{{$ticket->observacao}}</td>
                                     <td>{{date( 'd/m/Y' , strtotime($ticket->datavalidade))}}</td>
                                     <td>{{date( 'd/m/Y' , strtotime($ticket->created_at))}}</td>
+                                    <td> <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary">Detalhes</a></td>
                                     <td> <a href="{{action('AnuncioController@edit',$ticket->id)}}" class="btn btn-primary">Editar</a> </td>
                                     <td> <a href="{{action('AnuncioController@update',$ticket->id)}}" class="btn btn-primary">Inativar</a></td>
                                 </tr>

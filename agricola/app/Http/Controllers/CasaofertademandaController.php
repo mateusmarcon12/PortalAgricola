@@ -6,6 +6,7 @@ use App\Casaofertademanda;
 use App\Oferta;
 use Illuminate\Http\Request;
 use App\Anuncio;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class CasaofertademandaController extends Controller
@@ -81,7 +82,7 @@ class CasaofertademandaController extends Controller
                                 if ($veri->graucompatibilidade < $grau) {
                                     $verif = Casaofertademanda::where('id','=',$veri->id)->get();
                                     $verif->graucompatibilidade = $grau;
-                                    $verif->save();
+                                  //  $verif->save();
 
                                 }
                             }

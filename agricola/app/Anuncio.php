@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+use Illuminate\Support\Facades\DB;
 class Anuncio extends Model
 {
     //
@@ -31,6 +32,23 @@ class Anuncio extends Model
     public function scopeTipodemanda ($query)
     {
         return $query->where('tipoanuncio', '=', 'demanda');
+    }
+
+    public function scopeSelecionaum($query, $anuncio){
+
+        $detanuncio = Anuncio
+            ::join('users', 'users.id','=','anuncios.idanunciante')
+            ->join('categorias', 'categorias.id','=','anuncios.classe')
+            ->join('classificacaos', 'classificacaos.id','=', 'anuncios.tipo')
+            ->join('enderecos', 'enderecos.id','=','anuncios.idendereco')
+            ->join('cidades','cidades.cidade_codigo','=','enderecos.idcidade')
+            ->join('ufs','ufs.uf_codigo','=','enderecos.iduf')
+            ->join('paises','paises.numcode','=','enderecos.idpais')
+            ->select('anuncios.*','users.name as anunciante','users.email','categorias.nome as categoria','classificacaos.nome as classificacao','enderecos.*','cidades.cidade_cep','cidades.cidade_descricao as cidade','ufs.uf_descricao as estado','paises.nome as pais')
+            ->where('anuncios.id','=',$anuncio->id);
+           // ->get();
+
+        return ($detanuncio);
     }
 
 }
