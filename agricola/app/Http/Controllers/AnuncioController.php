@@ -74,6 +74,8 @@ class AnuncioController extends Controller
     public function show(Anuncio $anuncio)
     {
         //
+
+        Return "chegou";
     }
 
     /**
