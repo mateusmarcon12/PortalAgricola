@@ -114,18 +114,10 @@ class AnuncioController extends Controller
      */
     public function update(Request $request, $anu)
     {
-        //
-        //$anunciaa = Anuncio::find($anuncio->id)->
+
 
         $anuncioa = Anuncio::findOrFail($anu);
-      //  dd($anuncioa);
 
-/*
-        $this->validate($request, [
-            'title' => 'required',
-
-        ]);*/
-       // $anunciob = $anuncioa;
 
         $input = $request->all();
 
@@ -144,10 +136,17 @@ class AnuncioController extends Controller
      * @param  \App\Anuncio  $anuncio
      * @return \Illuminate\Http\Response
      */
-    public function inativar(Anuncio $anuncio){
-        $passport= Anuncio::find($anuncio->get('id'));
-        $passport->situacao='inativo';
-        return redirect('anuncio.index');
+    public function inativar($id){
+
+
+        $staff = Anuncio::find($id);
+       // dd($staff);
+        $staff->situacao = 'inativo';
+        $staff->save();
+        $detanuncio = Anuncio::selecionaum($staff)->get();
+        //dd($detanuncio);
+       // Session::flash('flash_message', 'Anuncio inativado!');
+        return view('anuncios.exibe')->with('detanuncio', $detanuncio);
 
     }
     public function destroy(Anuncio $anuncio)

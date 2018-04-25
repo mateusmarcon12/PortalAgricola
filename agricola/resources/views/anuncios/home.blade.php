@@ -45,7 +45,7 @@
                                     <td>{{date( 'd/m/Y' , strtotime($ticket->created_at))}}</td>
                                     <td> <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary">Detalhes</a></td>
                                     <td> <a href="{{action('AnuncioController@edit',$ticket->id)}}" class="btn btn-primary">Editar</a> </td>
-                                    <td> <a href="{{action('AnuncioController@update',$ticket->id)}}" class="btn btn-primary">Inativar</a></td>
+                                    <td> <a href="{{action('AnuncioController@inativar',$ticket->id)}}" class="btn btn-primary">Inativar</a></td>
                                 </tr>
                                 <tr>
 

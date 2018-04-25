@@ -36,6 +36,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('oferta','OfertaController');
 Route::resource('anuncio','AnuncioController');
 Route::post('/anuncio/update/{id}','AnuncioController@update')->name('upd');
+Route::get('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
+Route::post('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
 Route::resource('casaofertademanda','CasaofertademandaController');
