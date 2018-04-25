@@ -10,7 +10,7 @@
 
                         <form method="POST" enctype="multipart/form-data" action="{{ route($tipoanuncio) }}">
                             @csrf
-<h6>Dados {{$nomeanuncio}}</h6>
+                            <h6>Dados {{$nomeanuncio}}</h6>
                             <div class="form-group row">
                                 <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
 
@@ -53,10 +53,14 @@
                                 <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
 <br>
                                 <div class="col-md-6">
-                                @foreach($classificacoes as $class)
-                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}"> {{$class->nome}}<br>
 
-                                @endforeach
+                                     <select name="classificacao" id="classificacaoSelect" onchange="verificarclassificacao()" > 
+                                    @foreach($classificacoes as $class)
+                                
+                                            <option value="{{$class->id}}"> {{$class->nome}}</option>
+
+                                    @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -137,12 +141,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+                                <label for="estado" class="col-md-4 col-form-label text-md-right" >{{ __('Estado') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="estado">
+                                    <select name="estado" id="ufSelect" onchange="verificaruf()">
                                         @foreach($estados as $rows)
-                                            <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}}</option>
+                                            <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -229,3 +233,17 @@
     </div>
 
 @endsection
+<script>
+
+function verificarclassificacao() {
+    var x = document.getElementById("classificacaoSelect").value;
+    alert(x);
+    //document.getElementById("demo").innerHTML = "You selected: " + x;
+}
+
+function verificaruf() {
+    var x = document.getElementById("ufSelect").value;
+    alert(x);
+       
+}
+</script>

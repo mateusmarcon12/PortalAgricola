@@ -13,6 +13,6 @@ class Cidade extends Model
 
     public function estado()
     {
-        return $this->belongsTo('App\Uf');
+        return $this->belongsTo('App\Uf', 'uf_codigo');
     }
 }

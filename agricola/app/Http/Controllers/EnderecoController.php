@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Endereco;
 use Illuminate\Http\Request;
+use App\Cidade;
 
 class EnderecoController extends Controller
 {
@@ -86,5 +87,9 @@ class EnderecoController extends Controller
     public function destroy(Endereco $endereco)
     {
         //
+    }
+
+    public function cidade($id){
+        dd('chegou');
     }
 }

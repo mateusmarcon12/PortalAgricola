@@ -44,3 +44,6 @@ Route::resource('casaofertademanda','CasaofertademandaController');
 
 
 Route::resource('foto','FotoController');
+
+Route::get('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.cidade');
+Route::post('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.cidade');
