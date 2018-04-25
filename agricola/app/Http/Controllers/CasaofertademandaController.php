@@ -73,20 +73,20 @@ class CasaofertademandaController extends Controller
                         if($verifica2==0){
                             $casa->save();
 
-                        }
-                        else{
+                        }}
+                    else{
                             $ver = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('idinteressado', '=', $casa->idinteressado)->get();
 
                             foreach($ver as $veri) {
 
                                 if ($veri->graucompatibilidade < $grau) {
-                                    $verif = Casaofertademanda::where('id','=',$veri->id)->get();
+                                   // $verif = Casaofertademanda::where('id','=',$veri->id)->get();
+                                    $verif = Casaofertademanda::findOrFail($veri->id);
                                     $verif->graucompatibilidade = $grau;
-                                  //  $verif->save();
+                                    $verif->save();
 
                                 }
                             }
-                        }
                     }
                 }
             }
@@ -96,17 +96,19 @@ class CasaofertademandaController extends Controller
         $anu = Casaofertademanda
             ::join('anuncios', 'anuncios.id', '=', 'casaofertademandas.idoferta')
             ->join('users', 'users.id','=','anuncios.idanunciante')
-            ->select('anuncios.*', 'casaofertademandas.graucompatibilidade','users.name')
+            ->select('anuncios.*', 'casaofertademandas.graucompatibilidade','casaofertademandas.iddemanda', 'users.name')
             ->where('casaofertademandas.idinteressado','=', Auth::user()->id)
             ->where('anuncios.situacao','=','ativo')
             ->orderby('casaofertademandas.graucompatibilidade','desc')
             ->get();
 
+        $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
+
 
          //  $casou = Casaofertademanda::where('idinteressado','=',Auth::user()->id)->get();
 
       //  return $anu;
-     return view('casaofertademanda.home')->with('anu', $anu);
+     return view('casaofertademanda.home')->with('anu', $anu,'minhademanda',$minhademanda);
     }
 
     /**
