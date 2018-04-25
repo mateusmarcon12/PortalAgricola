@@ -35,6 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('oferta','OfertaController');
 Route::resource('anuncio','AnuncioController');
+Route::post('/anuncio/update/{id}','AnuncioController@update')->name('upd');
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
 Route::resource('casaofertademanda','CasaofertademandaController');

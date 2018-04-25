@@ -44,7 +44,11 @@ class Anuncio extends Model
             ->join('cidades','cidades.cidade_codigo','=','enderecos.idcidade')
             ->join('ufs','ufs.uf_codigo','=','enderecos.iduf')
             ->join('paises','paises.numcode','=','enderecos.idpais')
-            ->select('anuncios.*','users.name as anunciante','users.email','categorias.nome as categoria','classificacaos.nome as classificacao','enderecos.*','cidades.cidade_cep','cidades.cidade_descricao as cidade','ufs.uf_descricao as estado','paises.nome as pais')
+            ->select('anuncios.observacao as a','anuncios.id as ida', 'anuncios.*',
+                'users.name as anunciante','users.email','categorias.nome as categoria',
+                'classificacaos.nome as classificacao','enderecos.*','cidades.cidade_cep','cidades.cidade_descricao as cidade',
+                'ufs.uf_descricao as estado','paises.nome as pais','enderecos.idcidade as idcidade','enderecos.iduf as iduf',
+                'enderecos.observacao as endobservacao')
             ->where('anuncios.id','=',$anuncio->id);
            // ->get();
 

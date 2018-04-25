@@ -83,6 +83,7 @@ class FotoController extends Controller
     public function update(Request $request, Foto $foto)
     {
         //
+        return redirect()->route('anuncio.index')->with('message', 'Product updated successfully!');
     }
 
     /**

@@ -92,7 +92,17 @@ class AnuncioController extends Controller
 
     {
         //
-        return 'Editar '.$anuncio->titulo;
+
+        $result = DB::table('cidades')->get();
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+
+
+        //return view('ofertas.cadastrar')->with('data', $result);
+        $detanuncio = Anuncio::selecionaum($anuncio)->get();
+       //dd($detanuncio);
+        Return view('anuncios.edit', compact('result','estados','classificacoes','categorias','detanuncio'));
     }
 
     /**
@@ -102,12 +112,30 @@ class AnuncioController extends Controller
      * @param  \App\Anuncio  $anuncio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $anu)
     {
         //
-        $passport= Anuncio::find($request->get('id'));
-        $passport->situacao='inativo';
-        return view('anuncio.index');
+        //$anunciaa = Anuncio::find($anuncio->id)->
+
+        $anuncioa = Anuncio::findOrFail($anu);
+      //  dd($anuncioa);
+
+/*
+        $this->validate($request, [
+            'title' => 'required',
+
+        ]);*/
+       // $anunciob = $anuncioa;
+
+        $input = $request->all();
+
+        $anuncioa->fill($input)->save();
+        $detanuncio = Anuncio::selecionaum($request)->get();
+        //Session::flash('flash_message', 'Task successfully added!');
+        Return view('anuncios.exibe')->with('detanuncio', $detanuncio);
+        //return view('anuncios.exibe')->with('anuncio', $anuncio);
+       // return $anuncio->id;
+
     }
 
     /**

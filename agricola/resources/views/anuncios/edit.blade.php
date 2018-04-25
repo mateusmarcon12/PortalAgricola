@@ -4,18 +4,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Cadastrar '.$nomeanuncio) }}</div>
+                    <div class="card-header">Editar Anuncios</div>
 
                     <div class="card-body">
+                        @foreach($detanuncio as $anu)
 
-                        <form method="POST" enctype="multipart/form-data" action="{{ route($tipoanuncio) }}">
+                        <form method="post" enctype="multipart/form-data" action="{{action('AnuncioController@update', $anu->ida)}}" action="{{route('upd', $anu)}}">
                             @csrf
-<h6>Dados {{$nomeanuncio}}</h6>
+<h6>Dados  </h6>
+
                             <div class="form-group row">
                                 <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ old('titulo') }}" required autofocus>
+                                    <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ $anu->titulo }}" required autofocus>
 
                                     @if ($errors->has('titulo'))
                                         <span class="invalid-feedback">
@@ -24,22 +26,12 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Imagem') }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="file" name="images" id="file">
-
-                                </div>
-                            </div>
-
 
                             <div class="form-group row">
                                 <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ old('descricao') }}" required autofocus>
-                                    </textarea>
+                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ $anu->descricao }}" required autofocus>{{ $anu->descricao }}</textarea>
                                     @if ($errors->has('descricao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('descricao') }}</strong>
@@ -53,9 +45,13 @@
                                 <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
 <br>
                                 <div class="col-md-6">
-                                @foreach($classificacoes as $class)
-                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}"> {{$class->nome}}<br>
 
+                                @foreach($classificacoes as $class)
+                                        @if($class->id == $anu->tipo)
+                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}" checked> {{$class->nome}}<br>
+                                        @else
+                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}"> {{$class->nome}}<br>
+                                        @endif
                                 @endforeach
                                 </div>
                             </div>
@@ -63,9 +59,14 @@
                                 <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
                                 <br>
                                 <div class="col-md-6">
+
                                     @foreach($categorias as $cat)
 
-                                        <input type="radio" name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
+                                        @if($cat->id == $anu->classe)
+                                            <input type="radio" name="categoria" value="{{$cat->id}}" checked> {{$cat->nome}}<br>
+                                        @else
+                                            <input type="radio" name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -73,7 +74,9 @@
                                 <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
 
                                 <div class="col-md-3">
-                                    <input id="quantidade" type="number" class="form-control{{ $errors->has('quantidade') ? ' is-invalid' : '' }}" name="quantidade" value="{{ old('quantidade') }}" required autofocus>
+
+
+                                    <input id="quantidade" type="number" class="form-control{{ $errors->has('quantidade') ? ' is-invalid' : '' }}" name="quantidade" value="{{ $anu->quantidade }}" required autofocus>
 
                                     @if ($errors->has('quantidade'))
                                         <span class="invalid-feedback">
@@ -89,11 +92,13 @@
 
                                 <div class="col-md-6">
                                     <select name="unidademedida">
-                                            <option value="un">Unidade</option>
-                                            <option value="kg">KG</option>
-                                            <option value="kg">L</option>
-                                            <option value="m²">M²</option>
-                                            <option value="sacas">sacas</option>
+                                            <option value="{{$anu->unidademedida}}" selected>{{$anu->unidademedida}}</option>
+                                            <option value="un">Un</option>
+                                            <option value="kg">kg</option>
+                                            <option value="kg">l</option>
+                                            <option value="m²">m²</option>
+                                            <option value="m³">m³</option>
+                                            <option value="sacas">Sacas</option>
 
                                     </select>
                                 </div>
@@ -103,8 +108,7 @@
                                 <label for="observacao" class="col-md-4 col-form-label text-md-right">{{ __('Observações') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ old('observacao') }}" required autofocus>
-                                    </textarea>
+                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ $anu->a }}" required autofocus>{{ $anu->a    }}</textarea>
                                     @if ($errors->has('observacao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('observacao') }}</strong>
@@ -116,7 +120,7 @@
                                 <label for="datavalidade" class="col-md-4 col-form-label text-md-right">{{ __('Validade Anúncio') }}</label>
 
                                 <div class="col-md-4">
-                                    <input id="datavalidade" type="date" class="form-control{{ $errors->has('datavalidade') ? ' is-invalid' : '' }}" name="datavalidade" value="{{ old('datavalidade') }}" required autofocus>
+                                    <input id="datavalidade" type="date" class="form-control{{ $errors->has('datavalidade') ? ' is-invalid' : '' }}" name="datavalidade" value="{{ $anu->datavalidade  }}" required autofocus>
 
                                     @if ($errors->has('datavalidade'))
                                         <span class="invalid-feedback">
@@ -141,8 +145,13 @@
 
                                 <div class="col-md-6">
                                     <select name="estado">
+
                                         @foreach($estados as $rows)
-                                            <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}}</option>
+                                            @if($rows->uf_codigo == $anu->iduf)
+                                            <option value="{{$rows->uf_codigo}}" selected>{{$rows->uf_descricao}}</option>
+                                            @else
+                                                <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -154,7 +163,11 @@
                                 <div class="col-md-6">
                                     <select name="cidade">
                                         @foreach($result as $row)
-                                            <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
+                                            @if($row->cidade_codigo==$anu->idcidade)
+                                                <option value="{{$row->cidade_codigo}}" selected>{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
+                                            @else
+                                                <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -163,7 +176,7 @@
                                 <label for="bairro" class="col-md-4 col-form-label text-md-right">{{ __('Bairro') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="bairro" type="text" class="form-control{{ $errors->has('bairro') ? ' is-invalid' : '' }}" name="bairro" value="{{ old('bairro') }}" required autofocus>
+                                    <input id="bairro" type="text" class="form-control{{ $errors->has('bairro') ? ' is-invalid' : '' }}" name="bairro" value="{{ $anu->bairro }}" required autofocus>
 
                                     @if ($errors->has('bairro'))
                                         <span class="invalid-feedback">
@@ -176,7 +189,7 @@
                                 <label for="rua" class="col-md-4 col-form-label text-md-right">{{ __('Rua') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="rua" type="text" class="form-control{{ $errors->has('rua') ? ' is-invalid' : '' }}" name="rua" value="{{ old('rua') }}" required autofocus>
+                                    <input id="rua" type="text" class="form-control{{ $errors->has('rua') ? ' is-invalid' : '' }}" name="rua" value="{{ $anu->rua }}" required autofocus>
 
                                     @if ($errors->has('rua'))
                                         <span class="invalid-feedback">
@@ -189,7 +202,7 @@
                                 <label for="numero" class="col-md-4 col-form-label text-md-right">{{ __('Número') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="titulo" type="text" class="form-control{{ $errors->has('numero') ? ' is-invalid' : '' }}" name="numero" value="{{ old('numero') }}" required autofocus>
+                                    <input id="titulo" type="text" class="form-control{{ $errors->has('numero') ? ' is-invalid' : '' }}" name="numero" value="{{ $anu->numero }}" required autofocus>
 
                                     @if ($errors->has('numero'))
                                         <span class="invalid-feedback">
@@ -202,7 +215,7 @@
                                 <label for="endobservacao" class="col-md-4 col-form-label text-md-right">{{ __('Observação sobre o Endereço') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ old('endobservacao') }}" required autofocus>
+                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ $anu->endobservacao }}" required autofocus>
 
                                     @if ($errors->has('endobservacao'))
                                         <span class="invalid-feedback">
@@ -220,7 +233,7 @@
                                 </div>
                             </div>
                         </form>
-
+                    @endforeach
 
                     </div>
                 </div>

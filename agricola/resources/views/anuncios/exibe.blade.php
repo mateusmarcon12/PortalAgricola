@@ -17,7 +17,7 @@
 
                           @foreach($detanuncio as $anu)
                               <h3>Título: {{$anu->titulo}}</h3><br>
-                                <h5>Detalhes:</h5>
+                                <h5>Detalhes</h5>
                                 <p>
                                     Descrição: {{$anu->descricao}}<br>
                                     Tipo: {{$anu->tipoanuncio}}<br>
