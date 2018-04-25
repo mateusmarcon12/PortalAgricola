@@ -44,7 +44,7 @@ class Anuncio extends Model
             ->join('cidades','cidades.cidade_codigo','=','enderecos.idcidade')
             ->join('ufs','ufs.uf_codigo','=','enderecos.iduf')
             ->join('paises','paises.numcode','=','enderecos.idpais')
-            ->select('anuncios.observacao as a','anuncios.id as ida', 'anuncios.*',
+            ->select('anuncios.observacao as a','anuncios.id as ida', 'anuncios.situacao as anusituacao', 'anuncios.*',
                 'users.name as anunciante','users.email','categorias.nome as categoria',
                 'classificacaos.nome as classificacao','enderecos.*','cidades.cidade_cep','cidades.cidade_descricao as cidade',
                 'ufs.uf_descricao as estado','paises.nome as pais','enderecos.idcidade as idcidade','enderecos.iduf as iduf',

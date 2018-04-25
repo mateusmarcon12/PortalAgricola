@@ -7,9 +7,9 @@
                     <div class="card-header">Editar Anuncios</div>
 
                     <div class="card-body">
-                        @foreach($detanuncio as $anu)
 
-                        <form method="post" enctype="multipart/form-data" action="{{action('AnuncioController@update', $anu->ida)}}" action="{{route('upd', $anu)}}">
+
+                        <form method="post" enctype="multipart/form-data" action="{{route('upd',$detanuncio->id)}}">
                             @csrf
 <h6>Dados  </h6>
 
@@ -17,7 +17,7 @@
                                 <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ $anu->titulo }}" required autofocus>
+                                    <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ $detanuncio->titulo }}" required autofocus>
 
                                     @if ($errors->has('titulo'))
                                         <span class="invalid-feedback">
@@ -26,12 +26,26 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Situação') }}</label>
+                                <br>
+                                <div class="col-md-6">
 
+                                        @if($detanuncio->situacao == 'ativo')
+                                            <input type="radio" name="situacao" value="ativo" checked> Ativo
+                                            <input type="radio" name="situacao" value="inativo"> Inativo<br>
+                                        @else
+                                            <input type="radio" name="situacao" value="inativo" checked> Inativo
+                                            <input type="radio" name="situacao" value="ativo"> Ativo<br>
+                                        @endif
+
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ $anu->descricao }}" required autofocus>{{ $anu->descricao }}</textarea>
+                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ $detanuncio->descricao }}" required autofocus>{{ $detanuncio->descricao }}</textarea>
                                     @if ($errors->has('descricao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('descricao') }}</strong>
@@ -47,7 +61,7 @@
                                 <div class="col-md-6">
 
                                 @foreach($classificacoes as $class)
-                                        @if($class->id == $anu->tipo)
+                                        @if($class->id == $detanuncio->tipo)
                                         <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}" checked> {{$class->nome}}<br>
                                         @else
                                         <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}"> {{$class->nome}}<br>
@@ -62,7 +76,7 @@
 
                                     @foreach($categorias as $cat)
 
-                                        @if($cat->id == $anu->classe)
+                                        @if($cat->id == $detanuncio->classe)
                                             <input type="radio" name="categoria" value="{{$cat->id}}" checked> {{$cat->nome}}<br>
                                         @else
                                             <input type="radio" name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
@@ -76,7 +90,7 @@
                                 <div class="col-md-3">
 
 
-                                    <input id="quantidade" type="number" class="form-control{{ $errors->has('quantidade') ? ' is-invalid' : '' }}" name="quantidade" value="{{ $anu->quantidade }}" required autofocus>
+                                    <input id="quantidade" type="number" class="form-control{{ $errors->has('quantidade') ? ' is-invalid' : '' }}" name="quantidade" value="{{ $detanuncio->quantidade }}" required autofocus>
 
                                     @if ($errors->has('quantidade'))
                                         <span class="invalid-feedback">
@@ -92,7 +106,7 @@
 
                                 <div class="col-md-6">
                                     <select name="unidademedida">
-                                            <option value="{{$anu->unidademedida}}" selected>{{$anu->unidademedida}}</option>
+                                            <option value="{{$detanuncio->unidademedida}}" selected>{{$detanuncio->unidademedida}}</option>
                                             <option value="un">Un</option>
                                             <option value="kg">kg</option>
                                             <option value="kg">l</option>
@@ -108,7 +122,7 @@
                                 <label for="observacao" class="col-md-4 col-form-label text-md-right">{{ __('Observações') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ $anu->a }}" required autofocus>{{ $anu->a    }}</textarea>
+                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ $detanuncio->observacao }}" required autofocus>{{ $detanuncio->observacao  }}</textarea>
                                     @if ($errors->has('observacao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('observacao') }}</strong>
@@ -120,7 +134,7 @@
                                 <label for="datavalidade" class="col-md-4 col-form-label text-md-right">{{ __('Validade Anúncio') }}</label>
 
                                 <div class="col-md-4">
-                                    <input id="datavalidade" type="date" class="form-control{{ $errors->has('datavalidade') ? ' is-invalid' : '' }}" name="datavalidade" value="{{ $anu->datavalidade  }}" required autofocus>
+                                    <input id="datavalidade" type="date" class="form-control{{ $errors->has('datavalidade') ? ' is-invalid' : '' }}" name="datavalidade" value="{{ $detanuncio->datavalidade  }}" required autofocus>
 
                                     @if ($errors->has('datavalidade'))
                                         <span class="invalid-feedback">
@@ -147,7 +161,7 @@
                                     <select name="estado">
 
                                         @foreach($estados as $rows)
-                                            @if($rows->uf_codigo == $anu->iduf)
+                                            @if($rows->uf_codigo == $endereco->iduf)
                                             <option value="{{$rows->uf_codigo}}" selected>{{$rows->uf_descricao}}</option>
                                             @else
                                                 <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}}</option>
@@ -163,7 +177,7 @@
                                 <div class="col-md-6">
                                     <select name="cidade">
                                         @foreach($result as $row)
-                                            @if($row->cidade_codigo==$anu->idcidade)
+                                            @if($row->cidade_codigo==$endereco->idcidade)
                                                 <option value="{{$row->cidade_codigo}}" selected>{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
                                             @else
                                                 <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
@@ -176,7 +190,7 @@
                                 <label for="bairro" class="col-md-4 col-form-label text-md-right">{{ __('Bairro') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="bairro" type="text" class="form-control{{ $errors->has('bairro') ? ' is-invalid' : '' }}" name="bairro" value="{{ $anu->bairro }}" required autofocus>
+                                    <input id="bairro" type="text" class="form-control{{ $errors->has('bairro') ? ' is-invalid' : '' }}" name="bairro" value="{{ $endereco->bairro }}" required autofocus>
 
                                     @if ($errors->has('bairro'))
                                         <span class="invalid-feedback">
@@ -189,7 +203,7 @@
                                 <label for="rua" class="col-md-4 col-form-label text-md-right">{{ __('Rua') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="rua" type="text" class="form-control{{ $errors->has('rua') ? ' is-invalid' : '' }}" name="rua" value="{{ $anu->rua }}" required autofocus>
+                                    <input id="rua" type="text" class="form-control{{ $errors->has('rua') ? ' is-invalid' : '' }}" name="rua" value="{{ $endereco->rua }}" required autofocus>
 
                                     @if ($errors->has('rua'))
                                         <span class="invalid-feedback">
@@ -202,7 +216,7 @@
                                 <label for="numero" class="col-md-4 col-form-label text-md-right">{{ __('Número') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="titulo" type="text" class="form-control{{ $errors->has('numero') ? ' is-invalid' : '' }}" name="numero" value="{{ $anu->numero }}" required autofocus>
+                                    <input id="titulo" type="text" class="form-control{{ $errors->has('numero') ? ' is-invalid' : '' }}" name="numero" value="{{ $endereco->numero }}" required autofocus>
 
                                     @if ($errors->has('numero'))
                                         <span class="invalid-feedback">
@@ -215,7 +229,7 @@
                                 <label for="endobservacao" class="col-md-4 col-form-label text-md-right">{{ __('Observação sobre o Endereço') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ $anu->endobservacao }}" required autofocus>
+                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ $endereco->observacao }}" required autofocus>
 
                                     @if ($errors->has('endobservacao'))
                                         <span class="invalid-feedback">
@@ -233,7 +247,7 @@
                                 </div>
                             </div>
                         </form>
-                    @endforeach
+
 
                     </div>
                 </div>
