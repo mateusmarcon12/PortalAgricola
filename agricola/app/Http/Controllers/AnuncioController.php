@@ -13,6 +13,7 @@ use App\Pais;
 use App\Uf;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AnuncioController extends Controller
 {
@@ -76,9 +77,19 @@ class AnuncioController extends Controller
         //
 
         $detanuncio = Anuncio::selecionaum($anuncio)->get();
+        foreach ($detanuncio as $a){
+            $dir = $a->ida;
+        }
+        //dd($dir)
+        $files = Storage::allFiles('Anuncios/'.$dir);
+        if($files==null){
 
+         $files=null;
 
-       Return view('anuncios.exibe')->with('detanuncio', $detanuncio);
+        }
+       // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
+        
+       Return view('anuncios.exibe')->with('detanuncio', $detanuncio,'files', $files);
 
     }
 

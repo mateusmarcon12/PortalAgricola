@@ -92,11 +92,11 @@ class DemandaController extends Controller
                     'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
                 ]);
 
-                $file = $request->file('images');
+                //$file = $request->file('images');
                 $extension=$file->getClientOriginalExtension();
                 // image upload in public/upload folder.
-                $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
-
+                //$file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
+                $file = $request->file('images')->store('Anuncios/'.$fotoend);
             }
 
         return redirect('anuncio')->with('success', 'Demanda Cadastrada');

@@ -58,7 +58,8 @@
                         </table>
                         @endisset
                         </div>
-                        <img src="/anuncio/4/Captura.png" />
+
+
                 </div>
             </div>
         </div>
