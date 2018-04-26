@@ -54,7 +54,7 @@
 <br>
                                 <div class="col-md-6">
 
-                                     <select name="classificacao" id="classificacaoSelect" onchange="verificarclassificacao()" > 
+                                     <select name="tipo" id="classificacaoSelect" onchange="verificarclassificacao()" >
                                     @foreach($classificacoes as $class)
                                 
                                             <option value="{{$class->id}}"> {{$class->nome}}</option>
