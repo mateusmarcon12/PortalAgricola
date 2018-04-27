@@ -4,17 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php" line="113" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Anuncio.php" afterPath="$PROJECT_DIR$/agricola/app/Anuncio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Casaofertademanda.php" afterPath="$PROJECT_DIR$/agricola/app/Casaofertademanda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/CasaofertademandaController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/CasaofertademandaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/casaofertademanda/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/casaofertademanda/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/routes/web.php" afterPath="$PROJECT_DIR$/agricola/routes/web.php" />
-    </list>
+    <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="" />
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -584,7 +574,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2730711" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
