@@ -38,6 +38,8 @@
                                     Rua {{$anu->rua}}, nº {{$anu->numero}}, bairro {{$anu->bairro}}, cidade {{$anu->cidade}} - {{$anu->cidade_cep}} - {{$anu->estado}} - {{$anu->pais}}
 
                                 </p>
+
+                                <img src="{{ url('storage/Anuncios/'.$anu->id.'/ab.jpeg') }}" alt="teste">
                           @endforeach
 
 
@@ -45,10 +47,7 @@
 
 
 
-                        <td><img id="myImg"
-                                 src="{{'../storage/app/public/a.jpeg'}}"
-                                 width="100"/>
-                        </td>
+                    
 
                 </div>
             </div>
