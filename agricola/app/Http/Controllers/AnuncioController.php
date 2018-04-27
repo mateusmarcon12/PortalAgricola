@@ -81,9 +81,9 @@ class AnuncioController extends Controller
             $dir = $a->ida;
         }
         //dd($dir)
-        $files = Storage::allFiles('Anuncios/'.$dir);
-
-        //dd($dir);
+      //  $files = Storage::allFiles('public/Anuncios/'.$dir);
+        $files = Storage::allFiles('Anuncios/'.$dir.'/');
+        
        // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
 
        Return view('anuncios.exibe',compact('detanuncio','files'));

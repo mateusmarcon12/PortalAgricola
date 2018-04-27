@@ -38,8 +38,13 @@
                                     Rua {{$anu->rua}}, nº {{$anu->numero}}, bairro {{$anu->bairro}}, cidade {{$anu->cidade}} - {{$anu->cidade_cep}} - {{$anu->estado}} - {{$anu->pais}}
 
                                 </p>
+                                <h5>Fotos<h5>
+                                @foreach($files as $f)
+                                    
+                                    <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
+                                @endforeach    
 
-                                <img src="{{ url('storage/Anuncios/'.$anu->id.'/ab.jpeg') }}" alt="teste">
+                          
                           @endforeach
 
 
