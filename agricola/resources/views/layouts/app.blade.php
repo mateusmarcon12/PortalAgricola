@@ -62,7 +62,7 @@
                                         {{ __('Cadastrar Demanda') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('casaofertademanda.index') }}">
-                                        {{ __('Casar Ofertas') }}
+                                        {{ __('Casar Anúncios') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

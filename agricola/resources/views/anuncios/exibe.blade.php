@@ -43,6 +43,13 @@
 
                         </div>
 
+
+
+                        <td><img id="myImg"
+                                 src="{{'../storage/app/public/a.jpeg'}}"
+                                 width="100"/>
+                        </td>
+
                 </div>
             </div>
         </div>

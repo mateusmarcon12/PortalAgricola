@@ -61,21 +61,22 @@ class CasaofertademandaController extends Controller
 
                     $casa->idoferta = $ofertas->id;
                     $casa->iddemanda = $demandas->id;
-                    $casa->idinteressado = $demandas->idanunciante;
+                    $casa->iddemandador = $demandas->idanunciante;
                     $casa->graucompatibilidade = $grau;
                     $casa->tipoanuncio = $ofertas->tipoanuncio;
+                    $casa->idofertante = $ofertas->idanunciante;
 
                     //   $matches[$i]=$casa;
                     $verifica = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemanda', '=', $casa->iddemanda)->count();
                     //var_dump($matches[$i]);
                     if ($verifica == 0) {
-                        $verifica2 = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('idinteressado', '=', $casa->idinteressado)->count();
+                        $verifica2 = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemandador', '=', $casa->iddemandador)->count();
                         if($verifica2==0){
                             $casa->save();
 
                         }}
                     else{
-                            $ver = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('idinteressado', '=', $casa->idinteressado)->get();
+                            $ver = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemandador', '=', $casa->iddemandador)->get();
 
                             foreach($ver as $veri) {
 
@@ -93,7 +94,85 @@ class CasaofertademandaController extends Controller
 
         }
 
-        $anu = Casaofertademanda
+        $minhasofertas = Anuncio::Meusanuncios()->Tipooferta()->Situacao()->get();
+        $demandasoutros = Anuncio::Anunciante()->Tipodemanda()->Situacao()->get();
+
+
+        foreach ($minhasofertas as $md){
+            foreach ($demandasoutros as $do){
+                $g=0;
+                if($md->titulo == $do->titulo){
+                    $g = 5;
+                }
+                if($md->tipo == $do->tipo ){
+                    $g=$g+3;
+                }
+                if($md->categoria == $do->categoria){
+                    $g=$g+2;
+                }
+
+                if($g>0) {
+                    $casou = new Casaofertademanda;
+
+                    $casou->idoferta = $md->id;
+                    $casou->iddemanda = $do->id;
+                    $casou->iddemandador = $do->idanunciante;
+                    $casou->tipoanuncio = $do->tipoanuncio;
+                    $casou->idofertante = $md->idanunciante;
+                    $casou->graucompatibilidade = $g;
+                    $ch=0;
+                    $ch = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->count();
+
+
+                    if($ch == 0){
+                        $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('idofertante', '=', $casou->idofertante)->count();
+                        if($vv2==0) {
+                            $casou->save();
+                        }
+                    }
+                    else{
+
+                        $ch2=0;
+                        $ch2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->get();
+
+
+                         foreach($ch2 as $c) {
+
+                             if ($c->graucompatibilidade < $g) {
+                                 // $verif = Casaofertademanda::where('id','=',$veri->id)->get();
+                                 $cf = Casaofertademanda::findOrFail($c->id);
+                                 $cf->graucompatibilidade = $g;
+                                 $cf>save();
+
+                             }
+                         }
+                    }
+                }
+
+
+            }
+        }
+
+
+
+    $anu = Casaofertademanda::
+        join('anuncios as ofertas', 'ofertas.id', '=', 'casaofertademandas.idoferta')
+        ->join('anuncios  as demandas', 'demandas.id', '=','casaofertademandas.iddemanda')
+        ->join('users as ofertante', 'ofertante.id', '=','casaofertademandas.idofertante')
+        ->join('users as demandador', 'demandador.id', '=','casaofertademandas.iddemandador')
+        ->select('ofertas.titulo as titulooferta','ofertas.descricao as ofertadescricao','ofertas.datavalidade as validadeoferta',
+            'demandas.titulo as titulodemanda', 'demandas.descricao as descdemanda','demandas.datavalidade as validadeoferta',
+            'demandas.tipoanuncio as demandatipo','ofertas.tipoanuncio as ofertatipo',
+            'casaofertademandas.graucompatibilidade',
+            'demandador.id as demandadorid', 'ofertante.id as idof',
+            'demandador.name as demandadornome','ofertante.name as ofertantenome',
+            'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda')
+        ->where('casaofertademandas.iddemandador','=', Auth::user()->id)
+        ->orwhere('casaofertademandas.idofertante','=', Auth::user()->id)
+        ->orderby('casaofertademandas.graucompatibilidade','desc')
+        ->get();
+  //  var_dump($anu);
+        /*$anu2 = Casaofertademanda
             ::join('anuncios', 'anuncios.id', '=', 'casaofertademandas.idoferta')
             ->join('users', 'users.id','=','anuncios.idanunciante')
             ->select('anuncios.*', 'casaofertademandas.graucompatibilidade','casaofertademandas.iddemanda', 'users.name')
@@ -101,7 +180,7 @@ class CasaofertademandaController extends Controller
             ->where('anuncios.situacao','=','ativo')
             ->orderby('casaofertademandas.graucompatibilidade','desc')
             ->get();
-
+*/
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
 

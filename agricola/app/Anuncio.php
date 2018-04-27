@@ -34,6 +34,7 @@ class Anuncio extends Model
         return $query->where('tipoanuncio', '=', 'demanda');
     }
 
+
     public function scopeSelecionaum($query, $anuncio){
 
         $detanuncio = Anuncio

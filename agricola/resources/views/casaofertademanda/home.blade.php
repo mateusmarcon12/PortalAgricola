@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Ofertas Compatíveis</div>
+                <div class="card-header">Anúncios compatíveis com os seus</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -36,18 +36,39 @@
 
                                 @foreach($anu as $ticket)
 
-                                    <tr>
-                                        <td>{{$ticket->titulo}}</td>
-                                        <td>{{$ticket->tipoanuncio}}</td>
-                                        <td>{{$ticket->descricao}}</td>
-                                        <td>{{$ticket->name}}</td>
-                                        <td>{{date( 'd/m/Y' , strtotime($ticket->datavalidade))}}</td>
-                                        <td>{{$ticket->graucompatibilidade}}</td>
-                                        <td> <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary">Ver Mais</a> </td>
-                                    </tr>
+
+
+                                        @if($ticket->idof == Auth::user()->id)
+
+                                            <tr bgcolor="white">
+
+                                            <td>{{$ticket->titulodemanda}}</td>
+                                            <td>{{$ticket->demandatipo}}</td>
+                                            <td>{{$ticket->demandadescricao}}</td>
+                                            <td>{{$ticket->demandadornome}}</td>
+                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validadedemanda))}}</td>
+                                            <td>{{$ticket->graucompatibilidade}}</td>
+                                            <td> <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary">Ver Mais</a> </td>
+
+                                            </tr>
+
+                                        @else
+                                            <tr bgcolor="#e6e6fa">
+                                            <td>{{$ticket->titulooferta}}</td>
+                                            <td>{{$ticket->ofertatipo}}</td>
+                                            <td>{{$ticket->ofertadescricao}}</td>
+                                            <td>{{$ticket->ofertantenome}}</td>
+                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validadeoferta))}}</td>
+                                            <td>{{$ticket->graucompatibilidade}}</td>
+                                            <td> <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary">Ver Mais</a> </td>
+                                            </tr>
+                                        @endif
+
+
                                     <tr>
 
                                     </tr>
+
                                 @endforeach
 
 
