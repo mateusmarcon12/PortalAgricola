@@ -38,8 +38,12 @@ Route::resource('anuncio','AnuncioController');
 Route::post('/anuncio/update/{id}','AnuncioController@update')->name('upd');
 Route::get('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
 Route::post('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
-Route::get('/','AnuncioController@todosanuncios')->name('anuncio.todos');
-Route::post('/','AnuncioController@todosanuncios')->name('anuncio.todos');
+
+Route::get('/anuncios/dem','AnuncioController@listarofertas')->name('anuncio.dem');
+Route::get('/anuncios/ofer','AnuncioController@listarofertas')->name('anuncio.ofer');
+
+Route::get('/anuncios/listtodos','AnuncioController@todosanuncios')->name('anuncio.listtodos');
+//Route::post('/','AnuncioController@todosanuncios')->name('anuncio.todos');
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
 Route::resource('casaofertademanda','CasaofertademandaController');
