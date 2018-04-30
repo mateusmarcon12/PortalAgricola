@@ -43,22 +43,31 @@ class AnuncioController extends Controller
     public function todosanuncios(){
 
         $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->get();
+         $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
         
-        return view('anuncios.todos')->with('anu', $anu);
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
     }
 
     public function listardemandas(){
-
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
         $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->tipodemanda()->orderby('anuncios.created_at','desc')->get();
         
-        return view('anuncios.todos')->with('anu', $anu);
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
+        //return view('anuncios.todos')->with('anu', $anu);
     }
    
        public function listarofertas(){
 
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
         $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->tipooferta()->orderby('anuncios.created_at','desc')->get();
         
-        return view('anuncios.todos')->with('anu', $anu);
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
     }
    
     /**

@@ -23,26 +23,35 @@
                         </ul>
 -->
                         <form class="form-inline my-2 my-lg-0">
-                          <select class="form-control">
-                              <option>Categorias</option>
-                              <option>Ofertas</option>
-                              <option>Demandas</option>
+                          <select name="categoria" class="form-control">
+                              <option value="">Categoria</option>
+                                    @foreach($categorias as $cat)
+
+                                        <option name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
+                                        </option>  
+                                    @endforeach
                           </select> 
                           <select class="form-control">
-                              <option>Tipos</option>
-                              <option>Ofertas</option>
-                              <option>Demandas</option>
+                              <option value="" >Classificação</option>
+                                    @foreach($classificacoes as $clas)
+
+                                        <option name="classificacao" value="{{$clas->id}}"> {{$clas->nome}}<br>
+                                        </option>  
+                                    @endforeach
                           </select> 
 
                           <select class="form-control">
-                              <option>Classificações</option>
-                              <option></option>
+                              <option value="">Tipo</option>
+                              <option>Ofertas</option>
                               <option>Demandas</option>
                           </select>  
                           <select class="form-control">
-                              <option>Todos UF</option>
-                              <option>Ofertas</option>
-                              <option>Demandas</option>
+                              <option>UF</option>
+                                    @foreach($estados as $uf)
+
+                                        <option name="estado" value="{{$uf->uf_codigo}}"> {{$uf->uf_descricao}}<br>
+                                        </option>  
+                                    @endforeach
                           </select>
                           <input class="form-control mr-sm-2" type="search" placeholder="titulo" aria-label="Search">
                           
