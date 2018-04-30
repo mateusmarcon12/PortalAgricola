@@ -22,7 +22,8 @@
                           </li>
                         </ul>
 -->
-                        <form class="form-inline my-2 my-lg-0">
+                        <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('anuncio.filtraranuncio') }}">
+                           @csrf
                           <select name="categoria" class="form-control">
                               <option value="">Categoria</option>
                                     @foreach($categorias as $cat)

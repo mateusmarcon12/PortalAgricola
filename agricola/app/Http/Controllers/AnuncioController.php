@@ -69,6 +69,10 @@ class AnuncioController extends Controller
         
         return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
     }
+
+
+    //Filtrar anuncios
+
    
     /**
      * Show the form for creating a new resource.
@@ -88,6 +92,13 @@ class AnuncioController extends Controller
         return view('anuncios.cadastrar', compact('result','estados','classificacoes','categorias','tipoanuncio'));
     }
 
+    public function filtra(Request $request)
+    {
+        //
+        return "chegou2";
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -97,6 +108,7 @@ class AnuncioController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
 
