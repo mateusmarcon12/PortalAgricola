@@ -42,7 +42,7 @@ class AnuncioController extends Controller
     //exibir todos os anúncios ativos de outros usuários
     public function todosanuncios(){
         /*$anu = Anuncio::where('idanunciante','!=', Auth::user()->id)->Situacao()->orderby('created_at','desc')->join('users','users.id','=','idanunciante')->select('Anuncios.titulo', 'anuncios.datavalidade','anuncios.descricao','anuncios.tipo','users.name as username')->get();*/
-        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->get();
+        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->get();
         
         return view('anuncios.todos')->with('anu', $anu);
     }
