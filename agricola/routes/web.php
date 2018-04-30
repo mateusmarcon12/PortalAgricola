@@ -43,7 +43,7 @@ Route::get('/anuncios/dem','AnuncioController@listarofertas')->name('anuncio.dem
 Route::get('/anuncios/ofer','AnuncioController@listarofertas')->name('anuncio.ofer');
 
 Route::get('/anuncios/listtodos','AnuncioController@todosanuncios')->name('anuncio.listtodos');
-//Route::post('/','AnuncioController@todosanuncios')->name('anuncio.todos');
+
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
 Route::resource('casaofertademanda','CasaofertademandaController');
