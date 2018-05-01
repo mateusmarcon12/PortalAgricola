@@ -94,8 +94,39 @@ class AnuncioController extends Controller
 
     public function filtra(Request $request)
     {
-        //
-        return "chegou2";
+
+        $categoria = $request->categoria;
+        $classificacao = $request->classificacao;
+        $titulo = $request->titulo;
+        $estado = $request->estado;
+        $tipo = $request->tipo;
+
+
+        $query = Anuncio::Situacao()->join('enderecos','enderecos.id','=','Anuncios.idendereco');
+
+        if($titulo)
+            $query->where('titulo', 'LIKE', '%' . $titulo . '%');
+
+        if($classificacao)
+            $query->where('tipo', '=', $classificacao);
+
+        if($categoria)
+            $query->where('classe', '=', $categoria);
+
+        if($tipo)
+            $query->where('tipoanuncio', '=', $tipo);
+
+        if($estado)
+            $query->where('enderecos.iduf', '=', $estado);
+
+        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','!=', Auth::user()->id)->get();
+
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
+
     }
 
 

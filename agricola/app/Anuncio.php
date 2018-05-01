@@ -54,6 +54,13 @@ class Anuncio extends Model
            // ->get();
 
         return ($detanuncio);
+
+
+    }
+
+    public function endereco()
+    {
+        return $this->hasOne('App\Endereco', 'idendereco');
     }
 
 }

@@ -28,33 +28,33 @@
                               <option value="">Categoria</option>
                                     @foreach($categorias as $cat)
 
-                                        <option name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
+                                        <option value="{{$cat->id}}"> {{$cat->nome}}<br>
                                         </option>  
                                     @endforeach
                           </select> 
-                          <select class="form-control">
+                          <select name="classificacao" class="form-control">
                               <option value="" >Classificação</option>
                                     @foreach($classificacoes as $clas)
 
-                                        <option name="classificacao" value="{{$clas->id}}"> {{$clas->nome}}<br>
+                                        <option value="{{$clas->id}}"> {{$clas->nome}}<br>
                                         </option>  
                                     @endforeach
                           </select> 
 
-                          <select class="form-control">
+                          <select name="tipo" class="form-control">
                               <option value="">Tipo</option>
-                              <option>Ofertas</option>
-                              <option>Demandas</option>
+                              <option value="Oferta">Ofertas</option>
+                              <option value="Demanda">Demandas</option>
                           </select>  
-                          <select class="form-control">
-                              <option>UF</option>
+                          <select name="estado" class="form-control">
+                              <option value="">UF</option>
                                     @foreach($estados as $uf)
 
-                                        <option name="estado" value="{{$uf->uf_codigo}}"> {{$uf->uf_descricao}}<br>
+                                        <option value="{{$uf->uf_codigo}}"> {{$uf->uf_descricao}}<br>
                                         </option>  
                                     @endforeach
                           </select>
-                          <input class="form-control mr-sm-2" type="search" placeholder="titulo" aria-label="Search">
+                          <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
                           
                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
                         </form>

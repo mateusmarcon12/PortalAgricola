@@ -11,4 +11,8 @@ class Endereco extends Model
         'pais','uf','cidade','bairro','rua','numero','observacao',
     ];
 
+    public function Anuncio()
+    {
+        return $this->belongsTo('App\Anuncio', 'idendereco');
+    }
 }
