@@ -48,6 +48,9 @@ Route::get('/anuncios/listtodos','AnuncioController@todosanuncios')->name('anunc
 
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
+Route::post('enderecos/update/{id}','EnderecoController@update')->name('end.update');
+
+
 Route::resource('casaofertademanda','CasaofertademandaController');
 Route::resource('user','UserController');
 

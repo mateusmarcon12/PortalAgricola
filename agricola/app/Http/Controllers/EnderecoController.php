@@ -56,7 +56,7 @@ class EnderecoController extends Controller
         $endereco->bairro=$request->get('bairro');
         $endereco->rua=$request->get('rua');
         $endereco->numero=$request->get('numero');
-        $endereco->observacao=$request->get('endobservacao');
+        $endereco->observacao=$request->get('observacao');
         $endereco->save();
 
         $ideste=$endereco->id;
@@ -105,11 +105,15 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Endereco $endereco)
+    /*
+    public function update(Request $request, $endereco)
+    //public function update(Request $request)
     {
         //
+      
+        return redirect()->back();
     }
-
+*/
     /**
      * Remove the specified resource from storage.
      *
