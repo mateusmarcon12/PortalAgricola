@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Endereco;
 use Illuminate\Http\Request;
 use App\Cidade;
+use Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\User;
 
 class EnderecoController extends Controller
 {
@@ -31,6 +35,9 @@ class EnderecoController extends Controller
     public function create()
     {
         //
+        $cidades = DB::table('cidades')->get();
+        $estados = DB::table('ufs')->get();
+        return view('enderecos.cadastrar',compact('cidades','estados'));
     }
 
     /**
@@ -42,6 +49,23 @@ class EnderecoController extends Controller
     public function store(Request $request)
     {
         //
+        $endereco = new Endereco();
+        $endereco->idpais=$request->get('pais');
+        $endereco->iduf=$request->get('estado');
+        $endereco->idcidade=$request->get('cidade');
+        $endereco->bairro=$request->get('bairro');
+        $endereco->rua=$request->get('rua');
+        $endereco->numero=$request->get('numero');
+        $endereco->observacao=$request->get('endobservacao');
+        $endereco->save();
+
+        $ideste=$endereco->id;
+
+        $user = DB::table('users')
+            ->where('id', Auth::user()->id)
+            ->update(['idend' => $ideste]);
+        return redirect()->route('user.show',[Auth::user()->id]);
+        
     }
 
     /**
@@ -64,6 +88,14 @@ class EnderecoController extends Controller
     public function edit(Endereco $endereco)
     {
         //
+        $ende = DB::table('enderecos')->where('id','=',Auth::user()->idend)->get();
+
+        $cidades = DB::table('cidades')->get();
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+        
+        return view('enderecos.editar',compact('estados','classificacoes','categorias','ende','cidades'));
     }
 
     /**

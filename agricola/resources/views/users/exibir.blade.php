@@ -16,7 +16,9 @@
                         <div class="table-responsive">
 
                       
-                              <h3>Nome: {{ Auth::user()->name }} </h3><br>
+                              <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>                                 <a class="btn btn-light" href="{{ route('password.request') }}">
+                                    {{ __('Alterar Senha') }}
+                                </a></h3><br>
                             
                                 <p>
                                     E-mail:{{ Auth::user()->email }}
@@ -31,13 +33,20 @@
                                         CNPJ: {{ Auth::user()->cnpj }}   
                                     @endif
                                 </p>
-                              <h6>Endereço</h6>
-                                @foreach($endereco as $end)
-                                <p>
-                                    Rua {{$end->rua}}, nº {{$end->numero}}, bairro {{$end->bairro}}, cidade {{$end->cidade_descricao}} - {{$end->uf_descricao}}/{{$end->iso}}
+                               
 
-                                </p>
-                                @endforeach
+                                @isset($endereco)
+                                    @foreach($endereco as $end)
+                                    <h6>Endereço <a href="{{action('EnderecoController@edit', $end)}}" class="btn btn-light">Editar Endereço</a></h6>
+                                    <p>
+                                        Rua {{$end->rua}}, nº {{$end->numero}}, bairro {{$end->bairro}}, cidade {{$end->cidade_descricao}} - {{$end->uf_descricao}}/{{$end->iso}}
+
+                                    </p>
+                                    @endforeach
+                                @endisset 
+                                @empty($endereco)
+                                    <h6>Endereço <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h6>
+                                @endempty
                                 <h5>Fotos<h5>
                                 @foreach($files as $f)
                                     

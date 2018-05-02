@@ -11,7 +11,7 @@
 
                         <form method="post" enctype="multipart/form-data" action="{{route('upd',$detanuncio->id)}}">
                             @csrf
-<h6>Dados  </h6>
+                        <h6>Dados  </h6>
 
                             <div class="form-group row">
                                 <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
