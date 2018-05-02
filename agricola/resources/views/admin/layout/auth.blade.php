@@ -12,8 +12,11 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -21,39 +24,36 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
+   
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/admin') }}">
                     {{ config('app.name', 'Laravel Multi Auth Guard') }}: Admin
                 </a>
-            </div>
+                <!-- Collapsed Hamburger -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>                
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+   
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     &nbsp;
                 </ul>
-
+                    
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="navbar-nav mr-auto">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/admin/login') }}">Login</a></li>
-                        <li><a href="{{ url('/admin/register') }}">Register</a></li>
+                        <li><a class="nav-link" href="{{ url('/admin/login') }}">Login</a></li>
+                        <li><a class="nav-link" href="{{ url('/admin/register') }}">Register</a></li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a href="navbarDropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -78,7 +78,7 @@
     </nav>
 
     @yield('content')
-
+</div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
