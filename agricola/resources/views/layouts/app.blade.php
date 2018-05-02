@@ -67,9 +67,7 @@
                                     <a class="dropdown-item" href="{{ route('anuncio.listtodos') }}">
                                         {{ __('Exibir todos anúncios') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -85,7 +83,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="{{ route('user.show', Auth::user()->id) }}">
+                                        {{ __('Perfil') }}
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

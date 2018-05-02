@@ -49,7 +49,7 @@ Route::get('/anuncios/listtodos','AnuncioController@todosanuncios')->name('anunc
 Route::resource('demanda','DemandaController');
 Route::resource('endereco','EnderecoController');
 Route::resource('casaofertademanda','CasaofertademandaController');
-
+Route::resource('user','UserController');
 
 Route::resource('foto','FotoController');
 
