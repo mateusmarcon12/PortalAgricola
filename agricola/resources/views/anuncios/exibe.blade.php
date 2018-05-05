@@ -42,7 +42,7 @@
 
                                 <h5>Fotos</h5>
 
-                                
+
 
                                 @foreach($files as $f)
 
