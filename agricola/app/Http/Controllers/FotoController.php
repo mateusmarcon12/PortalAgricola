@@ -51,6 +51,18 @@ class FotoController extends Controller
         $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
     }
 
+    public function storeuser (Request $request,$fotoend)
+    {
+        //
+        $this->validate($request, [
+            'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+        ]);
+
+        $file = $request->file('images');
+        $extension=$file->getClientOriginalExtension();
+        // image upload in public/upload folder.
+        $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
+    }
     /**
      * Display the specified resource.
      *

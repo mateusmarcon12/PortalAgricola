@@ -53,16 +53,32 @@
                                 @foreach($files as $f)
                                     
                                     <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
-                                @endforeach    
+                                @endforeach
 
-           
+
 
                         </div>
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
+                            @csrf
+
+                            <div class="form-group row">
+                                <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" name="images" id="file">
+
+                                </div>
+                            </div>
 
 
-
-                    
-
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Salvar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>

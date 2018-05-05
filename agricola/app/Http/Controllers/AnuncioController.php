@@ -160,6 +160,8 @@ class AnuncioController extends Controller
         //dd($dir)
       //  $files = Storage::allFiles('public/Anuncios/'.$dir);
         $files = Storage::allFiles('Anuncios/'.$dir.'/');
+
+     //   dd($files);
         
        // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
 
