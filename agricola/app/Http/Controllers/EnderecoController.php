@@ -105,15 +105,27 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    /*
+
     public function update(Request $request, $endereco)
     //public function update(Request $request)
     {
         //
+        $ende = Endereco::Findorfail($endereco);
+        $ende->idpais=$request->get('pais');
+        $ende->iduf=$request->get('estado');
+        $ende->idcidade=$request->get('cidade');
+        $ende->bairro=$request->get('bairro');
+        $ende->rua=$request->get('rua');
+        $ende->numero=$request->get('numero');
+        $ende->observacao=$request->get('observacao');
+        $ende->save();
+      //  dd($ende);
+
+
       
-        return redirect()->back();
+        return redirect()->route('user.show',[Auth::user()->id]);
     }
-*/
+
     /**
      * Remove the specified resource from storage.
      *

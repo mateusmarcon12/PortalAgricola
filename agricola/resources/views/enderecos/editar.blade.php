@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-body">
                   @foreach($ende as $end)
+
                         <form method="POST" enctype="multipart/form-data" action="{{route('end.update',$end->id)}}">
                             @csrf
                             <h6>Endereço</h6>

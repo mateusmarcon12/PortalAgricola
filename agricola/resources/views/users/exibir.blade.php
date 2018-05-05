@@ -16,9 +16,11 @@
                         <div class="table-responsive">
 
                       
-                              <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>                                 <a class="btn btn-light" href="{{ route('password.request') }}">
+                              <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>
+                                  <a class="btn btn-light" href="{{ route('password.request') }}">
                                     {{ __('Alterar Senha') }}
-                                </a></h3><br>
+                                </a></h3>
+                               <br>
                             
                                 <p>
                                     E-mail:{{ Auth::user()->email }}

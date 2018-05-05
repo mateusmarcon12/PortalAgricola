@@ -80,11 +80,14 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        $estados = DB::table('ufs')->get();
+
+      //  $estados = DB::table('ufs')->get();
+        $usuario = User::FindorFail($user->id);
+        //dd($usuario);
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
         
-        return view('users.editar',compact('estados','classificacoes','categorias'));
+        return view('users.editar',compact('usuario','classificacoes','categorias'));
       
     }
 
