@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -19,6 +20,18 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+ 
+    public function credentials(Request $request)
+    {
+        $credentials = $request->only($this->username(), 'password');
+        $credentials = array_add($credentials, 'situacao', '1');
+        return $credentials;
+    }
+
+
+
+
 
     /**
      * Where to redirect users after login.
@@ -36,4 +49,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 }
