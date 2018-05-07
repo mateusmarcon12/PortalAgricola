@@ -16,7 +16,7 @@
                         <div class="table-responsive">
 
                           @foreach($detanuncio as $anu)
-                              <h3>Título: {{$anu->titulo}}</h3><br>
+                              <h3>Título: {{$anu->titulo}} <a href="{{action('AnuncioController@edit',$anu->id)}}" class="btn btn-light">Editar</a> <a href="{{action('AnuncioController@inativar',$anu->id)}}" class="btn btn-light">Inativar</a></h3><br>
                                 <h5>Detalhes</h5>
                                 <p>
                                     Descrição: {{$anu->descricao}}<br>
@@ -54,7 +54,27 @@
 
 
                         </div>
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
+                            @csrf
 
+                            <div class="form-group row">
+                                <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" name="images" id="file">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-light">
+                                        {{ __('Salvar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
 
                     

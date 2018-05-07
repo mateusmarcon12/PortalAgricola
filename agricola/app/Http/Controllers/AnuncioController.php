@@ -215,8 +215,11 @@ class AnuncioController extends Controller
 
         $anuncioa->fill($input)->save();
         $detanuncio = Anuncio::selecionaum($request)->get();
+
+        $files = Storage::allFiles('Anuncios/'.$anu.'/');
         //Session::flash('flash_message', 'Task successfully added!');
-        Return view('anuncios.exibe')->with('detanuncio', $detanuncio);
+       
+        return view('anuncios.exibe', compact('detanuncio','files'));
         //return view('anuncios.exibe')->with('anuncio', $anuncio);
        // return $anuncio->id;
 
@@ -236,9 +239,10 @@ class AnuncioController extends Controller
         $staff->situacao = 'inativo';
         $staff->save();
         $detanuncio = Anuncio::selecionaum($staff)->get();
+        $files = Storage::allFiles('Anuncios/'.$id.'/');
         //dd($detanuncio);
        // Session::flash('flash_message', 'Anuncio inativado!');
-        return view('anuncios.exibe')->with('detanuncio', $detanuncio);
+        return view('anuncios.exibe', compact('detanuncio','files'));
 
     }
     public function destroy(Anuncio $anuncio)
