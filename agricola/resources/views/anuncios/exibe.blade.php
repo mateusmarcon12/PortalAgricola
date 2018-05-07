@@ -52,11 +52,11 @@
                           
                           @endforeach
 
-
+                         <br> 
                         </div>
                         <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
                             @csrf
-
+                            <div class="row justify-content-center">
                             <div class="form-group row">
                                 <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
 
@@ -74,6 +74,7 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
                         </form>
 
 

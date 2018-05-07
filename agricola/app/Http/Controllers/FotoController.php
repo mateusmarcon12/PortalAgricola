@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Foto;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use auth;
 class FotoController extends Controller
 {
     /**
@@ -38,9 +40,9 @@ class FotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$fotoend)
+    public function store(Request $request)
     {
-        //
+        /*
         $this->validate($request, [
             'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
         ]);
@@ -48,20 +50,30 @@ class FotoController extends Controller
         $file = $request->file('images');
         $extension=$file->getClientOriginalExtension();
         // image upload in public/upload folder.
-        $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
+        $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());*/
+
+        //$fotoend=$a->id;
+        if ($request->hasFile('images')){
+
+                $this->validate($request, [
+                    'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+                ]);
+
+              
+                //$extension=$file->getClientOriginalExtension();
+
+                $file = $request->file('images')->store('Usuarios/'.Auth::User()->id);
+            
+        }
+
+
+        return redirect()->back();
     }
 
     public function storeuser (Request $request,$fotoend)
     {
         //
-        $this->validate($request, [
-            'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
-        ]);
 
-        $file = $request->file('images');
-        $extension=$file->getClientOriginalExtension();
-        // image upload in public/upload folder.
-        $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
     }
     /**
      * Display the specified resource.
