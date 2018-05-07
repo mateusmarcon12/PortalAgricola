@@ -103,6 +103,10 @@ class UserController extends Controller
         //
     }
 
+    public function inativar(){
+
+        return 'chegou';
+    }
     /**
      * Remove the specified resource from storage.
      *

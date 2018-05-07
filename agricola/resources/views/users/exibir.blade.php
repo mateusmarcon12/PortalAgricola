@@ -81,6 +81,8 @@
                             </div>
                             </div>
                         </form>
+                 <br>
+                 <h5>Deseja inativar sua conta no portal? <a href="{{route('user.inativar')}}" class="btn btn-light">Inativar</a></h5>       
                 </div>
             </div>
         </div>
