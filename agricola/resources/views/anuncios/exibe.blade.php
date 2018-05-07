@@ -50,11 +50,11 @@
                                 @endforeach    
 
                           
-                          @endforeach
+                          
 
                          <br> 
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('foto.storeanuncio', $anu->ida) }}">
                             @csrf
                             <div class="row justify-content-center">
                             <div class="form-group row">
@@ -77,7 +77,7 @@
                         </div>
                         </form>
 
-
+                        @endforeach
                     
 
                 </div>

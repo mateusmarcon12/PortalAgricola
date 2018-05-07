@@ -60,4 +60,5 @@ Route::get('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.
 Route::post('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.cidade');
 
 
+Route::post('/fotos/addAnuncio/{id}','FotoController@storeAnuncio')->name('foto.storeanuncio');
 

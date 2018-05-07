@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use auth;
+use App\Anuncio;
+
 class FotoController extends Controller
 {
     /**
@@ -40,19 +42,10 @@ class FotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //Adiciona foto de usuários
     public function store(Request $request)
     {
-        /*
-        $this->validate($request, [
-            'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
-        ]);
-
-        $file = $request->file('images');
-        $extension=$file->getClientOriginalExtension();
-        // image upload in public/upload folder.
-        $file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());*/
-
-        //$fotoend=$a->id;
         if ($request->hasFile('images')){
 
                 $this->validate($request, [
@@ -70,9 +63,26 @@ class FotoController extends Controller
         return redirect()->back();
     }
 
-    public function storeuser (Request $request,$fotoend)
+    //Adicina fotos de anuncios 
+    public function storeAnuncio (Request $request, $id)
     {
         //
+                if ($request->hasFile('images')){
+
+                $this->validate($request, [
+                    'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+                ]);
+
+              
+                //$extension=$file->getClientOriginalExtension();
+
+                $file = $request->file('images')->store('Anuncios/'.$id);
+            
+        }
+
+
+        return redirect()->back();
+   //     return "chegou";
 
     }
     /**
