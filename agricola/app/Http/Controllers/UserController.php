@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Endereco;
+use App\Anuncio;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -104,9 +105,23 @@ class UserController extends Controller
     }
 
     public function inativar(User $user){
+        
+
+        $Anuncio = Anuncio::all()->where('idanunciante', '=',Auth::user()->id);
+        foreach ($Anuncio as $anu) {
+            $a = Anuncio::FindorFail($anu->id);
+            $a->situacao = 'inativo';
+            $a->save();
+            # code...
+        }
+       // $Anuncio->situacao = 'inativo';
+       // $Anuncio->save();
+   //     dd($Anuncio);
+
         $usuario = User::FindorFail(Auth::user()->id);
         $usuario->situacao = '2';
         $usuario->save();
+
         Auth::logout();
         return redirect('/');
     }
