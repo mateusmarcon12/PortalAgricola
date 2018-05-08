@@ -103,9 +103,12 @@ class UserController extends Controller
         //
     }
 
-    public function inativar(){
-
-        return 'chegou';
+    public function inativar(User $user){
+        $usuario = User::FindorFail(Auth::user()->id);
+        $usuario->situacao = '2';
+        $usuario->save();
+        Auth::logout();
+        return redirect('/');
     }
     /**
      * Remove the specified resource from storage.
