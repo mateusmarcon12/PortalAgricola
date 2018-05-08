@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Controllers\\FotoController' => $baseDir . '/app/Http/Controllers/FotoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\OfertaController' => $baseDir . '/app/Http/Controllers/OfertaController.php',
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAdmin' => $baseDir . '/app/Http/Middleware/RedirectIfAdmin.php',

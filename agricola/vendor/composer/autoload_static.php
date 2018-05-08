@@ -354,6 +354,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Controllers\\FotoController' => __DIR__ . '/../..' . '/app/Http/Controllers/FotoController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\OfertaController' => __DIR__ . '/../..' . '/app/Http/Controllers/OfertaController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAdmin.php',
