@@ -12,6 +12,7 @@ use App\Cidade;
 use App\Pais;
 use App\Uf;
 use App\User;
+use App\Casaofertademanda;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Facades\Storage;
@@ -235,11 +236,25 @@ class AnuncioController extends Controller
 
 
         $staff = Anuncio::find($id);
+
        // dd($staff);
         $staff->situacao = 'inativo';
         $staff->save();
         $detanuncio = Anuncio::selecionaum($staff)->get();
         $files = Storage::allFiles('Anuncios/'.$id.'/');
+
+            $casa = Casaofertademanda::where('iddemanda',$staff->id)->orWhere('idoferta', $staff->id)->get();
+            
+            foreach ($casa as $c) {
+                    # code...
+                    $casou = Casaofertademanda::findOrFail($c->id);
+                    $casou->delete();
+            }    
+           // dd($casa);
+
+       //
+
+
         //dd($detanuncio);
        // Session::flash('flash_message', 'Anuncio inativado!');
         return view('anuncios.exibe', compact('detanuncio','files'));
