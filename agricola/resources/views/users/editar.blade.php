@@ -17,51 +17,95 @@
                                     <div class="col-md-6">
                                         <input id="name" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="name" value="{{ $usuario->name}}" required autofocus>
 
-                                        @if ($errors->has('nome'))
+                                        @if ($errors->has('name'))
                                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('nome') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                         @endif
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
+                                    <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ old('titulo') }}" required autofocus>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                        @if ($errors->has('titulo'))
+                                        @if ($errors->has('email'))
                                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('titulo') }}</strong>
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>                                
+                                <div class="form-group row justify-content-center">
+                                    
+                                    <div class="col-md-3">
+                                        <div>
+                                            <label for="datanasc" class="col-form-label text-md-right">{{ __('Data de Nascimento') }}</label>
+                                        </div>
+                                        <div >
+                                            <input id="datanasc" type="date" class="form-control{{ $errors->has('datanasc') ? ' is-invalid' : '' }}" name="datanasc" value="{{ old('datanasc') }}" required autofocus>
+
+                                            @if ($errors->has('datanasc'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('datanasc') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>    
+                                    <div class="col-md-3">
+                                        <div>   
+                                            <label for="titulo" class="col-form-label text-md-right">{{ __('Tipo de usuário') }}</label>
+                                        </div>    
+                                        <div >
+      
+                                            <select class="form-control" name="tipo" id="classificacaoSelect" onchange="verificartipo()" >
+                                       
+                                                <option value=""> </option>
+                                                <option value="CPF"> CPF</option>
+                                                <option value="CNPJ"> CNPJ</option>
+                                        
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="cpf" style="display:none" class="form-group row">
+                                    <label for="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ old('cpf') }}" required autofocus>
+
+                                        @if ($errors->has('cpf'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('cpf') }}</strong>
                                     </span>
                                         @endif
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
+                                <div id="sexo" style="display:none" class="form-group row">
+                                    <label for="sexo" class="col-md-4 col-form-label text-md-right">{{ __('Sexo') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ old('titulo') }}" required autofocus>
+                                        <input type="text" class="form-control{{ $errors->has('sexo') ? ' is-invalid' : '' }}" name="sexo" value="{{ old('sexo') }}" required autofocus>
 
-                                        @if ($errors->has('titulo'))
+                                        @if ($errors->has('sexo'))
                                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('titulo') }}</strong>
+                                        <strong>{{ $errors->first('sexo') }}</strong>
                                     </span>
                                         @endif
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Título') }}</label>
+                                <div id="cnpj" style="display:none" class="form-group row">
+                                    <label for="cnpj" class="col-md-4 col-form-label text-md-right">{{ __('CNPJ') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="titulo" type="text" class="form-control{{ $errors->has('titulo') ? ' is-invalid' : '' }}" name="titulo" value="{{ old('titulo') }}" required autofocus>
+                                        <input type="text" class="form-control{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" name="cnpj" value="{{ old('cnpj') }}" required autofocus>
 
-                                        @if ($errors->has('titulo'))
+                                        @if ($errors->has('cnpj'))
                                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('titulo') }}</strong>
+                                        <strong>{{ $errors->first('cnpj') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -84,3 +128,26 @@
 
 @endsection
 
+<script>
+
+function verificartipo() {
+    var x = document.getElementById("classificacaoSelect").value;
+    if(x=='CPF'){
+        $("#cpf").show(1000);
+        $("#sexo").show(1000);
+        $("#cnpj").hide(1000);
+    }
+    if(x=='CNPJ'){
+        $("#cnpj").show(1000);
+        $("#cpf").hide(1000);
+        $("#sexo").hide(1000);
+    }
+    if(x==''){
+        $("#cpf").hide(1000);
+        $("#cnpj").hide(1000);
+        $("#sexo").hide(1000);
+    }
+    
+}
+
+</script>
