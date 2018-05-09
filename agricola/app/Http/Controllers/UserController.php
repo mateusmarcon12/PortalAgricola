@@ -78,7 +78,7 @@ class UserController extends Controller
         $user = User::FindorFail($anu);  
         $e=Endereco::where('id','=',$user->idend)->count();
         if ($e>0) {
-             $endereco=Endereco::where('id','=',$user->idend)->get();
+             $endereco=Endereco::where('id','=',$user->idend)->join('cidades','cidades.cidade_codigo','=','enderecos.idcidade')->join('ufs','ufs.uf_codigo','=','enderecos.iduf')->join('paises','paises.numcode','=','enderecos.idpais')->get();
              
         }else
         {
