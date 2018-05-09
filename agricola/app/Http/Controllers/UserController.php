@@ -102,6 +102,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        return "chegou";
     }
 
     public function inativar(User $user){
