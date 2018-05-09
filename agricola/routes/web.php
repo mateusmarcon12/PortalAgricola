@@ -68,4 +68,5 @@ Route::post('/usuario/update/','UserController@update')->name('usuario.update');
 
 Route::get('/usuario/exibeoutro/{id}','UserController@exibeoutro')->name('usuario.exibeoutro');
 
-
+Route::get('usuario/alterarsenha/','UserController@alterarsenha')->name('usuario.alterarsenha');
+Route::post('usuario/salvarsenha/','UserController@salvarsenha')->name('usuario.salvarsenha');

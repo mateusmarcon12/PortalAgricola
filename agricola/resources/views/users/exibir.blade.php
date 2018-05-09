@@ -17,7 +17,7 @@
 
                       
                               <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>
-                                  <a class="btn btn-light" href="{{ route('password.request') }}">
+                                  <a class="btn btn-light" href="{{ route('usuario.alterarsenha') }}">
                                     {{ __('Alterar Senha') }}
                                 </a></h3>
                                <br>

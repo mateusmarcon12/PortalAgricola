@@ -99,6 +99,19 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+    public function alterarsenha(){
+        return view('users.alterasenha');
+    }
+
+    public function salvarsenha(Request $senha){
+        //dd($senha->password);
+         $usuario = Auth::user();
+         $usuario->password = bcrypt(Request::input('password'));
+         dd($usuario);
+        
+         return redirect()->route('user.show',$usuario);
+    }
+
     public function edit(User $user)
     {
         //
