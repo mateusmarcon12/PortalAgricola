@@ -9,7 +9,7 @@
                     <div id="geral" class="card-body">
 
 
-                            <form method="POST" enctype="multipart/form-data" action="{{route('user.update',$usuario->id)}}">
+                            <form method="POST" enctype="multipart/form-data" action="{{route('usuario.update')}}">
                                 @csrf
                                 <div class="col-md-12 justify-content-center">
                                     <div class="form-group row">
@@ -45,7 +45,7 @@
                                                 <label for="datanasc" class="col-form-label text-md-right">{{ __('Data de Nascimento') }}</label>
                                             </div>
                                             <div >
-                                                <input id="datanasc" type="date" class="form-control{{ $errors->has('datanasc') ? ' is-invalid' : '' }}" name="datanasc" value="{{ $usuario->datansc }}" required autofocus>
+                                                <input id="datanasc" type="date" class="form-control{{ $errors->has('datanasc') ? ' is-invalid' : '' }}" name="datanasc" value="{{ $usuario->datanasc }}" required autofocus>
 
                                                 @if ($errors->has('datanasc'))
                                                     <span class="invalid-feedback">

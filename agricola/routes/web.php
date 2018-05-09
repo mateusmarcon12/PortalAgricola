@@ -64,5 +64,6 @@ Route::post('/fotos/addAnuncio/{id}','FotoController@storeAnuncio')->name('foto.
 
 Route::get('/usuario/intativar/{id}','UserController@inativar')->name('usuario.inativar');
 Route::post('/user/inativar/','UserController@inativar')->name('user.inativar');
+Route::post('/usuario/update/','UserController@update')->name('usuario.update');
 
 

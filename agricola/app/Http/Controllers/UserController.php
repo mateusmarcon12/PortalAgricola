@@ -99,10 +99,24 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
+
     {
         //
-        return "chegou";
+        $usuario = User::FindorFail(Auth::user()->id);
+        $usuario->name = $request->name;
+        $usuario->email =$request->email;
+        $usuario->datanasc = $request->datanasc;
+        $usuario->tipo = $request->tipo;
+        if($request->tipo != 'CNPJ'){
+            $usuario->sexo = $request->sexo;
+            $usuario->cpf = $request->cpf;
+        }
+        else {
+            $usuario->cnpj = $request->cnpj;
+        }
+        $usuario->save();
+        return redirect()->route('user.show',[Auth::user()->id]);
     }
 
     public function inativar(User $user){
