@@ -72,6 +72,14 @@ class UserController extends Controller
         return view('users.exibir',compact('endereco','files'));
     }
 
+    public function exibeoutro(User $user)
+    {
+        
+
+        return('chegou');
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *

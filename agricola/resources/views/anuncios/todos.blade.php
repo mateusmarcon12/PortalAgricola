@@ -110,6 +110,8 @@
                                             <td>{{$ticket->tipoanuncio}}</td>
                                             <td>{{$ticket->descricao}}</td>
                                             <td>{{$ticket->name}}</td>
+                                            <td>{{$ticket->id}}</td>
+
                                             <td>{{date( 'd/m/Y' , strtotime($ticket->datavalidade))}}</td>
                                             <td> <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary">Ver Mais</a> </td>
 

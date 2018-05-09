@@ -15,7 +15,7 @@
                     @endif
                         <div class="table-responsive">
 
-                          @foreach($detanuncio as $anu)
+                       
                               <h3>Título: {{$anu->titulo}}</h3><br>
                                 <h5>Detalhes</h5>
                                 <p>
@@ -29,16 +29,18 @@
                                 </p>
                               <h5 x>Anunciante</h5>
                                 <p>
-                                    Nome: {{$anu->anunciante}} <br>
-                                    E-mail:{{$anu->email}} <br>
+                                    Nome: {{$user->name}} <a href="{{route('usuario.exibeoutro',$anu)}}" class="btn btn-light">Ver Mais</a><br>
+                                 
+                                    E-mail:{{$user->email}} <br>
+                                    
 
                                 </p>
                               <h5>Endereço</h5>
+                                @foreach($ende as $e)
                                 <p>
-                                    Rua {{$anu->rua}}, nº {{$anu->numero}}, bairro {{$anu->bairro}}, cidade {{$anu->cidade}} - {{$anu->cidade_cep}} - {{$anu->estado}} - {{$anu->pais}}
-
+                                    Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}
                                 </p>
-
+                                @endforeach
 
                                 <h5>Fotos</h5>
 
@@ -54,7 +56,7 @@
 
                          <br> 
                         </div>
-                        @endforeach
+                    
                     
 
                 </div>

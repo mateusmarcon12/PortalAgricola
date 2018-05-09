@@ -66,4 +66,6 @@ Route::get('/usuario/intativar/{id}','UserController@inativar')->name('usuario.i
 Route::post('/user/inativar/','UserController@inativar')->name('user.inativar');
 Route::post('/usuario/update/','UserController@update')->name('usuario.update');
 
+Route::get('/usuario/exibeoutro/{id}','UserController@exibeoutro')->name('usuario.exibeoutro');
+
 

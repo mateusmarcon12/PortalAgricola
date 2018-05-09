@@ -43,11 +43,11 @@ class AnuncioController extends Controller
     //exibir todos os anúncios ativos de outros usuários
     public function todosanuncios(){
 
-        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->get();
+        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id', 'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as validade')->get();
          $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
-        
+       //dd($anu);
         return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
     }
 
@@ -153,11 +153,15 @@ class AnuncioController extends Controller
     public function show(Anuncio $anuncio)
     {
         //
-
-        $detanuncio = Anuncio::selecionaum($anuncio)->get();
-        foreach ($detanuncio as $a){
-            $dir = $a->ida;
-        }
+        //dd($anuncio->id);
+        $anu = Anuncio::FindorFail($anuncio->id);
+        $dir = $anu->id;
+      //  $detanuncio = Anuncio::all()->where('id','=',$anuncio->id)->get();
+      //  dd($detanuncio);
+        /*foreach ($detanuncio as $a){
+            $dir = $a->id;
+        }*/
+      //  dd($detanuncio);
         //dd($dir)
       //  $files = Storage::allFiles('public/Anuncios/'.$dir);
         $files = Storage::allFiles('Anuncios/'.$dir.'/');
@@ -165,15 +169,22 @@ class AnuncioController extends Controller
      //   dd($files);
         
        // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
-        foreach ($detanuncio as $ab){
+      /*  foreach ($detanuncio as $ab){
             $idanunciante = $ab->idanunciante;
-        }
+      
+        }*/
+        $idanunciante = $anu->idanunciante;
+        $ende = Endereco::where('id','=',$anuncio->idendereco)->join('cidades','cidades.cidade_codigo', '=','enderecos.idcidade')->join('ufs','ufs.uf_codigo', '=','enderecos.iduf')->join('paises','paises.numcode', '=','enderecos.idpais')
+        ->select('enderecos.*','cidades.cidade_descricao','ufs.uf_descricao','paises.nome')
+        ->get();
+        $user = User::FindorFail($anuncio->idanunciante);
+       //dd($ende);
         if($idanunciante == Auth::user()->id){
-           Return view('anuncios.exibe',compact('detanuncio','files'));
+           Return view('anuncios.exibe',compact('anu','files','ende','user'));
         }
         else{
             # code...
-             Return view('anuncios.exibeoutro',compact('detanuncio','files'));
+             Return view('anuncios.exibeoutro',compact('anu','files','ende','user'));
         }
            //->with('detanuncio', $detanuncio,$dir);
 
