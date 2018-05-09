@@ -72,11 +72,24 @@ class UserController extends Controller
         return view('users.exibir',compact('endereco','files'));
     }
 
-    public function exibeoutro(User $user)
+    public function exibeoutro($anu)
     {
         
+        $user = User::FindorFail($anu);  
+        $e=Endereco::where('id','=',$user->idend)->count();
+        if ($e>0) {
+             $endereco=Endereco::where('id','=',$user->idend)->get();
+             
+        }else
+        {
+            $endereco=null;
+        }
+        //dd($endereco);
+        $dir= $user->id;
+        $files = Storage::allFiles('Usuarios/'.$dir.'/');
 
-        return('chegou');
+
+        return view('users.exibiroutro',compact('user','endereco','files'));
     }
 
 

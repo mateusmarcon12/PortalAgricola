@@ -29,7 +29,7 @@
                                 </p>
                               <h5 x>Anunciante</h5>
                                 <p>
-                                    Nome: {{$user->name}} <a href="{{route('usuario.exibeoutro',$anu)}}" class="btn btn-light">Ver Mais</a><br>
+                                    Nome: {{$user->name}} <a href="{{route('usuario.exibeoutro', $anu->idanunciante)}}" class="btn btn-light">Ver Mais</a><br>
                                  
                                     E-mail:{{$user->email}} <br>
                                     
