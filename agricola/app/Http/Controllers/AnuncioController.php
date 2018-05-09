@@ -165,8 +165,16 @@ class AnuncioController extends Controller
      //   dd($files);
         
        // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
-
-       Return view('anuncios.exibe',compact('detanuncio','files'));
+        foreach ($detanuncio as $ab){
+            $idanunciante = $ab->idanunciante;
+        }
+        if($idanunciante == Auth::user()->id){
+           Return view('anuncios.exibe',compact('detanuncio','files'));
+        }
+        else{
+            # code...
+             Return view('anuncios.exibeoutro',compact('detanuncio','files'));
+        }
            //->with('detanuncio', $detanuncio,$dir);
 
     }
