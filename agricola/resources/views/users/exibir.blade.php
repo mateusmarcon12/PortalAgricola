@@ -38,7 +38,7 @@
 
                                 @isset($endereco)
                                     @foreach($endereco as $end)
-                                    <h6>Endereço <a href="{{action('EnderecoController@edit', $end)}}" class="btn btn-light">Editar Endereço</a></h6>
+                                    <h5>Endereço <a href="{{action('EnderecoController@edit', $end)}}" class="btn btn-light">Editar Endereço</a></h5>
                                     <p>
                                         Rua {{$end->rua}}, nº {{$end->numero}}, bairro {{$end->bairro}}, cidade {{$end->cidade_descricao}} - {{$end->uf_descricao}}/{{$end->iso}}
 
@@ -46,7 +46,7 @@
                                     @endforeach
                                 @endisset 
                                 @empty($endereco)
-                                    <h6>Endereço <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h6>
+                                    <h5>Endereço  <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h5>
                                 @endempty
                                 <h5>Fotos<h5>
                                 @foreach($files as $f)
