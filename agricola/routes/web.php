@@ -11,9 +11,13 @@
 |
 */
 
+route::get('/inicio','ResumidoController@index')->name('resumido');
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('resumido');
+    //return view('welcome');
 });
+
+
 
 Route::group(['prefix' => 'admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');

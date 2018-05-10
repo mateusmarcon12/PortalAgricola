@@ -57,6 +57,28 @@ class Anuncio extends Model
 
 
     }
+//Para usuários não logados
+    public function scopeRetornatodos ($query)
+    {
+        $detanuncio = Anuncio
+            ::join('users', 'users.id','=','anuncios.idanunciante')
+            ->join('categorias', 'categorias.id','=','anuncios.classe')
+            ->join('classificacaos', 'classificacaos.id','=', 'anuncios.tipo')
+            ->join('enderecos', 'enderecos.id','=','anuncios.idendereco')
+            ->join('cidades','cidades.cidade_codigo','=','enderecos.idcidade')
+            ->join('ufs','ufs.uf_codigo','=','enderecos.iduf')
+            ->join('paises','paises.numcode','=','enderecos.idpais')
+            ->select('anuncios.observacao as a','anuncios.id as ida', 'anuncios.situacao as anusituacao', 'anuncios.*',
+                'users.name as anunciante','categorias.nome as categoria',
+                'classificacaos.nome as classificacao')
+            ->where('anuncios.situacao','=','ativo');
+    
+
+        return ($detanuncio);
+
+    }
+
+
 
     public function endereco()
     {
