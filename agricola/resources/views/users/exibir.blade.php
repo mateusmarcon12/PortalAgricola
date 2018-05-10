@@ -8,14 +8,13 @@
                 <div class="card-header">Perfil de Usuário</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                         <div class="table-responsive">
 
-                      
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
                               <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>
                                   <a class="btn btn-light" href="{{ route('usuario.alterarsenha') }}">
                                     {{ __('Alterar Senha') }}

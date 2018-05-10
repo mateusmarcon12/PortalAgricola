@@ -103,13 +103,26 @@ class UserController extends Controller
         return view('users.alterasenha');
     }
 
-    public function salvarsenha(Request $senha){
-        //dd($senha->password);
-         $usuario = Auth::user();
-         $usuario->password = bcrypt(Request::input('password'));
-         dd($usuario);
-        
-         return redirect()->route('user.show',$usuario);
+    public function salvarsenha(Request $request){
+
+         $input = $request->all();
+        if(strlen ($request->password)>=6){
+            if($request->password == $request->password_confirmation){
+                $usuario = User::FindorFail(Auth::user()->id);
+                
+                $usuario->password = bcrypt($request->password);
+                $usuario->save();
+            
+            
+                return redirect()->route('user.show',$usuario)->with('message','Senha alterada com sucesso');
+            }
+            else{
+                return redirect()->back()->with('message','As senhas informadas não são iguais, tente novamente');
+            }
+        }
+        else{
+            return redirect()->back()->with('message','Senha muito pequena, digite uma senha com pelo menos 6 caracteres');
+            }
     }
 
     public function edit(User $user)

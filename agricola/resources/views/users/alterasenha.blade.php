@@ -6,9 +6,13 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">Alterar Senha</div>
+                    
                     <div id="geral" class="card-body">
-
-
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
                             <form method="POST" enctype="multipart/form-data" action="{{route('usuario.salvarsenha')}}">
                                 @csrf
                                 <div class="form-group row">
