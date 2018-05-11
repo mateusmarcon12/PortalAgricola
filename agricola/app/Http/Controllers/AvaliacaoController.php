@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\avaliacao;
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class AvaliacaoController extends Controller
 {
@@ -12,6 +14,12 @@ class AvaliacaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+    }
+
     public function index()
     {
         //
@@ -33,10 +41,25 @@ class AvaliacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
+        return 'chegou';
     }
+
+    public function gravar(Request $request, $id)
+    {
+        //
+       // dd($request->nota.'-'.$request->comentario.'-'.$id);
+        $avaliacao= new Avaliacao;
+        $avaliacao->nota=        $request->nota;
+        $avaliacao->comentario=  $request->comentario;
+        $avaliacao->idavaliador= Auth::user()->id;
+        $avaliacao->idavaliado=    $id;
+        $avaliacao->save();
+        return redirect()->back()->with('message','Avaliação Registrada!');
+    }
+
 
     /**
      * Display the specified resource.

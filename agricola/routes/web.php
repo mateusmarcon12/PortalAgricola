@@ -63,7 +63,6 @@ Route::resource('foto','FotoController');
 Route::get('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.cidade');
 Route::post('/endereco/cidade/{id}','EnderecoController@cidade')->name('endereco.cidade');
 
-
 Route::post('/fotos/addAnuncio/{id}','FotoController@storeAnuncio')->name('foto.storeanuncio');
 
 Route::get('/usuario/intativar/{id}','UserController@inativar')->name('usuario.inativar');
@@ -76,4 +75,7 @@ Route::get('usuario/alterarsenha/','UserController@alterarsenha')->name('usuario
 Route::post('usuario/salvarsenha/','UserController@salvarsenha')->name('usuario.salvarsenha');
 
 
-Route::post('email/enviar/{id}', 'EmailController@enviar')->name('email.enviar');
+Route::post('/email/enviar/{id}', 'EmailController@enviar')->name('email.enviar');
+
+Route::resource('/avaliacao','AvaliacaoController');
+Route::post('/avaliacao/gravar/{id}','AvaliacaoController@gravar')->name('avaliacao.gravar');

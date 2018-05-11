@@ -8,9 +8,9 @@
                 <div class="card-header">Perfil de Usuário</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if(session()->has('message'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+                            {{ session()->get('message') }}
                         </div>
                     @endif
                         <div class="table-responsive">
@@ -22,7 +22,7 @@
                                 <p>
                                     E-mail:{{ $user->email }}
                                 </p>
-                              <h5 x>Perfil</h5>
+                              <h5>Perfil</h5>
                                 <p>
                                     Sexo: {{ $user->sexo }} <br>
                                     @if ($user->cpf != null)
@@ -54,7 +54,7 @@
 
                               <div class="card-header">Avaliar Anunciante</div>
                                     <br>
-                              <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $user->id) }}">
+                              <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
                                         @csrf
 
                                         <div class="form-group row">
