@@ -74,3 +74,6 @@ Route::get('/usuario/exibeoutro/{id}','UserController@exibeoutro')->name('usuari
 
 Route::get('usuario/alterarsenha/','UserController@alterarsenha')->name('usuario.alterarsenha');
 Route::post('usuario/salvarsenha/','UserController@salvarsenha')->name('usuario.salvarsenha');
+
+
+Route::post('email/enviar/{id}', 'EmailController@enviar')->name('email.enviar');

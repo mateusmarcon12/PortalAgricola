@@ -52,7 +52,46 @@
                                 @endforeach    
 
                           
-                          
+                            <br>
+                            <h4>Enviar e-mail:</h4>
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
+                            @csrf
+                              
+                                <div class="form-group row">
+                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Assunto') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="assunto" type="text" class="form-control{{ $errors->has('assunto') ? ' is-invalid' : '' }}" name="assunto" value="{{ old('assunto') }}" required autofocus>
+
+                                        @if ($errors->has('assunto'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('assunto') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
+
+                                        <div class="col-md-6">
+                                            <textarea id="mensagem"  class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
+
+                                            @if ($errors->has('mensagem'))
+                                                <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('mensagem') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-light">
+                                            {{ __('Enviar') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
 
                          <br> 
                         </div>
