@@ -8,11 +8,11 @@
                 <div class="card-header">Anúncio</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
                         <div class="table-responsive">
 
                        
@@ -53,7 +53,7 @@
 
                           
                             <br>
-                            <h4>Enviar e-mail:</h4>
+                            <h4><br>Enviar e-mail:</h4>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
                             @csrf
                               

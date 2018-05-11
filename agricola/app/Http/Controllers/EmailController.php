@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Anuncio;
 use App\User;
+use Auth;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
@@ -23,13 +24,26 @@ class EmailController extends Controller
     }
 
     public function enviar(Request $request, $anuncio){
+        
+        
 
         $anu= Anuncio::Findorfail($anuncio);
         $anunciante = User::Findorfail($anu->idanunciante);
        // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
+        $dados = [$request->assunto,$request->mensagem,$anunciante->email];
+        $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $anunciante->email,'remetente'=>Auth::user()->email);
 
-        Mail::to('mateus-marcon@hotmail.com')->send(new mailEnviar());
-        return 'ok';
+        Mail::send('emails.padrao',$data,function($message) use ($data){
+            $message->to($data['destinatario']);
+            $message->from($data['remetente']);
+            $message->subject($data['assunto']);
+        });
+
+        //Mail::to($anunciante->email)->send(new mailEnviar())->subject('teste');
+
+
+
+        return redirect()->back()->with('message','E-mail enviado ao Anunciante');
     }
 
 
