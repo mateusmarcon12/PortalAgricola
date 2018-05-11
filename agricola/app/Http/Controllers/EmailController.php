@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\email;
+use App\Mail\mailEnviar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Anuncio;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -24,8 +26,10 @@ class EmailController extends Controller
 
         $anu= Anuncio::Findorfail($anuncio);
         $anunciante = User::Findorfail($anu->idanunciante);
-        dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
-        return 'che';
+       // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
+
+        Mail::to('mateus-marcon@hotmail.com')->send(new mailEnviar());
+        return 'ok';
     }
 
 
