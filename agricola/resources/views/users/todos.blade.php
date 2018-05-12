@@ -9,9 +9,9 @@
 
                     <div class="card-body">
 
-                    @if (session('status'))
+                        @if(session()->has('message'))
                             <div class="alert alert-success">
-                                {{ session('status') }}
+                                {{ session()->get('message') }}
                             </div>
                         @endif
                         @isset($usuarios)
@@ -21,6 +21,7 @@
                                 <tr>
                                     <th>Anunciante</th>
                                     <th>E-mail</th>
+                                    <th></th>
                                     <th></th>
 
                                 </tr>
@@ -35,6 +36,7 @@
                                             <td>{{$ticket->name}}</td>
                                             <td>{{$ticket->email}}</td>
                                             <td><a href="{{route('usuario.exibeoutro', $ticket->id)}}" class="btn btn-primary">Ver Mais</a></td>
+                                            <td><a href="{{route('solicitacao.store', $ticket->id)}}" class="btn btn-primary">Solicitar Amizade</a></td>
 
                                             </tr>
 

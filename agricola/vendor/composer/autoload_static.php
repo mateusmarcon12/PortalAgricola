@@ -328,6 +328,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Amizades' => __DIR__ . '/../..' . '/app/Amizades.php',
         'App\\Anuncio' => __DIR__ . '/../..' . '/app/Anuncio.php',
         'App\\Casaofertademanda' => __DIR__ . '/../..' . '/app/Casaofertademanda.php',
         'App\\Categoria' => __DIR__ . '/../..' . '/app/Categoria.php',
@@ -342,6 +343,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Controllers\\AdminAuth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminAuth/LoginController.php',
         'App\\Http\\Controllers\\AdminAuth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminAuth/RegisterController.php',
         'App\\Http\\Controllers\\AdminAuth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminAuth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\AmizadesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AmizadesController.php',
         'App\\Http\\Controllers\\AnuncioController' => __DIR__ . '/../..' . '/app/Http/Controllers/AnuncioController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -357,6 +359,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\OfertaController' => __DIR__ . '/../..' . '/app/Http/Controllers/OfertaController.php',
         'App\\Http\\Controllers\\ResumidoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResumidoController.php',
+        'App\\Http\\Controllers\\SolicitacaoController' => __DIR__ . '/../..' . '/app/Http/Controllers/SolicitacaoController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -375,6 +378,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Solicitacao' => __DIR__ . '/../..' . '/app/Solicitacao.php',
         'App\\Uf' => __DIR__ . '/../..' . '/app/Uf.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\avaliacao' => __DIR__ . '/../..' . '/app/avaliacao.php',

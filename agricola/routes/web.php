@@ -79,3 +79,5 @@ Route::post('/email/enviar/{id}', 'EmailController@enviar')->name('email.enviar'
 
 Route::resource('/avaliacao','AvaliacaoController');
 Route::post('/avaliacao/gravar/{id}','AvaliacaoController@gravar')->name('avaliacao.gravar');
+
+Route::get('/solicitacao/{id}','SolicitacaoController@store')->name('solicitacao.store');

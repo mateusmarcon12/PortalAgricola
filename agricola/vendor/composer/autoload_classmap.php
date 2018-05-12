@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Amizades' => $baseDir . '/app/Amizades.php',
     'App\\Anuncio' => $baseDir . '/app/Anuncio.php',
     'App\\Casaofertademanda' => $baseDir . '/app/Casaofertademanda.php',
     'App\\Categoria' => $baseDir . '/app/Categoria.php',
@@ -21,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\AdminAuth\\LoginController' => $baseDir . '/app/Http/Controllers/AdminAuth/LoginController.php',
     'App\\Http\\Controllers\\AdminAuth\\RegisterController' => $baseDir . '/app/Http/Controllers/AdminAuth/RegisterController.php',
     'App\\Http\\Controllers\\AdminAuth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/AdminAuth/ResetPasswordController.php',
+    'App\\Http\\Controllers\\AmizadesController' => $baseDir . '/app/Http/Controllers/AmizadesController.php',
     'App\\Http\\Controllers\\AnuncioController' => $baseDir . '/app/Http/Controllers/AnuncioController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -36,6 +38,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\OfertaController' => $baseDir . '/app/Http/Controllers/OfertaController.php',
     'App\\Http\\Controllers\\ResumidoController' => $baseDir . '/app/Http/Controllers/ResumidoController.php',
+    'App\\Http\\Controllers\\SolicitacaoController' => $baseDir . '/app/Http/Controllers/SolicitacaoController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -54,6 +57,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Solicitacao' => $baseDir . '/app/Solicitacao.php',
     'App\\Uf' => $baseDir . '/app/Uf.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\avaliacao' => $baseDir . '/app/avaliacao.php',

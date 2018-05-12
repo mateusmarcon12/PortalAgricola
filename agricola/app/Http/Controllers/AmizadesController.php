@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\avaliacao;
+use App\Amizades;
 use Illuminate\Http\Request;
-use App\User;
-use Auth;
-class AvaliacaoController extends Controller
+
+class AmizadesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-    }
-
     public function index()
     {
         //
@@ -40,32 +33,18 @@ class AvaliacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         //
-        return 'chegou';
     }
-
-    public function gravar(Request $request, $id)
-    {
-       // dd($request->nota.'-'.$request->comentario.'-'.$id);
-        $avaliacao= new Avaliacao;
-        $avaliacao->nota=        $request->nota;
-        $avaliacao->comentario=  $request->comentario;
-        $avaliacao->idavaliador= Auth::user()->id;
-        $avaliacao->idavaliado=    $id;
-        $avaliacao->save();
-        return redirect()->back()->with('message','Avaliação Registrada!');
-    }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\avaliacao  $avaliacao
+     * @param  \App\Amizades  $amizades
      * @return \Illuminate\Http\Response
      */
-    public function show(avaliacao $avaliacao)
+    public function show(Amizades $amizades)
     {
         //
     }
@@ -73,10 +52,10 @@ class AvaliacaoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\avaliacao  $avaliacao
+     * @param  \App\Amizades  $amizades
      * @return \Illuminate\Http\Response
      */
-    public function edit(avaliacao $avaliacao)
+    public function edit(Amizades $amizades)
     {
         //
     }
@@ -85,10 +64,10 @@ class AvaliacaoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\avaliacao  $avaliacao
+     * @param  \App\Amizades  $amizades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, avaliacao $avaliacao)
+    public function update(Request $request, Amizades $amizades)
     {
         //
     }
@@ -96,10 +75,10 @@ class AvaliacaoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\avaliacao  $avaliacao
+     * @param  \App\Amizades  $amizades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(avaliacao $avaliacao)
+    public function destroy(Amizades $amizades)
     {
         //
     }
