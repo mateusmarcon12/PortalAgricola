@@ -201,7 +201,7 @@ class AnuncioController extends Controller
     {
         //
         $detanuncio = Anuncio::find($anuncio->id);
-//dd($detanuncio);
+
         $result = DB::table('cidades')->get();
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
@@ -210,10 +210,6 @@ class AnuncioController extends Controller
         //$endereco = DB::table('enderecos')->where('id','=',$detanuncio->idendereco);
 
 
-      //  $detanuncio = Anuncio::find($anuncio);
-        //return view('ofertas.cadastrar')->with('data', $result);
-        //$detanuncio = Anuncio::selecionaum($anuncio)->get();
-       //dd($detanuncio);
         Return view('anuncios.edit', compact('result','estados','classificacoes','categorias','detanuncio','endereco'));
     }
 

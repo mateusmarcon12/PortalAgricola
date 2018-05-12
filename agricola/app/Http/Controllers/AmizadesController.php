@@ -53,18 +53,29 @@ class AmizadesController extends Controller
 
         $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
             ->join('users','users.id','amizades.idsolicitante')
-            ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email')
+            ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
+                'amizades.id as idamizade')
             ->where('amizades.situacao','=','ativa')
             ->get();
 
         $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
             ->join('users','users.id','amizades.idsolicitado')
-            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email')
+            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
+                'amizades.id as idamizade')
             ->where('amizades.situacao','=','ativa')
             ->get();
 
         //dd($amizades);
         return view('amizades.home',compact('amizades','amizades2'));
+    }
+
+    public function excluir($id){
+
+        $amizade = Amizades::findorfail($id);
+        $amizade->situacao='inativo';
+        $amizade->save();
+
+        return redirect()->back()->with('message','Vinculo de amizade excluído');
     }
 
     /**

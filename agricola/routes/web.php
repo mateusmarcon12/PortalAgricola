@@ -82,3 +82,4 @@ Route::post('/avaliacao/gravar/{id}','AvaliacaoController@gravar')->name('avalia
 
 Route::get('/solicitacao/{id}','SolicitacaoController@store')->name('solicitacao.store');
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
+Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
