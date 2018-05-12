@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Endereco;
 use App\Anuncio;
+use App\avaliacao;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -22,9 +23,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
+        $usuarios=User::all()->where('situacao','=','ativo');
+        return view('users.todos', compact('usuarios'));
     }
 
     /**
@@ -87,9 +91,22 @@ class UserController extends Controller
         //dd($endereco);
         $dir= $user->id;
         $files = Storage::allFiles('Usuarios/'.$dir.'/');
-
-
-        return view('users.exibiroutro',compact('user','endereco','files'));
+        $media=0;
+        $ava=0;
+        $avaliacao = avaliacao::where('idavaliado','=',$user->id)
+            ->join('users','users.id','=','avaliacaos.idavaliador')
+            ->select('avaliacaos.comentario as comentario','users.name as avaliador',
+                'avaliacaos.created_at as datapost','avaliacaos.nota as nota')->orderby('datapost','desc')
+            ->get();
+        //dd($avaliacao);
+        foreach($avaliacao as $a){
+            $media=$media+$a->nota;
+            $ava++;
+        }
+        //dd($media);
+        $media=$media/$ava;
+        $media = number_format($media, 2, '.', ',');
+        return view('users.exibiroutro',compact('user','endereco','files','avaliacao','media'));
     }
 
 

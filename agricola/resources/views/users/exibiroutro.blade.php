@@ -52,7 +52,8 @@
                                     <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
                                 @endforeach
 
-                              <div class="card-header">Avaliar Anunciante</div>
+                              <div class="card-header">Avaliações do Anunciante</div>
+                                    <h5>Este anunciante é classificado em média como nota: {{$media}}</h5>
                                     <br>
                               <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
                                         @csrf
@@ -90,9 +91,35 @@
                                         </div>
 
                                </form>
-                        </div>
+
                         <br>
-                           
+                                <div class="table-responsive">
+                                    <table class="table table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Avaliador</th>
+                                                <th>Nota</th>
+                                                <th>Comentario</th>
+                                                <th>Data Avaliação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            @foreach($avaliacao as $a)
+                                                <tr>
+                                                    <td>{{$a->avaliador}}</td>
+                                                    <td>{{$a->nota}}</td>
+                                                    <td>{{$a->comentario}}</td>
+                                                    <td>{{date( 'd/m/Y' , strtotime($a->datapost))}}</td>
+                                                </tr>
+                                            @endforeach
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
                 </div>
             </div>
         </div>
