@@ -8,7 +8,9 @@
                     <div class="card-header">Seja Bem Vindo! Faça login ou cadastre-se para explorar mais ferramentas do portal</div>
 
                     <div class="card-body">
-                        @if (session('status'))
+                        <div class="card-header">Anúncios</div>
+
+                    @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
                             </div>

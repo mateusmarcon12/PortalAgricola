@@ -6,7 +6,7 @@ use App\avaliacao;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
-
+use App\avaliacao;
 class AvaliacaoController extends Controller
 {
     /**
@@ -49,7 +49,6 @@ class AvaliacaoController extends Controller
 
     public function gravar(Request $request, $id)
     {
-        //
        // dd($request->nota.'-'.$request->comentario.'-'.$id);
         $avaliacao= new Avaliacao;
         $avaliacao->nota=        $request->nota;

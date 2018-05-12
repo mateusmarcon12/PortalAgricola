@@ -23,11 +23,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+        //exibe todos usuários
     public function index()
     {
-        //
-        $usuarios=User::all()->where('situacao','=','ativo');
+
+
+    }
+
+    public  function  todos($id){
+        $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->get();
+       // dd($usuarios);
         return view('users.todos', compact('usuarios'));
     }
 

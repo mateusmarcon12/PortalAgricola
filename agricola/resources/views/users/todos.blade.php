@@ -5,49 +5,36 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Seja Bem Vindo! Faça login ou cadastre-se para explorar mais ferramentas do portal</div>
+                    <div class="card-header">Anunciantes do Portal</div>
 
                     <div class="card-body">
-                        @if (session('status'))
+
+                    @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        @isset($anu)
+                        @isset($usuarios)
                         <div class="table-responsive">
                             <table class="table table table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Título</th>
-                                    <th>Típo</th>
-                                    <th>Descrição</th>
                                     <th>Anunciante</th>
-                                    <th>Validade</th>
-                                    
-
-
+                                    <th>E-mail</th>
+                                    <th></th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
 
 
-                                @foreach($anu as $ticket)
-
-
-
-                                        
+                                @foreach($usuarios as $ticket)
 
                                             <tr>
 
-                                            <td>{{$ticket->titulo}}</td>
-                                            <td>{{$ticket->tipoanuncio}}</td>
-                                            <td>{{$ticket->descricao}}</td>
                                             <td>{{$ticket->name}}</td>
-                                            
-
-                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validade))}}</td>
-
+                                            <td>{{$ticket->email}}</td>
+                                            <td><a href="{{route('usuario.exibeoutro', $ticket->id)}}" class="btn btn-primary">Ver Mais</a></td>
 
                                             </tr>
 

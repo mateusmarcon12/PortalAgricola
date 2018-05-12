@@ -51,10 +51,14 @@
                                     
                                     <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
                                 @endforeach
-
-                              <div class="card-header">Avaliações do Anunciante</div>
-                                    <h5>Este anunciante é classificado em média como nota: {{$media}}</h5>
+<br>
                                     <br>
+                                    <br>
+                              <div class="card-header">Avaliações do Anunciante</div>
+                                    <h5 align="center">Este anunciante é classificado em média como nota: {{$media}}</h5>
+                                    <br>
+                                    <h5 align="center">Já negociou com este anunciate? Deixe sua avaliação e comentário!</h5>
+                                <br>
                               <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
                                         @csrf
 
