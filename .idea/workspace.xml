@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/AmizadesController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/AmizadesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/routes/web.php" afterPath="$PROJECT_DIR$/agricola/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SolicitacaoController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SolicitacaoController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3076925">
-              <caret line="50" column="84" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="84" />
+            <state vertical-scroll-proportion="0.7324955">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -42,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1597846">
+            <state vertical-scroll-proportion="-24.846153">
               <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
               <folding />
             </state>
@@ -95,8 +93,8 @@
       <file leaf-file-name="AmizadesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AmizadesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.807692">
-              <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+            <state vertical-scroll-proportion="-9.0">
+              <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -179,13 +177,13 @@
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_133145_add_coluna_solicitacaos.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_133158_add_coluna_amizades.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/users/todos.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Amizades.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
         <option value="$PROJECT_DIR$/agricola/routes/web.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AmizadesController.php" />
+        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php" />
       </list>
     </option>
   </component>
@@ -714,7 +712,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3343419" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1079,16 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3076925">
-          <caret line="50" column="84" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="84" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Anuncio.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -1137,6 +1125,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.846153">
+          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923">
@@ -1147,19 +1143,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AmizadesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.807692">
-          <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php">
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/SolicitacaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1597846">
-          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
-          <folding />
+        <state vertical-scroll-proportion="0.7324955">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

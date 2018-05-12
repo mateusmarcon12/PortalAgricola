@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Amizades;
+use App\Solicitacao;
 use Illuminate\Http\Request;
 use Auth;
 use App\user;
@@ -72,9 +73,9 @@ class AmizadesController extends Controller
     public function excluir($id){
 
         $amizade = Amizades::findorfail($id);
-        $amizade->situacao='inativo';
-        $amizade->save();
-
+        $amizade->delete();
+        $solicitacao = Solicitacao::where('idsolicitante','=',$amizade->idsolicitante)->where('idsolicitado','=',$amizade->idsolicitado)->first();
+        $solicitacao->delete();
         return redirect()->back()->with('message','Vinculo de amizade excluído');
     }
 

@@ -59,6 +59,7 @@ class SolicitacaoController extends Controller
                 $amizade->situacao = 'ativa';
                 $amizade->save();
             }
+
             return redirect()->back()->with('message', 'Vinculo de Amizade estabelecido');
         }
         if(($solicitacoes==0)&&($solicitacoes2==0)) {
