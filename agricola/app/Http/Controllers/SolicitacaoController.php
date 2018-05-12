@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Amizades;
 use App\Solicitacao;
 use Illuminate\Http\Request;
 use Auth;
@@ -42,16 +43,23 @@ class SolicitacaoController extends Controller
         $solicitacoes2 = Solicitacao::where('idsolicitado','=',Auth::user()->id)->where('idsolicitante','=',$id)->count();
 
         if($solicitacoes>0){
-            $solicitacoes3 = Solicitacao::where('idsolicitante','=','Auth::user()->id')->where('idsolicitado','=',$id)->First();
-
-            return redirect()->back()->with('message','Você já fez uma solicitação para este Anunciante e a situação é:???????????????');
+            $solicitacoes3 = Solicitacao::where('idsolicitante','=',Auth::user()->id)->where('idsolicitado','=',$id)->First();
+          //  dd($solicitacoes3->situacao);
+            return redirect()->back()->with('message','Você já fez uma solicitação para este Anunciante e a situação é: '.$solicitacoes3->situacao);
         }
         if($solicitacoes2>0){
             $solicitacoes4 = Solicitacao::where('idsolicitado','=',Auth::user()->id)->where('idsolicitante','=',$id)->First();
-          // dd($solicitacoes4->situacao);
-            $solicitacoes4->situacao='aceita';
-            $solicitacoes4->save();
-            return redirect()->back()->with('message', 'Amizade salva');
+         //   dd($solicitacoes4);
+            if($solicitacoes4->situacao == 'pendente'){
+                $solicitacoes4->situacao='aceita';
+                $solicitacoes4->save();
+                $amizade = new Amizades();
+                $amizade->idsolicitante=$id;
+                $amizade->idsolicitado=Auth::user()->id;
+                $amizade->situacao = 'ativa';
+                $amizade->save();
+            }
+            return redirect()->back()->with('message', 'Vinculo de Amizade estabelecido');
         }
         if(($solicitacoes==0)&&($solicitacoes2==0)) {
             $solicitacao = new Solicitacao();
