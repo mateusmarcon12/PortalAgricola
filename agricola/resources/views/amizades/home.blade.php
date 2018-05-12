@@ -14,7 +14,7 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        @isset($usuarios)
+                        @isset($amizades)
                         <div class="table-responsive">
                             <table class="table table table-hover">
                                 <thead>
@@ -29,14 +29,14 @@
                                 <tbody>
 
 
-                                @foreach($usuarios as $ticket)
+                                @foreach($amizades as $ticket)
 
                                             <tr>
 
-                                            <td>{{$ticket->name}}</td>
+                                            <td>{{$ticket->nome}}</td>
                                             <td>{{$ticket->email}}</td>
-                                            <td><a href="{{route('usuario.exibeoutro', $ticket->id)}}" class="btn btn-primary">Ver Mais</a></td>
-                                            <td><a href="{{route('solicitacao.store', $ticket->id)}}" class="btn btn-primary">Solicitar Amizade</a></td>
+                                            <td><a href="{{route('usuario.exibeoutro', $ticket->idanunciante)}}" class="btn btn-primary">Ver Mais</a></td>
+                                            <td><a href="{{route('usuario.exibeoutro', $ticket->idanunciante)}}" class="btn btn-primary">Excluir Amizade</a></td>
 
                                             </tr>
 
@@ -47,6 +47,22 @@
                                 @endforeach
 
 
+                                @foreach($amizades2 as $ticket2)
+
+                                    <tr>
+
+                                        <td>{{$ticket2->nome}}</td>
+                                        <td>{{$ticket2->email}}</td>
+                                        <td><a href="{{route('usuario.exibeoutro', $ticket2->idanunciante)}}" class="btn btn-primary">Ver Mais</a></td>
+                                        <td><a href="{{route('usuario.exibeoutro', $ticket2->idanunciante)}}" class="btn btn-primary">Excluir Amizade</a></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                    </tr>
+
+                                @endforeach
 
                                 </tbody>
                             </table>

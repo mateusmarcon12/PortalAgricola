@@ -10,4 +10,9 @@ class Amizades extends Model
     protected $fillable = [
         'idsolicitante','idsolicitado', 'situacao',
     ];
+
+    public function scopeSituacao($query)
+    {
+        return $query->where('situacao', '=', 'ativa');
+    }
 }

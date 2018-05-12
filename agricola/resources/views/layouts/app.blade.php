@@ -89,6 +89,9 @@
                                     <a class="dropdown-item" href="{{ route('usuario.todos',Auth::user()->id) }}">
                                         {{ __('Todos anunciantes') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('amizades.show',Auth::user()->id) }}">
+                                        {{ __('Meus Amigos') }}
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

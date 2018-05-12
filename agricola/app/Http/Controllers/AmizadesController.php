@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Amizades;
 use Illuminate\Http\Request;
+use Auth;
+use App\user;
 
 class AmizadesController extends Controller
 {
@@ -44,9 +46,25 @@ class AmizadesController extends Controller
      * @param  \App\Amizades  $amizades
      * @return \Illuminate\Http\Response
      */
-    public function show(Amizades $amizades)
+    public function show()
     {
-        //
+
+
+
+        $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
+            ->join('users','users.id','amizades.idsolicitante')
+            ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email')
+            ->where('amizades.situacao','=','ativa')
+            ->get();
+
+        $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
+            ->join('users','users.id','amizades.idsolicitado')
+            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email')
+            ->where('amizades.situacao','=','ativa')
+            ->get();
+
+        //dd($amizades);
+        return view('amizades.home',compact('amizades','amizades2'));
     }
 
     /**
