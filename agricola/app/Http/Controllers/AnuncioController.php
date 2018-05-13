@@ -16,6 +16,7 @@ use App\Casaofertademanda;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Amizades;
 
 class AnuncioController extends Controller
 {
@@ -184,7 +185,21 @@ class AnuncioController extends Controller
         }
         else{
             # code...
-             Return view('anuncios.exibeoutro',compact('anu','files','ende','user'));
+            $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
+                ->join('users','users.id','amizades.idsolicitante')
+                ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
+                    'amizades.id as idamizade')
+                ->where('amizades.situacao','=','ativa')
+                ->get();
+
+            $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
+                ->join('users','users.id','amizades.idsolicitado')
+                ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
+                    'amizades.id as idamizade')
+                ->where('amizades.situacao','=','ativa')
+                ->get();
+
+             Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2'));
         }
            //->with('detanuncio', $detanuncio,$dir);
 

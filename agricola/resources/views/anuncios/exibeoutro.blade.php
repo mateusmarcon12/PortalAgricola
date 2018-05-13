@@ -53,7 +53,7 @@
 
                           
                             <br>
-                            <h4><br>Enviar e-mail:</h4>
+                            <div class="card-header">Enviar E-mail</div>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
                             @csrf
                               
@@ -90,9 +90,28 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                            </form>
 
+                            </form>
+                            <div class="card-header">Recomendar para um amigo</div>
+                            <div class="form-group row">
+                                <br><br><br>
+                                <label for="recomendar" class="col-md-4 col-form-label text-md-right">{{ __('Amigo') }}</label>
+
+                                <div class="col-md-6">
+
+                                    <select name="tipo" id="classificacaoSelect" >
+                                        @foreach($amizades as $ami)
+
+                                            <option value="{{$ami->id}}"> {{$ami->nome}}</option>
+
+                                        @endforeach
+                                        @foreach($amizades2 as $ami2)
+                                            <option value="{{$ami2->id}}"> {{$ami2->nome}}</option>
+
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                          <br> 
                         </div>
                     
