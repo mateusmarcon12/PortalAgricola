@@ -24,6 +24,24 @@ class SolicitacaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function aceitar($id){
+        $solicitacao= Solicitacao::FindorFail($id);
+        $solicitacao->situacao='aceita';
+        $solicitacao->save();
+        $amizade = new Amizades();
+        $amizade->idsolicitante=$solicitacao->idsolicitante;
+        $amizade->idsolicitado=$solicitacao->idsolicitado;
+        $amizade->situacao = 'ativa';
+        $amizade->save();
+        return redirect()->route('amizades.show',Auth::user()->id)->with('message','Solicitação aceita! Nova amizade estabelecida!');
+    }
+
+    public function excluir($id)
+    {
+        $solicitacao = Solicitacao::FindorFail($id);
+        $solicitacao->delete();
+        return redirect()->back()->with('message','Solicitação excluída');
+    }
     public function create($id)
     {
         //

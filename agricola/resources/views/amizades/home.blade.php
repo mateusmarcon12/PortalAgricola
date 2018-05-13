@@ -29,8 +29,8 @@
                                         <tr>
                                             <td>{{$soli->name}}</td>
                                             <td>{{$soli->email}}</td>
-                                            <td><a href="{{route('amizade.excluir', $soli->idsolicitacao)}}" class="btn btn-primary">Aceitar </a></td>
-                                            <td><a href="{{route('amizade.excluir', $soli->idsolicitacao)}}" class="btn btn-primary">Recusar</a></td>
+                                            <td><a href="{{route('solicitacao.aceitar', $soli->idsolicitacao)}}" class="btn btn-primary">Aceitar </a></td>
+                                            <td><a href="{{route('solicitacao.excluir', $soli->idsolicitacao)}}" class="btn btn-primary">Recusar</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

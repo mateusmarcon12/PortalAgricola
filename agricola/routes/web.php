@@ -81,5 +81,9 @@ Route::resource('/avaliacao','AvaliacaoController');
 Route::post('/avaliacao/gravar/{id}','AvaliacaoController@gravar')->name('avaliacao.gravar');
 
 Route::get('/solicitacao/{id}','SolicitacaoController@store')->name('solicitacao.store');
+Route::get('/solicitacao/aceitar/{id}','SolicitacaoController@aceitar')->name('solicitacao.aceitar');
+Route::get('/solicitacao/excluir/{id}','SolicitacaoController@excluir')->name('solicitacao.excluir');
+
+
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
 Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
