@@ -87,14 +87,15 @@ class AnuncioController extends Controller
         $tamanho = count($recomendacoes);
         $rep =0;
         for ($i=$rep;$i<$tamanho;$i++){
-            $anu[$i] = Anuncio::where('anuncios.id','=',$recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id')->get();
+            $anu[$i] = Anuncio::findorfail($recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id');
+            //$anu[$i] = Anuncio::where('anuncios.id','=',$recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id')->first();
         }
 
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
         //dd($anu[1][0]);
-        dd($anu );
+       // dd($anu );
         return view('anuncios.recomendados',compact('anu','estados','classificacoes','categorias','tamanho'));
         /*dd($recomendacoes[0]->idanuncio.'- tam: '.$tamanho);
         dd($anuncios);
