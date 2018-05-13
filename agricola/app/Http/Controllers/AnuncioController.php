@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Amizades;
+use App\Recomendacao;
 
 class AnuncioController extends Controller
 {
@@ -81,6 +82,24 @@ class AnuncioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function recomendados(){
+        $recomendacoes = Recomendacao::where('idrecomendado','=',Auth::user()->id)->get();
+        $tamanho = count($recomendacoes);
+        $rep =0;
+        for ($i=$rep;$i<$tamanho;$i++){
+            $anu[$i] = Anuncio::where('anuncios.id','=',$recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id')->get();
+        }
+
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+        //dd($anu[1][0]);
+        dd($anu );
+        return view('anuncios.recomendados',compact('anu','estados','classificacoes','categorias','tamanho'));
+        /*dd($recomendacoes[0]->idanuncio.'- tam: '.$tamanho);
+        dd($anuncios);
+        return('chegou');*/
+    }
     public function create()
     {
         //
@@ -188,14 +207,14 @@ class AnuncioController extends Controller
             $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
                 ->join('users','users.id','amizades.idsolicitante')
                 ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
-                    'amizades.id as idamizade')
+                    'users.id as idamigo')
                 ->where('amizades.situacao','=','ativa')
                 ->get();
 
             $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
                 ->join('users','users.id','amizades.idsolicitado')
                 ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
-                    'amizades.id as idamizade')
+                    'users.id as idamigo')
                 ->where('amizades.situacao','=','ativa')
                 ->get();
 

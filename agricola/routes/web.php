@@ -46,7 +46,9 @@ Route::post('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anunc
 Route::post('/anuncio/filt','AnuncioController@filtra')->name('anuncio.filtraranuncio');
 Route::get('/anuncios/dem','AnuncioController@listarofertas')->name('anuncio.dem');
 Route::get('/anuncios/ofer','AnuncioController@listarofertas')->name('anuncio.ofer');
+Route::get('/anuncios/recomendados','AnuncioController@recomendados')->name('anuncio.recomendados');
 
+Route::post('/recomendacao/{id}','RecomendacaoController@guardar')->name('recomendacao.guardar');
 
 Route::get('/anuncios/listtodos','AnuncioController@todosanuncios')->name('anuncio.listtodos');
 
@@ -87,3 +89,4 @@ Route::get('/solicitacao/excluir/{id}','SolicitacaoController@excluir')->name('s
 
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
 Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
+

@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-light">
+                                        <button type="submit" class="btn btn-secondary">
                                             {{ __('Enviar') }}
                                         </button>
                                     </div>
@@ -93,25 +93,35 @@
 
                             </form>
                             <div class="card-header">Recomendar para um amigo</div>
-                            <div class="form-group row">
-                                <br><br><br>
-                                <label for="recomendar" class="col-md-4 col-form-label text-md-right">{{ __('Amigo') }}</label>
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('recomendacao.guardar', $anu->id) }}">
+                                @csrf
+                                <div class="form-group row">
+                                    <br><br><br>
+                                    <label for="recomendar" class="col-md-4 col-form-label text-md-right">{{ __('Amigo') }}</label>
 
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                    <select name="tipo" id="classificacaoSelect" >
-                                        @foreach($amizades as $ami)
+                                        <select name="recomendado" id="recomendado" >
+                                            @foreach($amizades as $ami)
 
-                                            <option value="{{$ami->id}}"> {{$ami->nome}}</option>
+                                                <option value="{{$ami->idamigo}}"> {{$ami->nome}}</option>
 
-                                        @endforeach
-                                        @foreach($amizades2 as $ami2)
-                                            <option value="{{$ami2->id}}"> {{$ami2->nome}}</option>
+                                            @endforeach
+                                            @foreach($amizades2 as $ami2)
+                                                <option value="{{$ami2->idamigo}}"> {{$ami2->nome}}</option>
 
-                                        @endforeach
-                                    </select>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-secondary">
+                                                {{ __('Enviar') }}
+                                            </button>
+                                    </div>
+
                                 </div>
-                            </div>
+                            </form>
                          <br> 
                         </div>
                     

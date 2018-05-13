@@ -67,6 +67,9 @@
                                     <a class="dropdown-item" href="{{ route('anuncio.listtodos') }}">
                                         {{ __('Exibir todos anúncios') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('anuncio.recomendados') }}">
+                                        {{ __('Recomendados por amigos') }}
+                                    </a>
 
                                 </div>
                             </li>
