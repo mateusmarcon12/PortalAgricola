@@ -50,6 +50,11 @@ class AmizadesController extends Controller
     public function show()
     {
 
+        $solicitacoes = Solicitacao::where('idsolicitado','=',Auth::user()->id)
+            ->where('solicitacaos.situacao','=','pendente')
+            ->join('users','users.id','solicitacaos.idsolicitante')
+            ->select('users.name as name','users.email as email','solicitacaos.id as idsolicitacao')
+            ->get();
 
 
         $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
@@ -67,7 +72,7 @@ class AmizadesController extends Controller
             ->get();
 
         //dd($amizades);
-        return view('amizades.home',compact('amizades','amizades2'));
+        return view('amizades.home',compact('amizades','amizades2','solicitacoes'));
     }
 
     public function excluir($id){
