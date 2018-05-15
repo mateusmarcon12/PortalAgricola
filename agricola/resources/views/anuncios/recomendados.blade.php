@@ -11,11 +11,11 @@
                 <div class="card-header">Anúncios Sugeridos por Amigos</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
 
                 <div class="container">
 
@@ -28,6 +28,7 @@
                                     <th>Anunciante</th>
                                     <th>E-mail</th>
                                     <th>Validade</th>
+                                    <th></th>
                                     <th></th>
 
 
@@ -49,6 +50,7 @@
 
                                             <td>{{date( 'd/m/Y' , strtotime($anu->datavalidade))}}</td>
                                             <td> <a href="{{action('AnuncioController@show',$anu->idanuncio)}}" class="btn btn-primary">Ver Mais</a> </td>
+                                            <td> <a href="{{action('RecomendacaoController@excluir',$anu->idrecomendacao)}}" class="btn btn-primary">Excluir</a> </td>
 
                                             </tr>
 

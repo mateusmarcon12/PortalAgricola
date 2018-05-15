@@ -90,6 +90,12 @@ class RecomendacaoController extends Controller
         //
     }
 
+    public function excluir($id){
+        $recomendacao = Recomendacao::findorfail($id);
+        $recomendacao->delete();
+
+        return redirect()->back()->with('message','Recomendação excluída');
+    }
     /**
      * Remove the specified resource from storage.
      *

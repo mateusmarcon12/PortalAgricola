@@ -90,3 +90,6 @@ Route::get('/solicitacao/excluir/{id}','SolicitacaoController@excluir')->name('s
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
 Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
 
+Route::get('recomendacao/excluir{id}','RecomendacaoController@excluir')->name('recomendacao.excluir');
+
+
