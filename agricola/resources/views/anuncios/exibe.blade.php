@@ -20,6 +20,7 @@
                                 <h5>Detalhes</h5>
                                 <p>
                                     Descrição: {{$anu->descricao}}<br>
+                                    Situacao: {{$anu->situacao}}<br>
                                     Tipo: {{$anu->tipoanuncio}}<br>
                                     Classificação: {{$anu->classificacao}} <br>
                                     Categoria: {{$anu->categoria}}<br>

@@ -162,27 +162,12 @@ class AnuncioController extends Controller
      */
     public function show(Anuncio $anuncio)
     {
-        //
-        //dd($anuncio->id);
+
         $anu = Anuncio::FindorFail($anuncio->id);
         $dir = $anu->id;
-      //  $detanuncio = Anuncio::all()->where('id','=',$anuncio->id)->get();
-      //  dd($detanuncio);
-        /*foreach ($detanuncio as $a){
-            $dir = $a->id;
-        }*/
-      //  dd($detanuncio);
-        //dd($dir)
-      //  $files = Storage::allFiles('public/Anuncios/'.$dir);
+
         $files = Storage::allFiles('Anuncios/'.$dir.'/');
 
-     //   dd($files);
-        
-       // echo ("<img id='myImg'src='Storage::url('app/fotos/imagem3.jpg')");
-      /*  foreach ($detanuncio as $ab){
-            $idanunciante = $ab->idanunciante;
-      
-        }*/
         $idanunciante = $anu->idanunciante;
         $ende = Endereco::where('id','=',$anuncio->idendereco)->join('cidades','cidades.cidade_codigo', '=','enderecos.idcidade')->join('ufs','ufs.uf_codigo', '=','enderecos.iduf')->join('paises','paises.numcode', '=','enderecos.idpais')
         ->select('enderecos.*','cidades.cidade_descricao','ufs.uf_descricao','paises.nome')
@@ -259,9 +244,10 @@ class AnuncioController extends Controller
         $files = Storage::allFiles('Anuncios/'.$anu.'/');
         //Session::flash('flash_message', 'Task successfully added!');
        
-        return view('anuncios.exibe', compact('detanuncio','files'));
+        //return view('anuncios.exibe', compact('detanuncio','files'));
         //return view('anuncios.exibe')->with('anuncio', $anuncio);
        // return $anuncio->id;
+        return redirect()->route('anuncio.show',$anuncioa)->with('message','Anuncio atualizado');
 
     }
 
@@ -279,7 +265,7 @@ class AnuncioController extends Controller
        // dd($staff);
         $staff->situacao = 'inativo';
         $staff->save();
-        $detanuncio = Anuncio::selecionaum($staff)->get();
+        $anu = Anuncio::selecionaum($staff)->get();
         $files = Storage::allFiles('Anuncios/'.$id.'/');
 
             $casa = Casaofertademanda::where('iddemanda',$staff->id)->orWhere('idoferta', $staff->id)->get();
@@ -296,7 +282,8 @@ class AnuncioController extends Controller
 
         //dd($detanuncio);
        // Session::flash('flash_message', 'Anuncio inativado!');
-        return view('anuncios.exibe', compact('detanuncio','files'));
+        //return view('anuncios.exibe', compact('anu','files'));
+       return redirect()->route('anuncio.show',$staff)->with('message','Anuncio Inativado');    
 
     }
     public function destroy(Anuncio $anuncio)
