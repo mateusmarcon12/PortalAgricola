@@ -8,7 +8,7 @@
         <div class="col-md-10">
 
             <div class="card">
-                <div class="card-header">Anúncios Sugerido por amigo</div>
+                <div class="card-header">Anúncios Sugeridos por Amigos</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,15 +19,14 @@
 
                 <div class="container">
 
-                         @isset($anu)
+                     @isset($recomendacoes)
                         <div class="table-responsive">
                             <table class="table table table-hover">
                                 <thead>
                                 <tr>
                                     <th>Título</th>
-                                    <th>Típo</th>
-                                    <th>Descrição</th>
                                     <th>Anunciante</th>
+                                    <th>E-mail</th>
                                     <th>Validade</th>
                                     <th></th>
 
@@ -38,18 +37,18 @@
                                 <tbody>
 
 
-                                @for($i=0;$i<$tamanho;$i++)
+                                @foreach($recomendacoes as $anu)
 
                                             <tr>
 
-                                                <td>{{$anu[1]->titulo}}</td>
-                                                <td>{{$anu[1][0]->titulo}}</td>
-                                                <td>{{$anu[1][0]->titulo}}</td>
-                                                <td>{{$anu[1][0]->titulo}}</td>
+                                                <td>{{$anu->titulo}}</td>
+                                                <td>{{$anu->nome}}</td>
+                                                <td>{{$anu->email}}</td>
+                                               
 
 
-                                            <td>{{date( 'd/m/Y' , strtotime($anu[$i][0]->validade))}}</td>
-                                            <td> <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary">Ver Mais</a> </td>
+                                            <td>{{date( 'd/m/Y' , strtotime($anu->datavalidade))}}</td>
+                                            <td> <a href="{{action('AnuncioController@show',$anu->idanuncio)}}" class="btn btn-primary">Ver Mais</a> </td>
 
                                             </tr>
 
@@ -57,7 +56,7 @@
 
                                     </tr>
 
-                                @endfor
+                                @endforeach
 
 
 

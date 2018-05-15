@@ -83,20 +83,21 @@ class AnuncioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function recomendados(){
-        $recomendacoes = Recomendacao::where('idrecomendado','=',Auth::user()->id)->get();
+        $recomendacoes = Recomendacao::join('anuncios','anuncios.id','=','recomendacaos.idanuncio')->join('users','users.id','=','anuncios.idanunciante')->where('recomendacaos.idrecomendado','=',Auth::user()->id)->where('anuncios.situacao','=','ativo')->select('anuncios.titulo as titulo','users.name as nome','recomendacaos.idanuncio as idanuncio','anuncios.datavalidade as datavalidade','users.email as email')->get();
         $tamanho = count($recomendacoes);
         $rep =0;
+        /*
         for ($i=$rep;$i<$tamanho;$i++){
             $anu[$i] = Anuncio::findorfail($recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id');
             //$anu[$i] = Anuncio::where('anuncios.id','=',$recomendacoes[$i]->idanuncio)->join('users','users.id','anuncios.id')->first();
         }
-
+*/
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
-        //dd($anu[1][0]);
-       // dd($anu );
-        return view('anuncios.recomendados',compact('anu','estados','classificacoes','categorias','tamanho'));
+        //dd($anu[1]->titulo);
+        //dd($recomendacoes);
+        return view('anuncios.recomendados',compact('recomendacoes','estados','classificacoes','categorias','tamanho'));
         /*dd($recomendacoes[0]->idanuncio.'- tam: '.$tamanho);
         dd($anuncios);
         return('chegou');*/
