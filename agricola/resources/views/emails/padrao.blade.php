@@ -7,5 +7,7 @@
 <p>
 {{$mensagem}}
 </p>
-
+<h4>O remetente sugeriu o seguinte anúncio:</h4>
+Título: {{$titulo}} <br>
+Validade: {{$validade}}<br>
 <p>Para responder a mensagem ao usuário envie e-mail para {{$remetente}}</p>

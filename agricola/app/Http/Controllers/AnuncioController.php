@@ -180,6 +180,9 @@ class AnuncioController extends Controller
         }
         else{
             # code...
+
+            $meusanuncios = Anuncio::where('idanunciante','=', Auth::user()->id)->Situacao()->orderby('titulo')->get();
+           
             $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
                 ->join('users','users.id','amizades.idsolicitante')
                 ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
@@ -194,7 +197,7 @@ class AnuncioController extends Controller
                 ->where('amizades.situacao','=','ativa')
                 ->get();
 
-             Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2','categoria','classificacao'));
+             Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2','categoria','classificacao','meusanuncios'));
         }
            //->with('detanuncio', $detanuncio,$dir);
 

@@ -71,6 +71,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="sugerido" class="col-md-4 col-form-label text-md-right">{{ __('Sugira um dos seus anuncios') }}</label>
+
+                                    <div class="col-md-6">
+
+                                        <select name="sugerido" id="sugerido" >
+                                                <option value=""></option>
+                                            @foreach($meusanuncios as $manu)
+
+                                                <option value="{{$manu->id}}"> {{$manu->titulo}}</option>
+
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>     
+                                <div class="form-group row">
                                         <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
                                         <div class="col-md-6">
