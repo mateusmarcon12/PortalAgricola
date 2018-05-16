@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Conversa;
+use App\Mensagens;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
 
 class ConversaController extends Controller
 {
@@ -16,6 +20,12 @@ class ConversaController extends Controller
     public function index()
     {
         //
+        //return "chegou";
+
+        $conversas = Conversa::where('idusuario1','=',Auth::user()->id)->orWhere('idusuario2','=',Auth::user()->id)->get();
+
+        return view('conversas.home',compact('conversas'));
+
     }
 
     /**
@@ -45,9 +55,19 @@ class ConversaController extends Controller
      * @param  \App\Conversa  $conversa
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversa $conversa)
+    public function show($conversa)
     {
         //
+       // dd($conversa);
+        $con = Conversa::Findorfail($conversa);
+       /* dd($con);
+        $usuario1 = User::Findorfail($con->idusuario1)->select('users.name','users.id');
+        $usuario2 = User::Findorfail($con->idusuario2)->select('users.name','users.id')->get();
+        dd($usuario1);*/
+        $mensagens = Mensagens::where('idconversa','=', $conversa)->get();
+       // dd($mensagens);
+
+        return view('conversas.mensagens',compact('mensagens','usuario1','usuario2'));
     }
 
     /**

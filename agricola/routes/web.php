@@ -95,5 +95,7 @@ Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir
 
 Route::get('recomendacao/excluir{id}','RecomendacaoController@excluir')->name('recomendacao.excluir');
 
+Route::get('/Conversas','ConversaController@index')->name('conversa.index');
+Route::get('/Conversas/show/{id}','ConversaController@show')->name('conversa.show');
 
 

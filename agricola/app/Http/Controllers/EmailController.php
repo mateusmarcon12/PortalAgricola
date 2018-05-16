@@ -51,6 +51,12 @@ class EmailController extends Controller
             $conversa1->idusuario1 = Auth::user()->id;
             $conversa1->idusuario2 = $anunciante->id;
             $conversa1->save();
+
+            $mensagem = new Mensagens();
+            $mensagem->idremetente = Auth::user()->id;
+            $mensagem->idconversa = $conversa1->id;
+            $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Estou interessado no seu anúncio: '.$anu->titulo.'. Mensagem: '.$request->mensagem.'. Acho que você pode interessar-se pelo meu anúncio: '.$anunciosugerido->titulo;
+            $mensagem->save();
         }
         if (($conversa > 0)&&($conversa2==0)) {
             # code...

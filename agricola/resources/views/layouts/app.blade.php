@@ -71,6 +71,9 @@
                                         {{ __('Recomendados por amigos') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="{{ route('conversa.index') }}">
+                                        {{ __('Mensagens') }}
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
