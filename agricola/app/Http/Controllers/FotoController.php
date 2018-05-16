@@ -120,6 +120,20 @@ class FotoController extends Controller
         return redirect()->route('anuncio.index')->with('message', 'Product updated successfully!');
     }
 
+    public function excluir($usuario){
+        $dir= $usuario;
+        $files = Storage::allFiles('Usuarios/'.$dir.'/');
+
+        return view('fotos.excluir',compact('files'));
+    }
+
+    public function apagar(Request $file){
+       // dd($file->images);
+        $foto = Storage::delete($file->images);
+
+        return redirect()->back()->with("message","Imagem exluída");
+    }
+
     /**
      * Remove the specified resource from storage.
      *

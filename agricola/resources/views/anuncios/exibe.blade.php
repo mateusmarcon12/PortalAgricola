@@ -22,11 +22,11 @@
                                     Descrição: {{$anu->descricao}}<br>
                                     Situacao: {{$anu->situacao}}<br>
                                     Tipo: {{$anu->tipoanuncio}}<br>
-                                    Classificação: {{$anu->classificacao}} <br>
-                                    Categoria: {{$anu->categoria}}<br>
+                                    Classificação: {{$classificacao->nome}} <br>
+                                    Categoria: {{$categoria->nome}}<br>
                                     Observação: {{$anu->observacao}}<br>
                                     Data de Validade: {{date( 'd/m/Y' , strtotime($anu->datavalidade))}}<br>
-                                    Classificação: {{$anu->classificacao}}<br>
+
                                 </p>
                               <h5 x>Anunciante</h5>
                                 <p>

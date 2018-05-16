@@ -46,19 +46,26 @@
                                 @empty($endereco)
                                     <h6>Endereço <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h6>
                                 @endempty
-                                <h5>Fotos<h5>
-                                @foreach($files as $f)
-                                    
-                                    <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
-                                @endforeach
-<br>
+                                <div style="clear:both" class="card-header">Fotos do Anunciante</div>
+                                <div class="float-none col-md-12">
+                                        <div class="col-md-12 float-none">
+                                            @foreach($files as $f)
+
+                                                <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
+
+                                            @endforeach
+                                        </div>
+                                </div>
+                              <div style="clear: both">
+                                  <br>
+                              <div style="clear:both" class="float-none col-md-12 card-header">Avaliações do Anunciante</div>
+
                                     <br>
-                                    <br>
-                              <div class="card-header">Avaliações do Anunciante</div>
                                     <h5 align="center">Este anunciante é classificado em média como nota: {{$media}}</h5>
                                     <br>
                                     <h5 align="center">Já negociou com este anunciate? Deixe sua avaliação e comentário!</h5>
                                 <br>
+
                               <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
                                         @csrf
 
@@ -123,7 +130,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-
+                            </div>
                 </div>
             </div>
         </div>

@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/agricola/resources/views/fotos/excluir.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/routes/web.php" afterPath="$PROJECT_DIR$/agricola/routes/web.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,36 +40,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Recomendacao.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Recomendacao.php">
+      <file leaf-file-name="exibir.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+            <state vertical-scroll-proportion="-11.615385">
+              <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+              <folding>
+                <element signature="e#2631#2649#0#HTML" expanded="true" />
+                <element signature="e#3227#3245#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FotoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.0">
+              <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecomendacaoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php">
+      <file leaf-file-name="excluir.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/fotos/excluir.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
-              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.30520648">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="15" selection-end-column="30" />
               <folding>
-                <element signature="e#40#61#0#PHP" expanded="true" />
+                <element signature="e#695#713#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
+      <file leaf-file-name="editar.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/editar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="16" column="0" selection-start-line="10" selection-start-column="9" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#40#53#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="24" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,72 +88,18 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.226415">
-              <caret line="50" column="94" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="94" />
+            <state vertical-scroll-proportion="-5.5094337">
+              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recomendados.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29802513">
-              <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exibeoutro.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.307693">
-              <caret line="103" column="65" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.615385">
-              <caret line="69" column="97" selection-start-line="69" selection-start-column="97" selection-end-line="69" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnuncioController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8727274">
-              <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OfertaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/OfertaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5384614">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <element signature="e#40#55#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Anuncio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Anuncio.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="21" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="79" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -145,9 +114,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/home.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/OfertaController.php" />
         <option value="$PROJECT_DIR$/agricola/app/Casaofertademanda.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/casaofertademanda/home.blade.php" />
@@ -157,21 +124,16 @@
         <option value="$PROJECT_DIR$/agricola/app/Endereco.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/enderecos/editar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/EnderecoController.php" />
-        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php" />
         <option value="$PROJECT_DIR$/agricola/.env" />
         <option value="$PROJECT_DIR$/agricola/config/app.php" />
         <option value="$PROJECT_DIR$/agricola/config/filesystems.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/users/editar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/avaliacao.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_11_200227_create_avaliacaos_table.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_121622_add_coluno_avaliacao.php" />
         <option value="$PROJECT_DIR$/agricola/app/User.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Solicitacao.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_130008_create_amizades_table.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_131450_add_fk_solicitacaos.php" />
@@ -186,12 +148,21 @@
         <option value="$PROJECT_DIR$/agricola/resources/views/amizades/home.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Recomendacao.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_13_181119_create_recomendacaos_table.php" />
-        <option value="$PROJECT_DIR$/agricola/routes/web.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php" />
-        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php" />
+        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/routes/web.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/fotos/excluir.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php" />
       </list>
     </option>
   </component>
@@ -235,8 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -384,6 +353,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortalAgricola" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PortalAgricola" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agricola" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fotos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,6 +656,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -671,6 +668,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\PortalAgricola\agricola\resources\views\fotos" />
       <recent name="C:\xampp\htdocs\PortalAgricola\agricola\resources\views\anuncios" />
       <recent name="C:\xampp\htdocs\PortalAgricola\agricola\resources\views\amizades" />
     </key>
@@ -720,7 +718,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33963692" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -814,55 +812,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/agricola/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/config/filesystems.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/EnderecoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="65" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/editar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="195" selection-start-line="47" selection-start-column="195" selection-end-line="47" selection-end-column="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Foto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="73" selection-start-line="78" selection-start-column="73" selection-end-line="78" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/database/migrations/2018_04_13_150137_create_enderecos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4615383">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.8846154">
@@ -888,27 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385">
           <caret line="19" column="35" selection-start-line="18" selection-start-column="12" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.5384617">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1014,18 +942,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,7 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462">
           <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,7 +969,7 @@
         <state vertical-scroll-proportion="-18.307692">
           <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
           <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
+            <element signature="e#40#57#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1060,16 +979,8 @@
         <state vertical-scroll-proportion="-15.038462">
           <caret line="71" column="20" selection-start-line="59" selection-start-column="8" selection-end-line="71" selection-end-column="20" />
           <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
+            <element signature="e#40#57#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692">
-          <caret line="64" column="34" selection-start-line="51" selection-start-column="27" selection-end-line="64" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-65.38461">
           <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,13 +1011,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Recomendacao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
           <folding />
         </state>
@@ -1117,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1125,87 +1033,187 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385">
           <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Anuncio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="21" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/OfertaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5384614">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="16" column="0" selection-start-line="10" selection-start-column="9" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153">
-          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.226415">
-          <caret line="50" column="94" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.307693">
-          <caret line="103" column="65" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8727274">
-          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.615385">
-          <caret line="69" column="97" selection-start-line="69" selection-start-column="97" selection-end-line="69" selection-end-column="97" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29802513">
-          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+        <state vertical-scroll-proportion="-6.9615383">
+          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Anuncio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="44" column="99" selection-start-line="44" selection-start-column="99" selection-end-line="44" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="22" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327616">
+          <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="101" />
+          <folding>
+            <element signature="e#2210#2228#0#HTML" expanded="false" />
+            <element signature="e#2828#2847#0#HTML" expanded="false" />
+            <element signature="e#2923#2941#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7324955">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.7324953">
+          <caret line="247" column="3" selection-start-line="247" selection-start-column="3" selection-end-line="247" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2208259">
+          <caret line="196" column="133" selection-start-line="196" selection-start-column="133" selection-end-line="196" selection-end-column="133" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.18312387">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/OfertaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2208259">
+          <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
+          <folding>
+            <element signature="e#40#55#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="79" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.615385">
+          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+          <folding>
+            <element signature="e#2631#2649#0#HTML" expanded="true" />
+            <element signature="e#3227#3245#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5094337">
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/FotoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="133" column="52" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/editar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="24" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/fotos/excluir.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30520648">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="e#695#713#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

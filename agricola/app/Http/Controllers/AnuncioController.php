@@ -165,7 +165,8 @@ class AnuncioController extends Controller
 
         $anu = Anuncio::FindorFail($anuncio->id);
         $dir = $anu->id;
-
+        $categoria = Categoria::Findorfail($anu->classe);
+        $classificacao = Classificacao::Findorfail($anu->tipo);
         $files = Storage::allFiles('Anuncios/'.$dir.'/');
 
         $idanunciante = $anu->idanunciante;
@@ -175,7 +176,7 @@ class AnuncioController extends Controller
         $user = User::FindorFail($anuncio->idanunciante);
        //dd($ende);
         if($idanunciante == Auth::user()->id){
-           Return view('anuncios.exibe',compact('anu','files','ende','user'));
+           Return view('anuncios.exibe',compact('anu','files','ende','user','categoria','classificacao'));
         }
         else{
             # code...
@@ -193,7 +194,7 @@ class AnuncioController extends Controller
                 ->where('amizades.situacao','=','ativa')
                 ->get();
 
-             Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2'));
+             Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2','categoria','classificacao'));
         }
            //->with('detanuncio', $detanuncio,$dir);
 

@@ -93,7 +93,7 @@ class DemandaController extends Controller
                 ]);
 
                 //$file = $request->file('images');
-                $extension=$file->getClientOriginalExtension();
+                //$extension=$file->getClientOriginalExtension();
                 // image upload in public/upload folder.
                 //$file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
                 $file = $request->file('images')->store('Anuncios/'.$fotoend);

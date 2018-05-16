@@ -48,42 +48,54 @@
                                 @empty($endereco)
                                     <h5>Endereço  <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h5>
                                 @endempty
-                                <h5>Fotos<h5>
+                                <div style="clear:both" class="card-header">Fotos</div>
                                     <div class="col-md-12  justify-content-center "> 
                                 @foreach($files as $f)
                                       
                                             <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
                                     
                                 @endforeach
-                                    </div>        
+                                    </div>
 
 
                         </div>
                         <br>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
-                            @csrf
-                            <div class="row justify-content-center">    
-                            <div class="form-group row">
-                                <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
-
-                                <div class="col-md-5">
-                               <input type="file" name="images" id="file">
-
+                        <div style="clear:both">
+                            <div class="justify-content-center">
+                                <div align="center">
+                                    <a class="btn btn-light" href="{{ route('fotos.excluir',Auth::user()->id) }}">
+                                        {{ __('Excluir Fotos') }}
+                                    </a>
                                 </div>
-                            </div>
+                                <br>
+                            <div>
+                                <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
+                                    @csrf
+                                    <div class="row justify-content-center">
+                                    <div class="form-group row">
+                                        <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
+
+                                        <div class="col-md-5">
+                                       <input type="file" name="images" id="file">
+
+                                        </div>
+                                    </div>
 
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-5 offset-md-4">
-                                    <button type="submit" class="btn btn-light">
-                                        {{ __('Salvar') }}
-                                    </button>
-                                </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-5 offset-md-4">
+                                            <button type="submit" class="btn btn-light">
+                                                {{ __('Salvar') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
                             </div>
-                            </div>
-                        </form>
+
+                        </div>
                  <br>
-                 <h5>Deseja inativar sua conta no portal? <a href="{{route('usuario.inativar', Auth::user()->id)}}" class="btn btn-light">Inativar</a></h5>       
+                 <h5>Deseja inativar sua conta no portal? <a href="{{route('usuario.inativar', Auth::user()->id)}}" class="btn btn-danger">Inativar</a></h5>
                 </div>
             </div>
         </div>

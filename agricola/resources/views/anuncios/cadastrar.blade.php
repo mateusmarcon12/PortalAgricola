@@ -234,7 +234,7 @@
 
 @endsection
 <script>
-
+/*
 function verificarclassificacao() {
     var x = document.getElementById("classificacaoSelect").value;
     alert(x);
@@ -245,5 +245,5 @@ function verificaruf() {
     var x = document.getElementById("ufSelect").value;
     alert(x);
        
-}
+}*/
 </script>

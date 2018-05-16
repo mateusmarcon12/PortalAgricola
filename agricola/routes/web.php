@@ -86,10 +86,13 @@ Route::get('/solicitacao/{id}','SolicitacaoController@store')->name('solicitacao
 Route::get('/solicitacao/aceitar/{id}','SolicitacaoController@aceitar')->name('solicitacao.aceitar');
 Route::get('/solicitacao/excluir/{id}','SolicitacaoController@excluir')->name('solicitacao.excluir');
 
+Route::get('/fotos/excluir/{id}','FotoController@excluir')->name('fotos.excluir');
+Route::post('/fotos/apagar/{id}','FotoController@apagar')->name('fotos.apagar');
 
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
 Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
 
 Route::get('recomendacao/excluir{id}','RecomendacaoController@excluir')->name('recomendacao.excluir');
+
 
 
