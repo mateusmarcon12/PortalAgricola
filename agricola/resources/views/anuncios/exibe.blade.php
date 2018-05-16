@@ -41,20 +41,27 @@
                                 </p>
                                 @endforeach
 
-                                <h5>Fotos</h5>
-
-
-
+                            <div style="clear:both" class="card-header">Fotos</div>
+                            <div class="col-md-12  justify-content-center ">
                                 @foreach($files as $f)
 
-                                    <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
+                                    <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
                                 @endforeach    
 
-                          
+                            </div>
                           
 
                          <br> 
                         </div>
+                        <div style="clear:both">
+                            <div class="justify-content-center">
+                                <div align="center">
+                                    <a class="btn btn-light" href="{{ route('fotos.excluiranuncio', $anu->id) }}">
+                                        {{ __('Excluir Fotos') }}
+                                    </a>
+                                </div>
+                                <br>
+                                <div>
                         <form method="POST" enctype="multipart/form-data" action="{{ route('foto.storeanuncio', $anu) }}">
                             @csrf
                             <div class="row justify-content-center">
@@ -77,7 +84,7 @@
                             </div>
                         </div>
                         </form>
-
+                        </div>
                         
                     
 

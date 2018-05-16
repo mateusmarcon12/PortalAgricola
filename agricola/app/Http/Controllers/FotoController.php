@@ -127,6 +127,14 @@ class FotoController extends Controller
         return view('fotos.excluir',compact('files'));
     }
 
+    public function excluiranuncio($anuncio){
+        $dir= $anuncio;
+        $files = Storage::allFiles('Anuncios/'.$dir.'/');
+
+        return view('fotos.excluir',compact('files'));
+
+    }
+
     public function apagar(Request $file){
        // dd($file->images);
         $foto = Storage::delete($file->images);
