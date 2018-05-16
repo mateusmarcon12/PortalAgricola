@@ -15,7 +15,13 @@ class CreateConversasTable extends Migration
     {
         Schema::create('conversas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idusuario1')->unsigned();
+            $table->integer('idusuario2')->unsigned();
             $table->timestamps();
+        });
+        Schema::table('conversas', function($table) {
+            $table->foreign('idusuario1')->references('id')->on('users');
+            $table->foreign('idusuario2')->references('id')->on('users');
         });
     }
 

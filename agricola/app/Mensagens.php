@@ -8,6 +8,6 @@ class Mensagens extends Model
 {
     //
         protected $fillable = [
-        'idconversa','idremetente',
+        'idconversa','idremetente','mensagens',
     ];
 }

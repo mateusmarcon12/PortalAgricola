@@ -353,6 +353,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Controllers\\AvaliacaoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AvaliacaoController.php',
         'App\\Http\\Controllers\\CasaofertademandaController' => __DIR__ . '/../..' . '/app/Http/Controllers/CasaofertademandaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ConversaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConversaController.php',
         'App\\Http\\Controllers\\DemandaController' => __DIR__ . '/../..' . '/app/Http/Controllers/DemandaController.php',
         'App\\Http\\Controllers\\EmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmailController.php',
         'App\\Http\\Controllers\\EnderecoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EnderecoController.php',

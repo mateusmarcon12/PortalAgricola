@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\AvaliacaoController' => $baseDir . '/app/Http/Controllers/AvaliacaoController.php',
     'App\\Http\\Controllers\\CasaofertademandaController' => $baseDir . '/app/Http/Controllers/CasaofertademandaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\ConversaController' => $baseDir . '/app/Http/Controllers/ConversaController.php',
     'App\\Http\\Controllers\\DemandaController' => $baseDir . '/app/Http/Controllers/DemandaController.php',
     'App\\Http\\Controllers\\EmailController' => $baseDir . '/app/Http/Controllers/EmailController.php',
     'App\\Http\\Controllers\\EnderecoController' => $baseDir . '/app/Http/Controllers/EnderecoController.php',
