@@ -31,7 +31,7 @@ class EmailController extends Controller
         $anunciante = User::Findorfail($anu->idanunciante);
        // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
         $dados = [$request->assunto,$request->mensagem,$anunciante->email];
-        $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $anunciante->email,'remetente'=>Auth::user()->email);
+        $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $request->assunto,'remetente'=>Auth::user()->email);
 
         Mail::send('emails.padrao',$data,function($message) use ($data){
             $message->to($data['destinatario']);
