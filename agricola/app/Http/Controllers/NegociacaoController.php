@@ -19,11 +19,11 @@ class NegociacaoController extends Controller
     public function index()
     {
         //
-        $negociacaos1 = Negociacao::join('anuncios','anuncios.id','=','negociacaos.idanuncio1')->where('anuncios.idanunciante','=',Auth::user()->id)->select('negociacaos.id as idnegociacao')->get();
+        $negociacaos1 = Negociacao::join('anuncios','anuncios.id','=','negociacaos.idanuncio1')->where('anuncios.idanunciante','=',Auth::user()->id)->select('negociacaos.id as idnegociacao','anuncios.titulo','negociacaos.situacao as situacao','negociacaos.resultado as resultado')->get();
         //dd($negociacaos1);
 
-        $negociacaos2 = Negociacao::join('anuncios','anuncios.id','=','negociacaos.idanuncio2')->where('anuncios.idanunciante','=',Auth::user()->id)->select('negociacaos.id as idnegociacao')->get();
-       //dd($negociacaos2);
+        $negociacaos2 = Negociacao::join('anuncios','anuncios.id','=','negociacaos.idanuncio2')->where('anuncios.idanunciante','=',Auth::user()->id)->select('negociacaos.id as idnegociacao','anuncios.titulo','negociacaos.situacao as situacao','negociacaos.resultado as resultado')->get();
+     //  dd($negociacaos2);
 
         return view('negociacoes.home',compact('negociacaos2','negociacaos1'));
     }

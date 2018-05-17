@@ -20,7 +20,8 @@
                             <thead>
                             <tr>
                                 <th>Negociação</th>
-                                <th></th>
+                                <th>Titulo</th>
+                                <th>Situação</th>
                                 <th></th>
 
 
@@ -34,9 +35,8 @@
                                 <tr>
                                     
                                     <td>{{$ticket->idnegociacao}}</td>
-                                    
-                                    <td></td>
-                                    
+                                    <td>{{$ticket->titulo}}</td>
+                                    <td>{{$ticket->situacao}}</td>
                                      <td> <a href="{{action('NegociacaoController@show',$ticket->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
                                 <tr>
