@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Anuncio;
+use App\Mensagens;
 
 class NegociacaoController extends Controller
 {
@@ -60,8 +61,9 @@ class NegociacaoController extends Controller
         $neg = Negociacao::Findorfail($negociacao);
         $anuncio1 = Anuncio::Findorfail($neg->idanuncio1);
         $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
-
-        return view('negociacoes.negociacao', compact('anuncio1','anuncio2','neg'));
+        $mensagem = Mensagens::where('idconversa','=',$neg->id)->join('users','users.id','=','mensagens.idremetente')->get();
+        //dd($mensagens);
+        return view('negociacoes.negociacao', compact('anuncio1','anuncio2','neg','mensagem'));
     }
 
     /**

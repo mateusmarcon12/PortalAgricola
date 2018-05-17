@@ -28,7 +28,28 @@
                                 Descrição:{{$anuncio2->descricao}} <td> <a href="{{action('AnuncioController@show',$anuncio2->id)}}" class="btn btn-secondary">Ver Mais</a>
                             </div>
                             @endisset
-                            
+                            <br>
+                        </div>
+                        <div class="card-header">Mensagens</div>
+                        <br>
+                        <div>
+                        @isset($mensagem)
+                            <div class="col-md-12 justify-content-center">
+                                @foreach($mensagem as $c)
+                                    <div style="clear: both">
+                                        @if($c->idremetente == Auth::user()->id)
+                                            <div class="col-md-6 float-right" align="justify">
+                                                Mensagem de: {{ $c->name }}
+                                        @else
+                                           <div class="col-md-6 float-left" align="justify">
+                                               Mensagem de:
+                                        @endif
+                                               <p>{{$c->mensagem}}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endisset
                         </div>
 
 
