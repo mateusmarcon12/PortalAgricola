@@ -44,9 +44,15 @@ class NegociacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $negociacao)
     {
         //
+        $mensagem = new Mensagens();
+        $mensagem->idconversa = $negociacao;
+        $mensagem->idremetente = Auth::user()->id;
+        $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Mensagem: '.$request->mensagem;
+            $mensagem->save();
+        return redirect()->back()->with('message','Mensagem enviada!');
     }
 
     /**

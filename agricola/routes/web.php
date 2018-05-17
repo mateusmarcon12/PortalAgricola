@@ -101,4 +101,5 @@ Route::get('/Conversas/show/{id}','ConversaController@show')->name('conversa.sho
 Route::get('/negociacaos','NegociacaoController@index')->name('negociacao.index');
 Route::get('/negociacaos/{id}','NegociacaoController@show')->name('negociacao.show');
 
+Route::post('/negociacaos/mensagem/{id}','NegociacaoController@store')->name('negociacao.store');
 

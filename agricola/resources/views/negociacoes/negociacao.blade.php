@@ -8,24 +8,24 @@
                 <div class="card-header">Negociação {{$neg->id}}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
 
                         <div>
                             @isset($anuncio1)
                             <div>
-                                Anuncio:{{$anuncio1->titulo}}<br>
-                                Descrição:{{$anuncio1->descricao}} <td> <a href="{{action('AnuncioController@show',$anuncio1->id)}}" class="btn btn-secondary">Ver Mais</a>
+                                <b>Anuncio:</b> {{$anuncio1->titulo}}<br>
+                                <b>Descrição:</b> {{$anuncio1->descricao}} <td> <a href="{{action('AnuncioController@show',$anuncio1->id)}}" class="btn btn-secondary">Ver Mais</a>
                             </div>
                             @endisset
                             <br>
                             @isset($anuncio2)
                             <div>
-                                Anuncio:{{$anuncio2->titulo}}<br>
-                                Descrição:{{$anuncio2->descricao}} <td> <a href="{{action('AnuncioController@show',$anuncio2->id)}}" class="btn btn-secondary">Ver Mais</a>
+                                <b>Anuncio:</b> {{$anuncio2->titulo}}<br>
+                                <b>Descrição:</b> {{$anuncio2->descricao}} <td> <a href="{{action('AnuncioController@show',$anuncio2->id)}}" class="btn btn-secondary">Ver Mais</a>
                             </div>
                             @endisset
                             <br>
@@ -39,10 +39,11 @@
                                     <div style="clear: both">
                                         @if($c->idremetente == Auth::user()->id)
                                             <div class="col-md-6 float-right" align="justify">
-                                                Mensagem de: {{ $c->name }}
+                                               <i> Mensagem de: {{ $c->name }}</i>
                                         @else
                                            <div class="col-md-6 float-left" align="justify">
-                                               Mensagem de:
+                                               <i> Mensagem de: {{ $c->name }}</i>
+
                                         @endif
                                                <p>{{$c->mensagem}}</p>
                                         </div>
@@ -51,7 +52,47 @@
                             </div>
                         @endisset
                         </div>
+                        <div style="clear:both;">
+                            <br>
+                        <div class="card-header">Adicionar mensagem</div>
+                        <br>
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('negociacao.store', $neg->id) }}">
+                            @csrf
+                              
+                                <div class="form-group row">
+                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Assunto') }}</label>
 
+                                    <div class="col-md-6">
+                                        <input id="assunto" type="text" class="form-control{{ $errors->has('assunto') ? ' is-invalid' : '' }}" name="assunto" value="{{ old('assunto') }}" required autofocus>
+
+                                        @if ($errors->has('assunto'))
+                                            <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('assunto') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                </div>    
+                                <div class="form-group row">
+                                        <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
+
+                                        <div class="col-md-6">
+                                            <textarea id="mensagem"  class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
+
+                                            @if ($errors->has('mensagem'))
+                                                <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('mensagem') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-secondary">
+                                            {{ __('Enviar') }}
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
 
                 </div>
             </div>
