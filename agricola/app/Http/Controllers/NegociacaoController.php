@@ -97,6 +97,7 @@ class NegociacaoController extends Controller
 
     public function finalizar(Request $request, $negociacao){
        // dd($request->nota);
+        
         $neg = Negociacao::Findorfail($negociacao);
         $neg->resultado = $request->nota;
         $neg->situacao = 'inativa';
