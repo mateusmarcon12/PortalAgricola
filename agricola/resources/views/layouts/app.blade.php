@@ -48,6 +48,21 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Amigos<span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('usuario.todos',Auth::user()->id) }}">
+                                        {{ __('Todos anunciantes') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('amizades.show',Auth::user()->id) }}">
+                                        {{ __('Meus Amigos') }}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    Anúncios <span class="caret"></span>
                                 </a>
 
@@ -92,12 +107,7 @@
                                     <a class="dropdown-item" href="{{ route('user.show', Auth::user()->id) }}">
                                         {{ __('Perfil') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('usuario.todos',Auth::user()->id) }}">
-                                        {{ __('Todos anunciantes') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('amizades.show',Auth::user()->id) }}">
-                                        {{ __('Meus Amigos') }}
-                                    </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
