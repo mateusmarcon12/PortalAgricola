@@ -161,7 +161,7 @@ class CasaofertademandaController extends Controller
         ->join('users as ofertante', 'ofertante.id', '=','casaofertademandas.idofertante')
         ->join('users as demandador', 'demandador.id', '=','casaofertademandas.iddemandador')
         ->select('ofertas.titulo as titulooferta','ofertas.descricao as ofertadescricao','ofertas.datavalidade as validadeoferta',
-            'demandas.titulo as titulodemanda', 'demandas.descricao as descdemanda','demandas.datavalidade as validadeoferta',
+            'demandas.titulo as titulodemanda', 'demandas.descricao as descdemanda','demandas.datavalidade as validadedemanda',
             'demandas.tipoanuncio as demandatipo','ofertas.tipoanuncio as ofertatipo',
             'casaofertademandas.graucompatibilidade',
             'demandador.id as demandadorid', 'ofertante.id as idof',
