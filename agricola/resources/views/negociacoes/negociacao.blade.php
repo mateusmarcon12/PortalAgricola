@@ -95,6 +95,7 @@
                                         </button>
                                     </div>
                                 </div>
+                            </form>
                         </div>
                         <div class="card-header">Finalizar negociação</div>
                         <br>
@@ -118,6 +119,7 @@
                                     </div>
                                 </div>
                                 <i>Marcando a opção sucesso, os anuncios serão inativados. Marcando a opção insucesso os anúncios serão reativados e exibidos para os demais usuários</i>
+                            </form>
                         </div>
 
                 </div>
