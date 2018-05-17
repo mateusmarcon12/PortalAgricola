@@ -95,6 +95,37 @@ class NegociacaoController extends Controller
         //
     }
 
+    public function finalizar(Request $request, $negociacao){
+       // dd($request->nota);
+        $neg = Negociacao::Findorfail($negociacao);
+        $neg->resultado = $request->nota;
+        $neg->situacao = 'inativa';
+        $neg->save();
+        if ($request->nota == 'sucesso'){
+            $anuncio1 = Anuncio::Findorfail($neg->idanuncio1);
+            $anuncio1->situacao = 'inativo';
+            $anuncio1->save();
+            if($neg->idanuncio2 != null){
+                $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
+                $anuncio2->situacao = 'inativo';
+                $anuncio2->save();
+            }
+        }
+        else{
+            $anuncio1 = Anuncio::Findorfail($neg->idanuncio1);
+            $anuncio1->situacao = 'ativo';
+            $anuncio1->save();
+            if($neg->idanuncio2 != null){
+                $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
+                $anuncio2->situacao = 'ativo';
+                $anuncio2->save();
+            }
+        }
+
+        return redirect()->route('negociacao.index');
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

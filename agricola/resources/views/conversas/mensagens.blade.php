@@ -8,11 +8,11 @@
                 <div class="card-header">Sua Conversa</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if(session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
 
                         @isset($mensagens)
                         <div class="col-md-12 justify-content-center">

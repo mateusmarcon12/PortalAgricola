@@ -54,6 +54,31 @@
                         </div>
                         <div style="clear:both;">
                             <br>
+                        <div class="card-header">Finalizar negociação</div>
+                        <br>
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('negociacao.finalizar', $neg->id) }}">
+                            @csrf
+                              
+                                <div class="form-group row">
+                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Resultado da negociação:') }}</label>
+
+                                    <div class="col-md-6">
+                                                <label class="btn btn-secondary active"> Sucesso <input type="radio" name="nota" value="sucesso"></label>
+                                                    <label class="btn btn-secondary active"> Insucesso<input type="radio" name="nota" value="insucesso"></label>
+                                                
+                                    </div>
+                                </div>   
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-secondary">
+                                            {{ __('Salvar') }}
+                                        </button>
+                                    </div>
+                                </div>
+                                <i>Marcando a opção sucesso, os anuncios serão inativados. Marcando a opção insucesso os anúncios serão reativados e exibidos para os demais usuários</i>
+                        </div>
+                        <div style="clear:both;">
+                            <br>
                         <div class="card-header">Adicionar mensagem</div>
                         <br>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('negociacao.store', $neg->id) }}">
