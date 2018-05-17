@@ -67,7 +67,7 @@ class NegociacaoController extends Controller
         $neg = Negociacao::Findorfail($negociacao);
         $anuncio1 = Anuncio::Findorfail($neg->idanuncio1);
         $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
-        $mensagem = Mensagens::where('idconversa','=',$neg->id)->join('users','users.id','=','mensagens.idremetente')->get();
+        $mensagem = Mensagens::where('idconversa','=',$neg->id)->join('users','users.id','=','mensagens.idremetente')->orderby('mensagens.created_at')->get();
         //dd($mensagens);
         return view('negociacoes.negociacao', compact('anuncio1','anuncio2','neg','mensagem'));
     }
