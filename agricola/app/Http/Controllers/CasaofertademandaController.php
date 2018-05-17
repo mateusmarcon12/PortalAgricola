@@ -28,7 +28,7 @@ class CasaofertademandaController extends Controller
         $ofer = Anuncio::Anunciante()->Situacao()->Tipooferta()->get();
         $deman = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
-
+        
 
         $i=0;
 

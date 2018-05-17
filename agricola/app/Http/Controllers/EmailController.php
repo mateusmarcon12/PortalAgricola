@@ -27,65 +27,125 @@ class EmailController extends Controller
     }
 
     public function enviar(Request $request, $anuncio){
-        
-        $anunciosugerido = Anuncio::Findorfail($request->sugerido);
-        //dd($anunciosugerido);
-
-        $anu= Anuncio::Findorfail($anuncio);
-        $anunciante = User::Findorfail($anu->idanunciante);
-       // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
-        $dados = [$request->assunto,$request->mensagem,$anunciante->email];
-        $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $request->assunto,'remetente'=>Auth::user()->email, 'titulo'=> $anunciosugerido->titulo,'validade'=> $anunciosugerido->datavalidade);
-
-        Mail::send('emails.padrao',$data,function($message) use ($data){
-            $message->to($data['destinatario']);
-            $message->from($data['remetente']);
-            $message->subject($data['assunto']);
-        });
-
-        $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->Situacao()->count();
-        $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->Situacao()->count();
-        if($anu1>0){
-             $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->first();
-             $idnegociacao = $anu1->id;       
-        }
-        if($anu2>0){
-             $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->first();
-             $idnegociacao = $anu2->id;
-        }
-
-        if(($anu1==0)&&($anu2==0)){    
-            //cria negociação
-            $negociacao = New Negociacao();
-            $negociacao->idanuncio1 = $anuncio;
-            if($request->sugerido != null){
-                $negociacao->idanuncio2 = $request->sugerido;
-            } 
-            $negociacao->situacao = 'ativa';
-            $negociacao->save();
-            $idnegociacao = $negociacao->id;
-        }
-
-        //Cria mensagem
-
-        $mensagem = new Mensagens();
-            $mensagem->idremetente = Auth::user()->id;
-            $mensagem->idconversa = $idnegociacao;
-            $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Estou interessado no seu anúncio: '.$anu->titulo.'. Mensagem: '.$request->mensagem.'. Acho que você pode interessar-se pelo meu anúncio: '.$anunciosugerido->titulo;
-            $mensagem->save();
-
-        //dd($mensagem);
-
-        $anuncio1 = Anuncio::Findorfail($anuncio);
-        $anuncio1->situacao = "negociacao";
-        $anuncio1->save();
-
-        //dd($anuncio1);
         if($request->sugerido != null){
-            $anuncio2 = Anuncio::Findorfail($request->sugerido);
-            $anuncio2->situacao = "negociacao";
-            $anuncio2->save();
-        }    
+            $anunciosugerido = Anuncio::Findorfail($request->sugerido);
+            $anu= Anuncio::Findorfail($anuncio);
+            $anunciante = User::Findorfail($anu->idanunciante);
+           // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
+            $dados = [$request->assunto,$request->mensagem,$anunciante->email];
+            $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $request->assunto,'remetente'=>Auth::user()->email, 'titulo'=> $anunciosugerido->titulo,'validade'=> $anunciosugerido->datavalidade);
+
+            Mail::send('emails.padrao',$data,function($message) use ($data){
+                $message->to($data['destinatario']);
+                $message->from($data['remetente']);
+                $message->subject($data['assunto']);
+            });
+
+            $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->Situacao()->count();
+            $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->Situacao()->count();
+            if($anu1>0){
+                 $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->first();
+                 $idnegociacao = $anu1->id;       
+            }
+            elseif($anu2>0){
+                 $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->first();
+                 $idnegociacao = $anu2->id;
+            }
+
+            elseif(($anu1==0)&&($anu2==0)){    
+                //cria negociação
+                $negociacao = New Negociacao();
+                $negociacao->idanuncio1 = $anuncio;
+                if($request->sugerido != null){
+                    $negociacao->idanuncio2 = $request->sugerido;
+                } 
+                $negociacao->situacao = 'ativa';
+                $negociacao->save();
+                $idnegociacao = $negociacao->id;
+            }
+
+            //Cria mensagem
+
+            $mensagem = new Mensagens();
+                $mensagem->idremetente = Auth::user()->id;
+                $mensagem->idconversa = $idnegociacao;
+                $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Estou interessado no seu anúncio: '.$anu->titulo.'. Mensagem: '.$request->mensagem.'. Acho que você pode interessar-se pelo meu anúncio: '.$anunciosugerido->titulo;
+                $mensagem->save();
+
+            //dd($mensagem);
+
+            $anuncio1 = Anuncio::Findorfail($anuncio);
+            $anuncio1->situacao = "negociacao";
+            $anuncio1->save();
+
+            //dd($anuncio1);
+            if($request->sugerido != null){
+                $anuncio2 = Anuncio::Findorfail($request->sugerido);
+                $anuncio2->situacao = "negociacao";
+                $anuncio2->save();
+            }    
+        }
+        else
+        {
+            $anunciosugerido=null;
+            $anu= Anuncio::Findorfail($anuncio);
+            $anunciante = User::Findorfail($anu->idanunciante);
+           // dd($request->assunto.'-'.$request->mensagem.' email:'.$anu->titulo.' Anunciante:'.$anunciante->name);
+            $dados = [$request->assunto,$request->mensagem,$anunciante->email];
+            $data = array('destinatario'=>$anunciante->email,'mensagem'=>$request->mensagem, 'assunto'=> $request->assunto,'remetente'=>Auth::user()->email, 'titulo'=> $anunciosugerido,'validade'=> $anunciosugerido);
+
+            Mail::send('emails.padrao',$data,function($message) use ($data){
+                $message->to($data['destinatario']);
+                $message->from($data['remetente']);
+                $message->subject($data['assunto']);
+            });
+
+            $anu1 = Negociacao::where('idanuncio2','=',$anuncio)->Situacao()->count();
+            $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->Situacao()->count();
+            if($anu1>0){
+                 $anu1 = Negociacao::where('idanuncio2','=',$anuncio)->first();
+                 $idnegociacao = $anu1->id;       
+            }
+            elseif($anu2>0){
+                 $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->first();
+                 $idnegociacao = $anu2->id;
+            }
+
+            elseif(($anu1==0)&&($anu2==0)){    
+                //cria negociação
+                $negociacao = New Negociacao();
+                $negociacao->idanuncio1 = $anuncio;
+                if($request->sugerido != null){
+                    $negociacao->idanuncio2 = $request->sugerido;
+                } 
+                $negociacao->situacao = 'ativa';
+                $negociacao->save();
+                $idnegociacao = $negociacao->id;
+            }
+
+            //Cria mensagem
+
+            $mensagem = new Mensagens();
+                $mensagem->idremetente = Auth::user()->id;
+                $mensagem->idconversa = $idnegociacao;
+                $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Estou interessado no seu anúncio: '.$anu->titulo.'. Mensagem: '.$request->mensagem;
+                $mensagem->save();
+
+            //dd($mensagem);
+
+            $anuncio1 = Anuncio::Findorfail($anuncio);
+            $anuncio1->situacao = "negociacao";
+            $anuncio1->save();
+
+            //dd($anuncio1);
+            if($request->sugerido != null){
+                $anuncio2 = Anuncio::Findorfail($request->sugerido);
+                $anuncio2->situacao = "negociacao";
+                $anuncio2->save();
+            }    
+        }
+
+        
         /*   
         $conversa = Conversa::where('idusuario1','=',Auth::user()->id)->where('idusuario2','=',$anunciante->id)->count();
 

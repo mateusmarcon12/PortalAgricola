@@ -109,8 +109,13 @@ class UserController extends Controller
             $ava++;
         }
         //dd($media);
+        if($media>0){
         $media=$media/$ava;
         $media = number_format($media, 2, '.', ',');
+        }
+        else{
+            $media = 'ainda não possui avaliação';
+        }
         return view('users.exibiroutro',compact('user','endereco','files','avaliacao','media'));
     }
 

@@ -53,7 +53,7 @@
 
                           
                             <br>
-                            <div class="card-header">Enviar E-mail</div>
+                            <div class="card-header">Abrir negociação e enviar e-mail</div>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
                             @csrf
                               
@@ -76,7 +76,7 @@
                                     <div class="col-md-6">
 
                                         <select name="sugerido" id="sugerido" >
-                                                <option value=""></option>
+                                                <option value="">nenhum</option>
                                             @foreach($meusanuncios as $manu)
 
                                                 <option value="{{$manu->id}}"> {{$manu->titulo}}</option>

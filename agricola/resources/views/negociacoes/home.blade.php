@@ -50,9 +50,9 @@
                                 <tr>
                                     
                                     <td>{{$ticket2->idnegociacao}}</td>
-                                    
-                                    <td></td>
-                                    
+                                    <td>{{$ticket->titulo}}</td>
+                                    <td>{{$ticket->situacao}}</td>
+
                                      <td> <a href="{{action('NegociacaoController@show',$ticket2->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
                                 <tr>

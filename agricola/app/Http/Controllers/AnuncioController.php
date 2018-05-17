@@ -45,7 +45,7 @@ class AnuncioController extends Controller
     //exibir todos os anúncios ativos de outros usuários
     public function todosanuncios(){
 
-        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id', 'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as validade')->get();
+        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id', 'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as datavalidade')->get();
          $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
@@ -113,7 +113,7 @@ class AnuncioController extends Controller
         $tipo = $request->tipo;
 
 
-        $query = Anuncio::Situacao()->join('enderecos','enderecos.id','=','Anuncios.idendereco');
+        $query = Anuncio::join('enderecos','enderecos.id','=','Anuncios.idendereco')->leftjoin('users','users.id','=','anuncios.idanunciante')->select('anuncios.*','enderecos.iduf','users.name as name')->where('anuncios.situacao','=','ativo');
 
         if($titulo)
             $query->where('titulo', 'LIKE', '%' . $titulo . '%');
