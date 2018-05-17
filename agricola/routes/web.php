@@ -98,4 +98,7 @@ Route::get('recomendacao/excluir{id}','RecomendacaoController@excluir')->name('r
 Route::get('/Conversas','ConversaController@index')->name('conversa.index');
 Route::get('/Conversas/show/{id}','ConversaController@show')->name('conversa.show');
 
+Route::get('/negociacaos','NegociacaoController@index')->name('negociacao.index');
+Route::get('/negociacaos/{id}','NegociacaoController@show')->name('negociacao.show');
+
 

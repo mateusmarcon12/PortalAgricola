@@ -54,6 +54,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Mail\\mailEnviar' => $baseDir . '/app/Mail/mailEnviar.php',
     'App\\Mensagens' => $baseDir . '/app/Mensagens.php',
+    'App\\Negociacao' => $baseDir . '/app/Negociacao.php',
     'App\\Notifications\\AdminResetPassword' => $baseDir . '/app/Notifications/AdminResetPassword.php',
     'App\\Oferta' => $baseDir . '/app/Oferta.php',
     'App\\Pais' => $baseDir . '/app/Pais.php',

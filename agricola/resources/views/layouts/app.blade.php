@@ -71,8 +71,8 @@
                                         {{ __('Recomendados por amigos') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('conversa.index') }}">
-                                        {{ __('Mensagens') }}
+                                    <a class="dropdown-item" href="{{ route('negociacao.index') }}">
+                                        {{ __('Minhas Negociações') }}
                                     </a>
                                 </div>
                             </li>

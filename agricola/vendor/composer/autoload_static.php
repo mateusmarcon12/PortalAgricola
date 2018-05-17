@@ -375,6 +375,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\mailEnviar' => __DIR__ . '/../..' . '/app/Mail/mailEnviar.php',
         'App\\Mensagens' => __DIR__ . '/../..' . '/app/Mensagens.php',
+        'App\\Negociacao' => __DIR__ . '/../..' . '/app/Negociacao.php',
         'App\\Notifications\\AdminResetPassword' => __DIR__ . '/../..' . '/app/Notifications/AdminResetPassword.php',
         'App\\Oferta' => __DIR__ . '/../..' . '/app/Oferta.php',
         'App\\Pais' => __DIR__ . '/../..' . '/app/Pais.php',

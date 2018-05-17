@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 Use App\Conversa;
 Use App\Mensagens;
+Use App\Negociacao;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
@@ -42,7 +43,50 @@ class EmailController extends Controller
             $message->subject($data['assunto']);
         });
 
-        //Mail::to($anunciante->email)->send(new mailEnviar())->subject('teste');
+        $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->Situacao()->count();
+        $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->Situacao()->count();
+        if($anu1>0){
+             $anu1 = Negociacao::where('idanuncio1','=',$request->sugerido)->where('idanuncio2','=',$anuncio)->first();
+             $idnegociacao = $anu1->id;       
+        }
+        if($anu2>0){
+             $anu2 = Negociacao::where('idanuncio1','=',$anuncio)->where('idanuncio2','=',$request->sugerido)->first();
+             $idnegociacao = $anu2->id;
+        }
+
+        if(($anu1==0)&&($anu2==0)){    
+            //cria negociação
+            $negociacao = New Negociacao();
+            $negociacao->idanuncio1 = $anuncio;
+            if($request->sugerido != null){
+                $negociacao->idanuncio2 = $request->sugerido;
+            } 
+            $negociacao->situacao = 'ativa';
+            $negociacao->save();
+            $idnegociacao = $negociacao->id;
+        }
+
+        //Cria mensagem
+
+        $mensagem = new Mensagens();
+            $mensagem->idremetente = Auth::user()->id;
+            $mensagem->idconversa = $idnegociacao;
+            $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Estou interessado no seu anúncio: '.$anu->titulo.'. Mensagem: '.$request->mensagem.'. Acho que você pode interessar-se pelo meu anúncio: '.$anunciosugerido->titulo;
+            $mensagem->save();
+
+        //dd($mensagem);
+
+        $anuncio1 = Anuncio::Findorfail($anuncio);
+        $anuncio1->situacao = "negociacao";
+        $anuncio1->save();
+
+        //dd($anuncio1);
+        if($request->sugerido != null){
+            $anuncio2 = Anuncio::Findorfail($request->sugerido);
+            $anuncio2->situacao = "negociacao";
+            $anuncio2->save();
+        }    
+        /*   
         $conversa = Conversa::where('idusuario1','=',Auth::user()->id)->where('idusuario2','=',$anunciante->id)->count();
 
         $conversa2 = Conversa::where('idusuario1','=',$anunciante->id)->where('idusuario2','=',Auth::user()->id)->count();
@@ -79,8 +123,8 @@ class EmailController extends Controller
             $mensagem->save();
             
         }
-        
-        return redirect()->back()->with('message','E-mail enviado ao Anunciante');
+        */
+        return redirect()->back()->with('message','E-mail enviado ao anunciante e aberta negociação. A partir de agora os anuncios não estão mais visiveis aos demais usuários');
     }
 
 
