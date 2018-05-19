@@ -1,0 +1,11 @@
+BEGIN
+    SELECT MAX(id) INTO @i FROM anuncios;
+    SET @t=0;
+    WHILE @t<=@i DO
+        SELECT DATEDIFF(datavalidade,CURRENT_DATE) INTO @TEMPO FROM anuncios WHERE id=@t;
+        IF @tempo<0 THEN
+            UPDATE anuncios SET situacao = 'inativo' WHERE id = @t;
+        END IF;
+        SET @t=@t+1;
+    END WHILE;
+END

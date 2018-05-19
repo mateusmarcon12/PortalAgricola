@@ -24,9 +24,33 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        /*$schedule->command('inspire')
+            ->hourly();*/
+/*
+        $schedule->call(function () {
+            $posts = DB::table('negociacaos')->where('id','1')
+                ->update(['situacao' => 'ativa']);
+*/
+            /*foreach($posts as $post)
+            {
+                DB::table('negociacaos')
+                    ->where('situacao','inativa')
+                    ->update(['situacao' => 'ativa']);
+            }
+        })->everyMinute();*/
+
+     //   $schedule->command('statistics:user')->everyThirtyMinutes();
+
+/*
+        $schedule->command('send:welcome')
+            ->everyMinute()->when(function(){
+                return !is_null($this->users);
+
+            });
+*/
+
     }
+
 
     /**
      * Register the commands for the application.
@@ -39,4 +63,5 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
 }

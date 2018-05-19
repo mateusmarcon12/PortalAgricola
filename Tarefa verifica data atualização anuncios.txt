@@ -1,0 +1,57 @@
+BEGIN
+	
+	SET @i=0;
+	SELECT MAX(id) INTO @quann FROM negociacaos;
+    WHILE @i<=@quann DO
+    	SELECT situacao INTO @situacao FROM negociacaos WHERE id=@i;
+        IF @situacao='ativa' THEN
+            SELECT DATEDIFF(CURRENT_DATE, updated_at) INTO @dias FROM negociacaos WHERE id=@i;
+            IF @dias > 30 THEN
+            	SET @ultimaatualizacao = @dias;
+		SELECT MAX(id) INTO @quanmen FROM mensagens;
+                SET @t=0;
+                SET @diasmm = 0;
+                WHILE @t<=@quanmen DO
+                    SELECT DATEDIFF(CURRENT_DATE, updated_at) INTO @diasm FROM mensagens WHERE id=@t;
+                    SELECT idconversa INTO @conversa FROM mensagens WHERE id=@t;
+                    IF @conversa = @i THEN
+                        IF @diasm>30 THEN
+                            IF @diasm>@diasmm THEN
+                            	
+                                SET @diasmm = @diasm;
+                            END IF;    
+                        END IF;
+                    END IF;    
+                    SET @t=@t+1;
+                END WHILE;
+                IF @diasmm>30 THEN
+
+                    IF @diasmm>@ultimaatualizacao THEN
+                        SET @ultimaatualizacao = @diasmm;
+                    END IF;
+                    IF @ultimaatualizacao<60 THEN
+                    
+                    	SELECT idanuncio1 INTO @idanuncio1 FROM negociacaos WHERE id = @i;
+                        
+                        SELECT idanunciante INTO @idanunciante1 FROM anuncios WHERE id=@idanuncio1;
+                        
+                        SELECT nota INTO @nota1 FROM avalicaointernas WHERE idusuario= @idanunciante1;
+                        SET @nota1 = @nota1-1;
+                       UPDATE avalicaointernas SET nota = @nota1 WHERE idusuario = @idanunciante1; 
+
+
+                    	SELECT idanuncio2 INTO @idanuncio2 FROM negociacaos WHERE id = @i;
+                        
+                        SELECT idanunciante INTO @idanunciante2 FROM anuncios WHERE id=@idanuncio2;
+                        
+                        SELECT nota INTO @nota2 FROM avalicaointernas WHERE idusuario= @idanunciante2;
+                        SET @nota2 = @nota2-1;
+                       UPDATE avalicaointernas SET nota = @nota2 WHERE idusuario = @idanunciante2;
+                    END IF;
+                END IF;
+            END IF;
+		END IF;
+        SET @i = @i+1;
+    END WHILE;
+	
+END

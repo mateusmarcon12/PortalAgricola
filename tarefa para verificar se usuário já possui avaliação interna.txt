@@ -1,0 +1,17 @@
+BEGIN
+
+   SET @i=0;
+   
+   SELECT COUNT(*) INTO @quant FROM users;
+   WHILE @i <= @quant DO
+      SELECT COUNT(*) INTO @ava FROM avalicaointernas WHERE idusuario = @i;
+      IF @ava=0 THEN
+      	SELECT COUNT(*) INTO @quanti FROM users WHERE id=@i;
+        IF @quanti>0 THEN
+      		INSERT INTO avalicaointernas (idusuario,nota) VALUES (@i,100);
+        END IF;
+      END IF;
+      SET @i = @i + 1;
+   END WHILE;
+
+END
