@@ -20,8 +20,9 @@
                             <thead>
                             <tr>
                                 <th>Negociação</th>
-                                <th>Titulo</th>
+                                <th>Negociante</th>
                                 <th>Situação</th>
+                                <th>Resolução</th>
                                 <th></th>
 
 
@@ -34,10 +35,11 @@
 
                                 <tr>
                                     
-                                    <td>{{$ticket->idnegociacao}}</td>
-                                    <td>{{$ticket->titulo}}</td>
+                                    <td>{{$ticket->id}}</td>
+                                    <td></td>
                                     <td>{{$ticket->situacao}}</td>
-                                     <td> <a href="{{action('NegociacaoController@show',$ticket->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
+                                    <td>{{$ticket->resultado}}</td>
+                                     <td> <a href="{{action('NegociacaoController@show',$ticket->id)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
                                 <tr>
 
@@ -49,11 +51,11 @@
 
                                 <tr>
                                     
-                                    <td>{{$ticket2->idnegociacao}}</td>
-                                    <td>{{$ticket2->titulo}}</td>
-                                    <td>{{$ticket2->situacao}}</td>
-
-                                     <td> <a href="{{action('NegociacaoController@show',$ticket2->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
+                                    <td>{{$ticket->id}}</td>
+                                    <td></td>
+                                    <td>{{$ticket->situacao}}</td>
+                                    <td>{{$ticket->resultado}}</td>
+                                     <td> <a href="{{action('NegociacaoController@show',$ticket2->id)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
                                 <tr>
 

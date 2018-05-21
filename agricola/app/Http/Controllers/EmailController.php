@@ -59,6 +59,8 @@ class EmailController extends Controller
                 if($request->sugerido != null){
                     $negociacao->idanuncio2 = $request->sugerido;
                 } 
+                $negociacao->idusuario1 = $anu->idanunciante; 
+                $negociacao->idusuario2 = Auth::user()->id;
                 $negociacao->situacao = 'ativa';
                 $negociacao->save();
                 $idnegociacao = $negociacao->id;
@@ -115,9 +117,11 @@ class EmailController extends Controller
                 //cria negociação
                 $negociacao = New Negociacao();
                 $negociacao->idanuncio1 = $anuncio;
+                $negociacao->idusuario1 = $anu->idanunciante;
                 if($request->sugerido != null){
                     $negociacao->idanuncio2 = $request->sugerido;
                 } 
+                $negociacao->idusuario2 = Auth::user()->id;
                 $negociacao->situacao = 'ativa';
                 $negociacao->save();
                 $idnegociacao = $negociacao->id;
