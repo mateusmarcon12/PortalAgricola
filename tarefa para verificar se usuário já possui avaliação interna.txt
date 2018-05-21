@@ -4,7 +4,7 @@ BEGIN
    
    SELECT COUNT(*) INTO @quant FROM users;
    WHILE @i <= @quant DO
-      SELECT COUNT(*) INTO @ava FROM avalicaointernas WHERE idusuario = @i;
+      SELECT MAX(id) INTO @ava FROM avalicaointernas WHERE idusuario = @i;
       IF @ava=0 THEN
       	SELECT COUNT(*) INTO @quanti FROM users WHERE id=@i;
         IF @quanti>0 THEN

@@ -53,91 +53,99 @@
 
                           
                             <br>
-                            <div class="card-header">Abrir negociação e enviar e-mail</div>
-                            <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
-                            @csrf
-                              
-                                <div class="form-group row">
-                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Assunto') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="assunto" type="text" class="form-control{{ $errors->has('assunto') ? ' is-invalid' : '' }}" name="assunto" value="{{ old('assunto') }}" required autofocus>
-
-                                        @if ($errors->has('assunto'))
-                                            <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('assunto') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="sugerido" class="col-md-4 col-form-label text-md-right">{{ __('Sugira um dos seus anuncios') }}</label>
-
-                                    <div class="col-md-6">
-
-                                        <select name="sugerido" id="sugerido" >
-                                                <option value="">nenhum</option>
-                                            @foreach($meusanuncios as $manu)
-
-                                                <option value="{{$manu->id}}"> {{$manu->titulo}}</option>
-
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>     
-                                <div class="form-group row">
-                                        <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
+                            @if($anu->situacao == 'ativo')
+                                <div class="card-header">Abrir negociação e enviar e-mail</div>
+                                <br>
+                                <p align="center">Responda este anúncio para iniciar uma negociação, e notificar o anunciante por e-mail.</p>
+                                <br>
+                                <form method="POST" enctype="multipart/form-data" action="{{ route('email.enviar', $anu->id) }}">
+                                @csrf
+                                  
+                                    <div class="form-group row">
+                                        <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Assunto') }}</label>
 
                                         <div class="col-md-6">
-                                            <textarea id="mensagem"  class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
+                                            <input id="assunto" type="text" class="form-control{{ $errors->has('assunto') ? ' is-invalid' : '' }}" name="assunto" value="{{ old('assunto') }}" required autofocus>
 
-                                            @if ($errors->has('mensagem'))
+                                            @if ($errors->has('assunto'))
                                                 <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('mensagem') }}</strong>
+                                                <strong>{{ $errors->first('assunto') }}</strong>
                                             </span>
                                             @endif
                                         </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-secondary">
-                                            {{ __('Enviar') }}
-                                        </button>
                                     </div>
-                                </div>
+                                    <div class="form-group row">
+                                        <label for="sugerido" class="col-md-4 col-form-label text-md-right">{{ __('Vincule um dos seus anuncios a negociação') }}</label>
 
-                            </form>
-                            <div class="card-header">Recomendar para um amigo</div>
-                            <form method="POST" enctype="multipart/form-data" action="{{ route('recomendacao.guardar', $anu->id) }}">
-                                @csrf
-                                <div class="form-group row">
-                                    <br><br><br>
-                                    <label for="recomendar" class="col-md-4 col-form-label text-md-right">{{ __('Amigo') }}</label>
+                                        <div class="col-md-6">
 
-                                    <div class="col-md-6">
+                                            <select name="sugerido" id="sugerido" >
+                                                    <option value="">nenhum</option>
+                                                @foreach($meusanuncios as $manu)
 
-                                        <select name="recomendado" id="recomendado" >
-                                            @foreach($amizades as $ami)
+                                                    <option value="{{$manu->id}}"> {{$manu->titulo}}</option>
 
-                                                <option value="{{$ami->idamigo}}"> {{$ami->nome}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>     
+                                    <div class="form-group row">
+                                            <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
-                                            @endforeach
-                                            @foreach($amizades2 as $ami2)
-                                                <option value="{{$ami2->idamigo}}"> {{$ami2->nome}}</option>
+                                            <div class="col-md-6">
+                                                <textarea id="mensagem"  class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
 
-                                            @endforeach
-                                        </select>
+                                                @if ($errors->has('mensagem'))
+                                                    <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('mensagem') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
                                     </div>
-
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="form-group row">
+                                        <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-secondary">
                                                 {{ __('Enviar') }}
                                             </button>
+                                        </div>
                                     </div>
 
-                                </div>
-                            </form>
-                         <br> 
+                                </form>
+                                <div class="card-header">Recomendar para um amigo</div>
+                                <form method="POST" enctype="multipart/form-data" action="{{ route('recomendacao.guardar', $anu->id) }}">
+                                    @csrf
+                                    <p align="center">Recomende este anúncio para um de seus amigos que possa interessar-se!</p>
+                                    <div class="form-group row">
+                                        <br><br><br>
+                                        <label for="recomendar" class="col-md-4 col-form-label text-md-right">{{ __('Amigo') }}</label>
+
+                                        <div class="col-md-6">
+
+                                            <select name="recomendado" id="recomendado" >
+                                                @foreach($amizades as $ami)
+
+                                                    <option value="{{$ami->idamigo}}"> {{$ami->nome}}</option>
+
+                                                @endforeach
+                                                @foreach($amizades2 as $ami2)
+                                                    <option value="{{$ami2->idamigo}}"> {{$ami2->nome}}</option>
+
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-secondary">
+                                                    {{ __('Enviar') }}
+                                                </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                         <br>
+                            @else
+                                <h4 align="center">Este anúncio está em negociação!</h4>
+                            @endif 
                         </div>
                     
                     

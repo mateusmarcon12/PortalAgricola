@@ -193,6 +193,7 @@ class AnuncioController extends Controller
                 ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
                     'users.id as idamigo')
                 ->where('amizades.situacao','=','ativa')
+                ->where('users.id','!=',$idanunciante)
                 ->get();
 
             $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
@@ -200,6 +201,7 @@ class AnuncioController extends Controller
                 ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
                     'users.id as idamigo')
                 ->where('amizades.situacao','=','ativa')
+                ->where('users.id','!=',$idanunciante)
                 ->get();
 
              Return view('anuncios.exibeoutro',compact('anu','files','ende','user','amizades','amizades2','categoria','classificacao','meusanuncios'));
