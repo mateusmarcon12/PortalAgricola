@@ -119,7 +119,7 @@ class AnuncioController extends Controller
             $query->where('titulo', 'LIKE', '%' . $titulo . '%');
 
         if($classificacao)
-            $query->where('tipo', '=', $classificacao);
+            $query->where('anuncios.tipo', '=', $classificacao);
 
         if($categoria)
             $query->where('classe', '=', $categoria);
