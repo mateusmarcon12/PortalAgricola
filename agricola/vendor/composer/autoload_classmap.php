@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\AvaliacaoController' => $baseDir . '/app/Http/Controllers/AvaliacaoController.php',
+    'App\\Http\\Controllers\\AvalicaointernaController' => $baseDir . '/app/Http/Controllers/AvalicaointernaController.php',
     'App\\Http\\Controllers\\CasaofertademandaController' => $baseDir . '/app/Http/Controllers/CasaofertademandaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ConversaController' => $baseDir . '/app/Http/Controllers/ConversaController.php',

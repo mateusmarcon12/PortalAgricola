@@ -352,6 +352,7 @@ class ComposerStaticInitaf59c5540de414ebb241b19ccebc8819
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\AvaliacaoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AvaliacaoController.php',
+        'App\\Http\\Controllers\\AvalicaointernaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AvalicaointernaController.php',
         'App\\Http\\Controllers\\CasaofertademandaController' => __DIR__ . '/../..' . '/app/Http/Controllers/CasaofertademandaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ConversaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConversaController.php',
