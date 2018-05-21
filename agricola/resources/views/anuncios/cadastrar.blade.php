@@ -55,9 +55,10 @@
                                 <div class="col-md-6">
 
                                      <select name="tipo" id="classificacaoSelect" onchange="verificarclassificacao()" >
+                                        <option value=""></option>
                                     @foreach($classificacoes as $class)
                                 
-                                            <option value="{{$class->id}}"> {{$class->nome}}</option>
+                                        <option value="{{$class->id}}"> {{$class->nome}}</option>
 
                                     @endforeach
                                     </select>
@@ -67,10 +68,15 @@
                                 <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
                                 <br>
                                 <div class="col-md-6">
-                                    @foreach($categorias as $cat)
+
+                                    <select name="categoria" id="categoria">
+
+                                    </select>    
+                                    <!-- @foreach($categorias as $cat)
 
                                         <input type="radio" name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
-                                    @endforeach
+
+                                    @endforeach -->
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -145,6 +151,7 @@
 
                                 <div class="col-md-6">
                                     <select name="estado" id="ufSelect" onchange="verificaruf()">
+                                            <option value="">
                                         @foreach($estados as $rows)
                                             <option value="{{$rows->uf_codigo}}">{{$rows->uf_descricao}} </option>
                                         @endforeach
@@ -156,10 +163,10 @@
                                 <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('CEP - Cidade') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="cidade">
-                                        @foreach($result as $row)
+                                    <select name="cidade" id="cidade">
+                                        <!--@foreach($result as $row)
                                             <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
-                                        @endforeach
+                                        @endforeach-->
                                     </select>
                                 </div>
                             </div>
@@ -234,16 +241,31 @@
 
 @endsection
 <script>
-/*
-function verificarclassificacao() {
+function verificarclassificacao(){
     var x = document.getElementById("classificacaoSelect").value;
-    alert(x);
-    //document.getElementById("demo").innerHTML = "You selected: " + x;
+    var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
+    $("#categoria").empty();
+    for (var i = 0; i < ar.length; i++) {
+    
+        if(x==ar[i].idclassificacao){
+            $('#categoria').append('<option name="categoria" value="' + ar[i].id + '">' + ar[i].nome + '</option>');
+        
+        }
+
+    }
 }
 
-function verificaruf() {
+function verificaruf(){
     var x = document.getElementById("ufSelect").value;
-    alert(x);
-       
-}*/
+    var cidades = <?php echo json_encode($result,JSON_PRETTY_PRINT) ?>;
+    $("#cidade").empty();
+    for (var i = 0; i < cidades.length; i++) {
+
+        if(x==cidades[i].uf_codigo){
+           $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+           console.log(cidades[i]); 
+        }
+
+    }
+}
 </script>

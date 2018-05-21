@@ -1,3 +1,7 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,7 +20,9 @@
                         @endif
                         @isset($usuarios)
                         <div class="table-responsive">
-                            <table class="table table table-hover">
+                            <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+
+                            <table id="example" class="table table-hover tablesorter">
                                 <thead>
                                 <tr>
                                     <th>Anunciante</th>
@@ -26,7 +32,7 @@
 
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
 
 
                                 @foreach($usuarios as $ticket)
@@ -58,3 +64,19 @@
         </div>
     </div>
 @endsection
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+
+</script>
