@@ -163,7 +163,7 @@
                                 <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="estado">
+                                    <select name="estado" id="ufSelect" onchange="verificaruf()">
 
                                         @foreach($estados as $rows)
                                             @if($rows->uf_codigo == $endereco->iduf)
@@ -180,14 +180,14 @@
                                 <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('CEP - Cidade') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="cidade">
-                                        @foreach($result as $row)
+                                    <select name="cidade" id="cidade">
+                                        <!--@foreach($result as $row)
                                             @if($row->cidade_codigo==$endereco->idcidade)
                                                 <option value="{{$row->cidade_codigo}}" selected>{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
                                             @else
                                                 <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
                                             @endif
-                                        @endforeach
+                                        @endforeach -->
                                     </select>
                                 </div>
                             </div>
@@ -263,15 +263,14 @@
 @endsection
 
 <script>
-    window.onload = function(){
+   window.onload = function(){
         var x = document.getElementById("classificacaoSelect").value;
         var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
-        
+        $("#categoria").empty();
         for (var i = 0; i < ar.length; i++) {
-        
             if(x==ar[i].idclassificacao){
-                $('#categoria').append('<option value="' + ar[i].id + '">' + ar[i].nome + '</option>');
-            
+            $('#categoria').append('<option name="categoria" value="' + ar[i].id + '">' + ar[i].nome + '</option>');
+        
             }
 
         }
@@ -281,13 +280,16 @@
         var x = document.getElementById("classificacaoSelect").value;
         var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
         $("#categoria").empty();
+        //$("#cidade").empty();
         for (var i = 0; i < ar.length; i++) {
         
             if(x==ar[i].idclassificacao){
+                
                 $('#categoria').append('<option value="' + ar[i].id + '">' + ar[i].nome + '</option>');
             
             }
 
         }
     }
+
 </script>
