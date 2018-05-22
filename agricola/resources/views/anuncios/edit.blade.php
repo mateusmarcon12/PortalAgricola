@@ -274,6 +274,30 @@
             }
 
         }
+
+        $()
+        var uf = document.getElementById("ufSelect").value;
+        var cidades = <?php echo json_encode($result,JSON_PRETTY_PRINT) ?>;
+        var endereco = <?php echo json_encode($endereco,JSON_PRETTY_PRINT) ?>;
+        
+        $("#cidade").empty();
+        for (var i = 0; i < cidades.length; i++) {
+            
+            if(uf==cidades[i].uf_codigo){
+            
+                
+                if(endereco.idcidade == cidades[i].cidade_codigo){
+                    $('#cidade').append('<option selected name="cidade" value="' + cidades[i].cidade_codigo + '">' +  cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+
+                }
+                else{
+                    $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' +  cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+                }
+
+               //console.log(cidades[i]); 
+            }   
+        }
+
     }
 
     function verificarclassificacao(){
@@ -287,6 +311,20 @@
                 
                 $('#categoria').append('<option value="' + ar[i].id + '">' + ar[i].nome + '</option>');
             
+            }
+
+        }
+    }
+
+    function verificaruf(){
+        var x = document.getElementById("ufSelect").value;
+        var cidades = <?php echo json_encode($result,JSON_PRETTY_PRINT) ?>;
+        $("#cidade").empty();
+        for (var i = 0; i < cidades.length; i++) {
+
+            if(x==cidades[i].uf_codigo){
+               $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+               
             }
 
         }
