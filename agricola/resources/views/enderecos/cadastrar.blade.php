@@ -24,7 +24,7 @@
                                 <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="estado">
+                                    <select id="ufSelect" onchange="verificaruf()" name="estado">
 
                                         @foreach($estados as $rows)
                                            
@@ -39,12 +39,8 @@
                                 <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('CEP - Cidade') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="cidade">
-                                        @foreach($cidades as $row)
-                                           
-                                                <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
-                                           
-                                        @endforeach
+                                    <select id="cidade" name="cidade">
+
                                     </select>
                                 </div>
                             </div>
@@ -117,4 +113,18 @@
 </div>
 
 @endsection
+<script>
+    function verificaruf(){
+        var x = document.getElementById("ufSelect").value;
+        var cidades = <?php echo json_encode($cidades,JSON_PRETTY_PRINT) ?>;
+        $("#cidade").empty();
+        for (var i = 0; i < cidades.length; i++) {
 
+            if(x==cidades[i].uf_codigo){
+                $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+                console.log(cidades[i]);
+            }
+
+        }
+    }
+</script>

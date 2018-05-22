@@ -166,7 +166,7 @@
                                     <select name="cidade" id="cidade">
                                         <!--@foreach($result as $row)
                                             <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
-                                        @endforeach-->
+                                        @endforeach -->
                                     </select>
                                 </div>
                             </div>

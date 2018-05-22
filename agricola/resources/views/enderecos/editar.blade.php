@@ -25,7 +25,7 @@
                                 <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="estado">
+                                    <select id="ufSelect" onchange="verificaruf()" name="estado">
 
                                         @foreach($estados as $rows)
                                             @if($rows->uf_codigo == $end->iduf)
@@ -42,14 +42,8 @@
                                 <label for="cidade" class="col-md-4 col-form-label text-md-right">{{ __('CEP - Cidade') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="cidade">
-                                        @foreach($cidades as $row)
-                                            @if($row->cidade_codigo==$end->idcidade)
-                                                <option value="{{$row->cidade_codigo}}" selected>{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
-                                            @else
-                                                <option value="{{$row->cidade_codigo}}">{{$row->cidade_cep}} - {{$row->cidade_descricao}} </option>
-                                            @endif
-                                        @endforeach
+                                    <select id="cidade" name="cidade">
+
                                     </select>
                                 </div>
                             </div>
@@ -122,4 +116,48 @@
 </div>
 
 @endsection
+<script>
 
+    window.onload = function(){
+
+        var uf = document.getElementById("ufSelect").value;
+        var cidades = <?php echo json_encode($cidades,JSON_PRETTY_PRINT) ?>;
+        var endereco = <?php echo json_encode($end,JSON_PRETTY_PRINT) ?>;
+
+        $("#cidade").empty();
+        for (var i = 0; i < cidades.length; i++) {
+
+            if(uf==cidades[i].uf_codigo){
+
+
+                if(endereco.idcidade == cidades[i].cidade_codigo){
+                    $('#cidade').append('<option selected name="cidade" value="' + cidades[i].cidade_codigo + '">' +  cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+
+                }
+                else{
+                    $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' +  cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+                }
+
+                //console.log(cidades[i]);
+            }
+        }
+
+    }
+
+
+
+
+    function verificaruf(){
+        var x = document.getElementById("ufSelect").value;
+        var cidades = <?php echo json_encode($cidades,JSON_PRETTY_PRINT) ?>;
+        $("#cidade").empty();
+        for (var i = 0; i < cidades.length; i++) {
+
+            if(x==cidades[i].uf_codigo){
+                $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
+
+            }
+
+        }
+    }
+</script>

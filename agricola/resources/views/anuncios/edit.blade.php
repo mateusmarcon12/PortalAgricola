@@ -275,7 +275,7 @@
 
         }
 
-        $()
+
         var uf = document.getElementById("ufSelect").value;
         var cidades = <?php echo json_encode($result,JSON_PRETTY_PRINT) ?>;
         var endereco = <?php echo json_encode($endereco,JSON_PRETTY_PRINT) ?>;
@@ -324,7 +324,7 @@
 
             if(x==cidades[i].uf_codigo){
                $('#cidade').append('<option name="cidade" value="' + cidades[i].cidade_codigo + '">' + cidades[i].cidade_descricao +' CEP: '+ cidades[i].cidade_cep+ '</option>');
-               
+
             }
 
         }
