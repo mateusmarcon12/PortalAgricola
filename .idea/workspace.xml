@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/enderecos/cadastrar.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/enderecos/cadastrar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/enderecos/editar.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/enderecos/editar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/negociacoes/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/negociacoes/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/negociacoes/negociacao.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/negociacoes/negociacao.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/users/todos.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/users/todos.blade.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,8 +67,8 @@
       <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3967684">
-              <caret line="16" column="95" selection-start-line="16" selection-start-column="95" selection-end-line="16" selection-end-column="95" />
+            <state vertical-scroll-proportion="0.21364452">
+              <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -1179,8 +1172,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3967684">
-          <caret line="16" column="95" selection-start-line="16" selection-start-column="95" selection-end-line="16" selection-end-column="95" />
+        <state vertical-scroll-proportion="0.21364452">
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
           <folding />
         </state>
       </provider>
