@@ -7,11 +7,13 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
+                    <div class="card-header">Editar Endereço  </div>
                   @foreach($ende as $end)
 
                         <form method="POST" enctype="multipart/form-data" action="{{route('end.update',$end->id)}}">
                             @csrf
-                            <h6>Endereço</h6>
+
+
                             <div class="form-group row">
                                 <label for="pais" class="col-md-4 col-form-label text-md-right">{{ __('Pais') }}</label>
 
@@ -108,6 +110,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div align="center" class="align-content-center">
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
+                        </div>
                     @endforeach    
                 </div>            
             </div>                

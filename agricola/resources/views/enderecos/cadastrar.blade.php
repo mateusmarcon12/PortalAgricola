@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Cadastrar Endereço</div>
+                <div class="card-header">Cadastrar Endereço </div>
                 <div class="card-body">
                         <form method="post" enctype="multipart/form-data" action="{{route('endereco.store')}}">
                             @csrf

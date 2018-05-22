@@ -1,5 +1,4 @@
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
 @extends('layouts.app')
@@ -22,10 +21,10 @@
                         <div class="table-responsive">
                             <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
 
-                            <table id="example" class="table table-hover tablesorter">
+                            <table id="example" class="table table-hover sortable">
                                 <thead>
                                 <tr>
-                                    <th>Anunciante</th>
+                                    <th data-firstsort="cresc">Anunciante</th>
                                     <th>E-mail</th>
                                     <th></th>
                                     <th></th>
@@ -73,10 +72,4 @@ $(document).ready(function(){
     });
   });
 });
-
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-
-
 </script>

@@ -19,7 +19,7 @@
                         @isset($anu)
                         <div class="table-responsive">
                         <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
-                        <table id="example" class="table table table-hover">
+                        <table id="example" class="table sortable table-hover">
 
                             <thead>
                             <tr>
