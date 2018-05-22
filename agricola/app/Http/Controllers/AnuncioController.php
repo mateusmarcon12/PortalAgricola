@@ -250,7 +250,7 @@ class AnuncioController extends Controller
         $input = $request->all();
 
         $anuncioa->fill($input)->save();
-        dd($anuncioa);
+        //dd($anuncioa);
         $detanuncio = Anuncio::selecionaum($request)->get();
 
         $files = Storage::allFiles('Anuncios/'.$anu.'/');

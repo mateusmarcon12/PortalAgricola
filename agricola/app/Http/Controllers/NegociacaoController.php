@@ -51,7 +51,7 @@ class NegociacaoController extends Controller
         $mensagem = new Mensagens();
         $mensagem->idconversa = $negociacao;
         $mensagem->idremetente = Auth::user()->id;
-        $mensagem->mensagem = 'Assunto: '.$request->assunto.'. Mensagem: '.$request->mensagem;
+        $mensagem->mensagem = 'Mensagem: '.$request->mensagem;
             $mensagem->save();
         return redirect()->back()->with('message','Mensagem enviada!');
     }

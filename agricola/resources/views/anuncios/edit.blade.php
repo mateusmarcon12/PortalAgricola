@@ -54,22 +54,7 @@
                                 </div>
                             </div>
 
-<!--
-                            <div class="form-group row">
-                                <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
-<br>
-                                <div class="col-md-6">
 
-                                @foreach($classificacoes as $class)
-                                        @if($class->id == $detanuncio->tipo)
-                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}" checked> {{$class->nome}}<br>
-                                        @else
-                                        <input type="radio" name="tipo"onchange="verificarEmpresa()" value="{{$class->id}}"> {{$class->nome}}<br>
-                                        @endif
-                                @endforeach
-                                </div>
-                            </div>
--->
                             <div class="form-group row">
                                 <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
 <br>
@@ -104,21 +89,6 @@
                                 </div>
                             </div>
 
-                  <!--          <div class="form-group row">
-                                <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
-                                <br>
-                                <div class="col-md-6">
-
-                                    @foreach($categorias as $cat)
-
-                                        @if($cat->id == $detanuncio->classe)
-                                            <input type="radio" name="categoria" value="{{$cat->id}}" checked> {{$cat->nome}}<br>
-                                        @else
-                                            <input type="radio" name="categoria" value="{{$cat->id}}"> {{$cat->nome}}<br>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>-->
                             <div class="form-group row">
                                 <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
 

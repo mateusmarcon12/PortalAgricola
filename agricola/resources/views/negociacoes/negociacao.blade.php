@@ -57,24 +57,12 @@
                         
                         <div style="clear:both;">
                             <br>
+                        @if($neg->situacao == 'ativa')
                         <div class="card-header">Adicionar mensagem</div>
                         <br>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('negociacao.store', $neg->id) }}">
                             @csrf
-                              
-                                <div class="form-group row">
-                                    <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Assunto') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="assunto" type="text" class="form-control{{ $errors->has('assunto') ? ' is-invalid' : '' }}" name="assunto" value="{{ old('assunto') }}" required autofocus>
-
-                                        @if ($errors->has('assunto'))
-                                            <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('assunto') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>    
+                                
                                 <div class="form-group row">
                                         <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
@@ -97,6 +85,8 @@
                                 </div>
                             </form>
                         </div>
+
+                        
                         <div class="card-header">Finalizar negociação</div>
                         <br>
                             <form method="POST" enctype="multipart/form-data" action="{{ route('negociacao.finalizar', $neg->id) }}">
@@ -120,6 +110,17 @@
                                 </div>
                                 <i>Marcando a opção sucesso, os anuncios serão inativados. Marcando a opção insucesso os anúncios serão reativados e exibidos para os demais usuários</i>
                             </form>
+                        @else
+                            <h3 align="center">Negociação Finalizada</h3>
+                            <h4 align="center">
+                                Resolução:
+                                @if($neg->resultado == 'sucesso')
+                                    Sucesso
+                                @else
+                                    Insucesso
+                                @endif
+                            </h4>
+                        @endif    
                         </div>
 
                 </div>
