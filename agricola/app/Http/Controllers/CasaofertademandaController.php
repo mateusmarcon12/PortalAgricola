@@ -39,19 +39,19 @@ class CasaofertademandaController extends Controller
                 $verifica = 0;
                 $verifica2=0;
                 if ($ofertas->titulo == $demandas->titulo) {
-                    $grau = $grau + 5;
+                    $grau = $grau + 2;
                 }
               echo "<script>console.log( $grau.$ofertas->id);</script>";
 
 
                 if ($ofertas->categoria == $demandas->categoria) {
-                    $grau = $grau +2;
+                    $grau = $grau +3;
                     echo "<script>console.log( $grau.$ofertas->id);</script>";
                 }
 
 
                 if ($ofertas->tipo == $demandas->tipo) {
-                    $grau = $grau + 3;
+                    $grau = $grau + 5;
                     echo "<script>console.log( $grau.$ofertas->id);</script>";
                 }
 
@@ -102,13 +102,13 @@ class CasaofertademandaController extends Controller
             foreach ($demandasoutros as $do){
                 $g=0;
                 if($md->titulo == $do->titulo){
-                    $g = 5;
+                    $g = 2;
                 }
                 if($md->tipo == $do->tipo ){
-                    $g=$g+3;
+                    $g=$g+5;
                 }
                 if($md->categoria == $do->categoria){
-                    $g=$g+2;
+                    $g=$g+3;
                 }
 
                 if($g>0) {
