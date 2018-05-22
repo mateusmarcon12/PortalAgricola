@@ -9,7 +9,9 @@
 <p>
 {{$mensagem}}
 </p>
+@isset($titulo)
 <h4>O remetente sugeriu o seguinte anúncio:</h4>
 Título: {{$titulo}} <br>
 Validade: {{$validade}}<br>
+@endisset
 <p>Para responder a mensagem ao usuário envie e-mail para {{$remetente}}</p>

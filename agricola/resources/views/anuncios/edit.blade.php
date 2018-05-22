@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-
+<!--
                             <div class="form-group row">
                                 <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
 <br>
@@ -69,7 +69,42 @@
                                 @endforeach
                                 </div>
                             </div>
+-->
                             <div class="form-group row">
+                                <label for="classificacao" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
+<br>
+                                <div class="col-md-6">
+
+                                     <select name="tipo" id="classificacaoSelect" onchange="verificarclassificacao()" >
+                                       
+                                    @foreach($classificacoes as $class)
+                                        @if($detanuncio->tipo == $class->id)
+                                            <option value="{{$class->id}}" selected=""> {{$class->nome}}</option>
+                                        @else
+                                            <option value="{{$class->id}}"> {{$class->nome}}</option>
+                                        @endif
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
+<br>
+                                <div class="col-md-6">
+
+                                    <select name="classe" id="categoria">
+                                       
+                                        @foreach($categorias as $cat)
+                                            @if($cat->id == $detanuncio->classe)
+                                                <option value="{{$cat->id}}" selected=>{{$cat->nome}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                  <!--          <div class="form-group row">
                                 <label for="categoria" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
                                 <br>
                                 <div class="col-md-6">
@@ -83,7 +118,7 @@
                                         @endif
                                     @endforeach
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group row">
                                 <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
 
@@ -256,3 +291,33 @@
     </div>
 
 @endsection
+
+<script>
+    window.onload = function(){
+        var x = document.getElementById("classificacaoSelect").value;
+        var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
+        
+        for (var i = 0; i < ar.length; i++) {
+        
+            if(x==ar[i].idclassificacao){
+                $('#categoria').append('<option value="' + ar[i].id + '">' + ar[i].nome + '</option>');
+            
+            }
+
+        }
+    }
+
+    function verificarclassificacao(){
+        var x = document.getElementById("classificacaoSelect").value;
+        var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
+        $("#categoria").empty();
+        for (var i = 0; i < ar.length; i++) {
+        
+            if(x==ar[i].idclassificacao){
+                $('#categoria').append('<option value="' + ar[i].id + '">' + ar[i].nome + '</option>');
+            
+            }
+
+        }
+    }
+</script>

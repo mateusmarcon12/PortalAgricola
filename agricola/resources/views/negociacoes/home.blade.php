@@ -1,3 +1,6 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,7 +19,8 @@
 
                         
                         <div class="table-responsive">
-                        <table class="table table table-hover">
+                        <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        <table id="example" class="table table-hover">
                             <thead>
                             <tr>
                                 <th>Negociação</th>
@@ -28,22 +32,28 @@
 
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="myTable">
 
                             @isset($negociacaos1)
                             @foreach($negociacaos1 as $ticket)
 
                                 <tr>
                                     
-                                    <td>{{$ticket->id}}</td>
-                                    <td></td>
-                                    <td>{{$ticket->situacao}}</td>
-                                    <td>{{$ticket->resultado}}</td>
-                                     <td> <a href="{{action('NegociacaoController@show',$ticket->id)}}" class="btn btn-primary">Ver mais</a></td>
+                                    <td>{{$ticket->idnegociacao}}</td>
+                                    <td>{{$ticket->nomeanunciante}}</td>
+                                    @if($ticket->situacaonegociacao == 'inativa')</td>
+                                        <td>Finalizada</td>
+                                    @else
+                                        <td>Em andamento</td>
+                                    @endif
+                                    @if($ticket->resultadonegociacao!=null)
+                                        <td>{{$ticket->resultadonegociacao}}</td>
+                                    @else
+                                        <td>-</td>
+                                    @endif
+                                     <td> <a href="{{action('NegociacaoController@show',$ticket->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
-                                <tr>
 
-                                </tr>
                             @endforeach
                             @endisset
                             @isset($negociacaos2)
@@ -51,11 +61,19 @@
 
                                 <tr>
                                     
-                                    <td>{{$ticket->id}}</td>
-                                    <td></td>
-                                    <td>{{$ticket->situacao}}</td>
-                                    <td>{{$ticket->resultado}}</td>
-                                     <td> <a href="{{action('NegociacaoController@show',$ticket2->id)}}" class="btn btn-primary">Ver mais</a></td>
+                                    <td>{{$ticket2->idnegociacao}}</td>
+                                    <td>{{$ticket2->nomeanunciante}}</td>
+                                    @if($ticket2->situacaonegociacao == 'inativa')</td>
+                                        <td>Finalizada</td>
+                                    @else
+                                        <td>Em andamento</td>
+                                    @endif
+                                    @if($ticket2->resultadonegociacao!=null)
+                                        <td>{{$ticket2->resultadonegociacao}}</td>
+                                    @else
+                                        <td>-</td>
+                                    @endif
+                                      <td> <a href="{{action('NegociacaoController@show',$ticket2->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
                                 </tr>
                                 <tr>
 
@@ -75,4 +93,19 @@
     </div>
 </div>
 @endsection
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
 
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+
+</script>

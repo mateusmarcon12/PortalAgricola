@@ -99,6 +99,7 @@ Route::get('/Conversas','ConversaController@index')->name('conversa.index');
 Route::get('/Conversas/show/{id}','ConversaController@show')->name('conversa.show');
 
 Route::get('/negociacaos','NegociacaoController@index')->name('negociacao.index');
+
 Route::get('/negociacaos/{id}','NegociacaoController@show')->name('negociacao.show');
 
 Route::post('/negociacaos/mensagem/{id}','NegociacaoController@store')->name('negociacao.store');

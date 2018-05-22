@@ -19,12 +19,13 @@ class NegociacaoController extends Controller
     public function index()
     {
         //
-        $negociacaos1 = Negociacao::where('idusuario1','=', Auth::user()->id)->get();
-        //dd($negociacaos1);
+        $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
 
-        $negociacaos2 = Negociacao::where('idusuario2','=', Auth::user()->id)->get();
-     //  dd($negociacaos2);
 
+        $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+      //dd($negociacaos2);
+
+       // dd($negociacaos2);
         return view('negociacoes.home',compact('negociacaos2','negociacaos1'));
     }
 
@@ -63,13 +64,16 @@ class NegociacaoController extends Controller
      */
     public function show($negociacao)
     {
-        //
+        
         $neg = Negociacao::Findorfail($negociacao);
         $anuncio1 = Anuncio::Findorfail($neg->idanuncio1);
-        $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
+        if($neg->idanuncio2 != null){
+            $anuncio2 = Anuncio::Findorfail($neg->idanuncio2);
+        }
         $mensagem = Mensagens::where('idconversa','=',$neg->id)->join('users','users.id','=','mensagens.idremetente')->orderby('mensagens.created_at')->get();
         //dd($mensagens);
         return view('negociacoes.negociacao', compact('anuncio1','anuncio2','neg','mensagem'));
+        //return "chegou";
     }
 
     /**

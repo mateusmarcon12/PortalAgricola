@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,7 +18,9 @@
 
                         @isset($anu)
                         <div class="table-responsive">
-                        <table class="table table table-hover">
+                        <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        <table id="example" class="table table table-hover">
+
                             <thead>
                             <tr>
                                 <th>Título</th>
@@ -31,7 +35,7 @@
 
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="myTable">
 
 
                             @foreach($anu as $ticket)

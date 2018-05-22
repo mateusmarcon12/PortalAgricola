@@ -106,8 +106,8 @@
                                     <label for="titulo" class="col-md-4 col-form-label text-md-right">{{ __('Resultado da negociação:') }}</label>
 
                                     <div class="col-md-6">
-                                                <label class="btn btn-secondary active"> Sucesso <input type="radio" name="nota" value="sucesso" checked=""></label>
-                                                    <label class="btn btn-secondary active"> Insucesso<input type="radio" name="nota" value="insucesso"></label>
+                                                <label class="btn btn-secondary active"> Sucesso <input type="radio" name="nota" value="Sucesso" checked=""></label>
+                                                    <label class="btn btn-secondary active"> Insucesso<input type="radio" name="nota" value="Insucesso"></label>
                                                 
                                     </div>
                                 </div>   
