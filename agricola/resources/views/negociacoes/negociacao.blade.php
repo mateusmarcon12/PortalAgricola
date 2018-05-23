@@ -39,10 +39,10 @@
                                     <div style="clear: both">
                                         @if($c->idremetente == Auth::user()->id)
                                             <div class="col-md-6 float-right" align="justify">
-                                               <i> Mensagem de: {{ $c->name }}</i>
+                                               <i style="font-size:12px"> Mensagem de: {{ $c->name }}</i>
                                         @else
                                            <div class="col-md-6 float-left" align="justify">
-                                               <i> Mensagem de: {{ $c->name }}</i>
+                                               <i style="font-size:12px"> Mensagem de: {{ $c->name }}</i>
 
                                         @endif
                                                <p>{{$c->mensagem}}</p>
