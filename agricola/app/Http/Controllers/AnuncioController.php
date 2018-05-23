@@ -180,12 +180,12 @@ class AnuncioController extends Controller
         }
         else{
             # code...
-            if ($anu->tipoanuncio == 'Oferta'){
+           /* if ($anu->tipoanuncio == 'Oferta'){
                 $meusanuncios = Anuncio::where('idanunciante','=', Auth::user()->id)->Situacao()->where('tipoanuncio','=','demanda')->orderby('titulo')->get();
-            }
-            else{
+            }*/
+
                 $meusanuncios = Anuncio::where('idanunciante','=', Auth::user()->id)->where('tipoanuncio','=','oferta')->Situacao()->orderby('titulo')->get();
-            }
+
             
            
             $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
