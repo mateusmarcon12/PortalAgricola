@@ -31,7 +31,7 @@ class UserController extends Controller
     }
 
     public  function  todos($id){
-        $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->paginate(10);
+        $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->paginate(25);
        // dd($usuarios);
         return view('users.todos', compact('usuarios'));
     }
