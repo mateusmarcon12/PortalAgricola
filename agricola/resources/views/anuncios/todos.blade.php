@@ -128,6 +128,7 @@
 
                                 </tbody>
                             </table>
+                            {!!$anu->links()!!}
                             @endisset
                         </div>
 
