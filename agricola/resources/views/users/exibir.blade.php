@@ -97,6 +97,10 @@
                  <br>
                  <h5>Deseja inativar sua conta no portal? <a href="{{route('usuario.inativar', Auth::user()->id)}}" class="btn btn-danger">Inativar</a></h5>
                 </div>
+                    <div align="center" class="align-content-center">
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
+                    </div>
+
             </div>
         </div>
     </div>

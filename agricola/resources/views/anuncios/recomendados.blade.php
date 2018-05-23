@@ -67,7 +67,9 @@
                             @endisset
                         </div>
 
-
+                    <div align="center" class="align-content-center">
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
+                    </div>
                 </div>
             </div>
         </div>
