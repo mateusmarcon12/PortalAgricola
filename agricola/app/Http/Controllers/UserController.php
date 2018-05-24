@@ -31,8 +31,18 @@ class UserController extends Controller
     }
 
     public  function  todos($id){
-        $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->paginate(25);
+
+        if (request()->has('gender')){
+            $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->orderBy('email', 'desc')->paginate(25);
+
+        }else{
+
+
+        $usuarios= User::where('situacao','=','1')->where('id','!=',Auth::User()->id)->orderBy('name')->paginate(25);
        // dd($usuarios);
+        
+        }
+    
         return view('users.todos', compact('usuarios'));
     }
 
