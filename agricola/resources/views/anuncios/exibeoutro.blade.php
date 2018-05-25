@@ -13,7 +13,7 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        <div class="table-responsive">
+                        <div class="responsive">
 
                        
                               <h3>Título: {{$anu->titulo}}</h3><br>
@@ -41,8 +41,8 @@
                                     Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}
                                 </p>
                                 @endforeach
-
-                                <h5>Fotos</h5>
+                                <div class="card-header">Fotos</div>
+                          
 
                                                                 <br><br>
                                     <div class="container">
@@ -149,10 +149,12 @@
                                     </div>
                                 </form>
                          <br>
+
                             @else
                                 <h4 align="center">Este anúncio está em negociação!</h4>
                             @endif
 
+<div class="card-header"></div><br>
                             <div align="center" class="align-content-center">
                                 <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
                             </div>

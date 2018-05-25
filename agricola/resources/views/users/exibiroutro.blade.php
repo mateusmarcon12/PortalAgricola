@@ -13,7 +13,7 @@
                             {{ session()->get('message') }}
                         </div>
                     @endif
-                        <div class="table-responsive">
+                        <div class="responsive">
 
                       
                               <h3>Nome: {{ $user->name }}</h3>
