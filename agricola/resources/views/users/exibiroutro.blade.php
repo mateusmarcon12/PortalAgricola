@@ -47,15 +47,20 @@
                                     <h6>Endereço <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h6>
                                 @endempty
                                 <div style="clear:both" class="card-header">Fotos do Anunciante</div>
-                                <div class="float-none col-md-12">
-                                        <div class="col-md-12 float-none">
-                                            @foreach($files as $f)
-
-                                                <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
-
-                                            @endforeach
+                                                                <br><br>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="gallery">
+                                                @foreach($files as $f)
+                                                    <figure class="float-left">
+                                                        <img align="center" class="img-responsive rounded" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
+                                                        
+                                                    </figure>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                </div>
+                                    </div>
+
                               <div style="clear: both">
                                   <br>
                               <div style="clear:both" class="float-none col-md-12 card-header">Avaliações do Anunciante</div>
