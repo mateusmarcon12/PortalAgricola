@@ -42,15 +42,22 @@
                                 @endforeach
 
                             <div style="clear:both" class="card-header">Fotos</div>
-                            <div class="col-md-12  justify-content-center ">
-                                @foreach($files as $f)
+                           
+                                                                <br><br>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="gallery">
+                                                @foreach($files as $f)
+                                                    <figure class="float-left">
+                                                        <img align="center" class="img-responsive rounded" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
+                                                        
+                                                    </figure>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
-                                @endforeach    
-
-                            </div>
                           
-
                          <br> 
                         </div>
                         <div style="clear:both">

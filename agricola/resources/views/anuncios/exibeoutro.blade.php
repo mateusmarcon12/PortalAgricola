@@ -44,13 +44,19 @@
 
                                 <h5>Fotos</h5>
 
-
-
-                                @foreach($files as $f)
-
-                                    <img src="{{ url('storage/'.$f) }}" width="95%" alt="Anuncio">
-                                @endforeach    
-
+                                                                <br><br>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="gallery">
+                                                @foreach($files as $f)
+                                                    <figure class="float-left">
+                                                        <img align="center" class="img-responsive rounded" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
+                                                        
+                                                    </figure>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
                           
                             <br>
                             @if($anu->situacao == 'ativo')
