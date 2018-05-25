@@ -49,12 +49,18 @@
                                     <h5>Endereço  <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h5>
                                 @endempty
                                 <div style="clear:both" class="card-header">Fotos</div>
-                                    <div class="col-md-12  justify-content-center ">
-                                @foreach($files as $f)
-                                      
-                                            <img class="img-responsive rounded float-left" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
-                                    
-                                @endforeach
+                                <br><br>
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="gallery">
+                                                @foreach($files as $f)
+                                                    <figure class="float-left">
+                                                        <img align="center" class="img-responsive rounded" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
+                                                        
+                                                    </figure>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -106,4 +112,3 @@
     </div>
 </div>
 @endsection
-
