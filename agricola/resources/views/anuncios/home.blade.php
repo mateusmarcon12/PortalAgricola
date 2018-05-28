@@ -5,6 +5,63 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-body">
+                    <!--
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Tipo de Anuncio
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('anuncio.ofer') }}">Ofertas</a>
+                              <a class="dropdown-item" href="{{ route('anuncio.dem') }}">Demandas</a>
+
+                            </div>
+                          </li>
+                        </ul>
+-->
+                    <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('anuncio.filtrarmeus') }}">
+                        @csrf
+                        <select name="categoria" class="form-control">
+                            <option value="">Categoria</option>
+                            @foreach($categorias as $cat)
+
+                                <option value="{{$cat->id}}"> {{$cat->nome}}<br>
+                                </option>
+                            @endforeach
+                        </select>
+                        <select name="classificacao" class="form-control">
+                            <option value="" >Classificação</option>
+                            @foreach($classificacoes as $clas)
+
+                                <option value="{{$clas->id}}"> {{$clas->nome}}<br>
+                                </option>
+                            @endforeach
+                        </select>
+
+                        <select name="tipo" class="form-control">
+                            <option value="">Tipo</option>
+                            <option value="Oferta">Ofertas</option>
+                            <option value="Demanda">Demandas</option>
+                        </select>
+                        <select name="situacao" class="form-control">
+                            <option value="">Situação</option>
+                            <option value="Ativo"> Ativo</option>
+                            <option value="Inativo"> Inativo </option>
+                            <option value="negociacao"> Em Negociação</option>
+
+                        </select>
+                        <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
+
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Meus Anúncios</div>

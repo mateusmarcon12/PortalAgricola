@@ -37,7 +37,11 @@ class AnuncioController extends Controller
         //
 
         $anu = Anuncio::where('idanunciante','=', Auth::user()->id)->get();
-        return view('anuncios.home')->with('anu', $anu);
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+      //  return view('anuncios.home')->with('anu', $anu);
+        return view('anuncios.home',compact('anu','estados','classificacoes','categorias'));
 
     }
 
@@ -139,6 +143,48 @@ class AnuncioController extends Controller
         return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
 
     }
+
+
+
+
+    public function filtrarmeus(Request $request)
+    {
+
+        $categoria = $request->categoria;
+        $classificacao = $request->classificacao;
+        $titulo = $request->titulo;
+        $situacao = $request->situacao;
+        $tipo = $request->tipo;
+
+
+        $query = Anuncio::join('enderecos','enderecos.id','=','Anuncios.idendereco')->leftjoin('users','users.id','=','anuncios.idanunciante')->select('anuncios.*','enderecos.iduf','users.name as name');
+
+        if($titulo)
+            $query->where('titulo', 'LIKE', '%' . $titulo . '%');
+
+        if($classificacao)
+            $query->where('anuncios.tipo', '=', $classificacao);
+
+        if($categoria)
+            $query->where('classe', '=', $categoria);
+
+        if($tipo)
+            $query->where('tipoanuncio', '=', $tipo);
+
+        if($situacao)
+            $query->where('anuncios.situacao', '=', $situacao);
+
+        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','=', Auth::user()->id)->get();
+
+        $estados = DB::table('ufs')->get();
+        $classificacoes = DB::table('classificacaos')->get();
+        $categorias = DB::table('categorias')->get();
+
+        return view('anuncios.home',compact('anu','estados','classificacoes','categorias'));
+
+    }
+
+
 
 
     /**

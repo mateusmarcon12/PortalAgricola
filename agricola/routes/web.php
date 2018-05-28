@@ -44,6 +44,7 @@ Route::get('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anunci
 Route::post('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
 
 Route::post('/anuncio/filt','AnuncioController@filtra')->name('anuncio.filtraranuncio');
+Route::post('/anuncio/filtrar','AnuncioController@filtrarmeus')->name('anuncio.filtrarmeus');
 Route::get('/anuncios/dem','AnuncioController@listarofertas')->name('anuncio.dem');
 Route::get('/anuncios/ofer','AnuncioController@listarofertas')->name('anuncio.ofer');
 Route::get('/anuncios/recomendados','AnuncioController@recomendados')->name('anuncio.recomendados');
