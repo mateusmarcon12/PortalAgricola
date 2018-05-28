@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                   <h3 align="center">Bem vindo ao Portal de Trocas Agrícola!</h3>
+                   <h3 align="center">Bem vindo ao AgriTroca - Portal de Trocas Agrícola!</h3>
                     <p>Aqui você encontra anúncios de ofertas e demandas de produtos e serviços agricolas.
                         Uma vez cadastrado no portal, você está apto a cadastrar anúncios, contatar outros anunciantes
                     podendo até adiciona-los a uma lista de amigos. Através desta rede de amigos, você e seus amigos do portal poderão
