@@ -87,7 +87,7 @@
                                 <label for="endobservacao" class="col-md-4 col-form-label text-md-right">{{ __('Observação sobre o Endereço') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="observacao" type="text" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="" required autofocus>
+                                    <input id="observacao" type="text" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="" autofocus>
 
                                     @if ($errors->has('observacao'))
                                         <span class="invalid-feedback">

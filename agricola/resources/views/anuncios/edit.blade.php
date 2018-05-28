@@ -45,7 +45,7 @@
                                 <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ $detanuncio->descricao }}" required autofocus>{{ $detanuncio->descricao }}</textarea>
+                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ $detanuncio->descricao }}" autofocus>{{ $detanuncio->descricao }}</textarea>
                                     @if ($errors->has('descricao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('descricao') }}</strong>
@@ -127,7 +127,7 @@
                                 <label for="observacao" class="col-md-4 col-form-label text-md-right">{{ __('Observações') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ $detanuncio->observacao }}" required autofocus>{{ $detanuncio->observacao  }}</textarea>
+                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ $detanuncio->observacao }}" autofocus>{{ $detanuncio->observacao  }}</textarea>
                                     @if ($errors->has('observacao'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('observacao') }}</strong>

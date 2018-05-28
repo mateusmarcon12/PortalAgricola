@@ -38,7 +38,7 @@
                                 <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ old('descricao') }}" required autofocus>
+                                    <textarea id="descricao" rows="3" type="textarea" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="{{ old('descricao') }}" autofocus>
                                     </textarea>
                                     @if ($errors->has('descricao'))
                                         <span class="invalid-feedback">
@@ -113,7 +113,7 @@
                                 <label for="observacao" class="col-md-4 col-form-label text-md-right">{{ __('Observações') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ old('observacao') }}" required autofocus>
+                                    <textarea id="observacao" rows="3" type="textarea" class="form-control{{ $errors->has('observacao') ? ' is-invalid' : '' }}" name="observacao" value="{{ old('observacao') }}" autofocus>
                                     </textarea>
                                     @if ($errors->has('observacao'))
                                         <span class="invalid-feedback">
@@ -213,7 +213,7 @@
                                 <label for="endobservacao" class="col-md-4 col-form-label text-md-right">{{ __('Observação sobre o Endereço') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ old('endobservacao') }}" required autofocus>
+                                    <input id="endobservacao" type="text" class="form-control{{ $errors->has('endobservacao') ? ' is-invalid' : '' }}" name="endobservacao" value="{{ old('endobservacao') }}" autofocus>
 
                                     @if ($errors->has('endobservacao'))
                                         <span class="invalid-feedback">
