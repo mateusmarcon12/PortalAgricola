@@ -76,6 +76,7 @@ Route::get('/usuario/exibeoutro/{id}','UserController@exibeoutro')->name('usuari
 Route::get('/usuario/todos/{id}','UserController@todos')->name('usuario.todos');
 Route::get('usuario/alterarsenha/','UserController@alterarsenha')->name('usuario.alterarsenha');
 Route::post('usuario/salvarsenha/','UserController@salvarsenha')->name('usuario.salvarsenha');
+Route::post('usuario/filtrar/','UserController@filtrartodos')->name('usuario.filtrar');
 
 
 Route::post('/email/enviar/{id}', 'EmailController@enviar')->name('email.enviar');

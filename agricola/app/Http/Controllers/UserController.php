@@ -46,6 +46,26 @@ class UserController extends Controller
         return view('users.todos', compact('usuarios'));
     }
 
+    public function filtrartodos(Request $request){
+
+        $nome = $request->nome;
+        $email= $request->email;
+
+        $query = User::where('id','!=',Auth::User()->id);
+
+        if($nome)
+            $query->where('name', 'LIKE', '%' . $nome . '%');
+
+        if($email)
+            $query->where('email', '=', $email);
+
+
+        $usuarios = $query->orderBy('name')->paginate(25);
+
+        return view('users.todos', compact('usuarios'));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
