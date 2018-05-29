@@ -24,6 +24,7 @@
                                     <th>Descrição</th>
                                     <th>Anunciante</th>
                                     <th>Validade</th>
+                                    <th>Meu Anúncio</th>
                                     <th>Grau</th>
                                     <th></th>
                                     <th></th>
@@ -47,6 +48,7 @@
                                             <td>{{$ticket->demandadescricao}}</td>
                                             <td>{{$ticket->demandadornome}}</td>
                                             <td>{{date( 'd/m/Y' , strtotime($ticket->validadedemanda))}}</td>
+                                            <td>{{$ticket->titulooferta}}</td>
                                             <td>{{$ticket->graucompatibilidade}}</td>
                                             <td> <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary">Ver Mais</a> </td>
 
@@ -59,6 +61,7 @@
                                             <td>{{$ticket->ofertadescricao}}</td>
                                             <td>{{$ticket->ofertantenome}}</td>
                                             <td>{{date( 'd/m/Y' , strtotime($ticket->validadeoferta))}}</td>
+                                            <td>{{$ticket->titulodemanda}}</td>
                                             <td>{{$ticket->graucompatibilidade}}</td>
                                             <td> <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary">Ver Mais</a> </td>
                                             </tr>
@@ -75,6 +78,7 @@
 
                                 </tbody>
                             </table>
+                             {!!$anu->links()!!}
                             @endisset
                         </div>
 

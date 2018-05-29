@@ -27,32 +27,39 @@ class CasaofertademandaController extends Controller
         //
         $ofer = Anuncio::Anunciante()->Situacao()->Tipooferta()->get();
         $deman = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
-
+        //dd($deman);
         
 
         $i=0;
 
         foreach ($deman as $demandas){
-
+            echo "<script>console.log($demandas->id);</script>";
             foreach ($ofer as $ofertas) {
                 $grau = 0;
                 $verifica = 0;
                 $verifica2=0;
+                
+              //  echo "<script>console.log($ofertas->titulo);</script>";
+               // echo "<script>console.log($demandas->titulo);</script>";
                 if ($ofertas->titulo == $demandas->titulo) {
                     $grau = $grau + 2;
-                }
-              echo "<script>console.log( $grau.$ofertas->id);</script>";
+                    
+                }    
+                echo "<script>console.log($grau.$ofertas->id);</script>";
+             /*   if($ofertas->id == 34){
+                    dd($ofertas.' - '.$demandas);
+                }*/
 
 
                 if ($ofertas->categoria == $demandas->categoria) {
                     $grau = $grau +3;
-                    echo "<script>console.log( $grau.$ofertas->id);</script>";
+                    echo "<script>console.log($grau.$ofertas->id);</script>";
                 }
 
 
                 if ($ofertas->tipo == $demandas->tipo) {
                     $grau = $grau + 5;
-                    echo "<script>console.log( $grau.$ofertas->id);</script>";
+                    echo "<script>console.log($grau.$ofertas->id);</script>";
                 }
 
 
@@ -67,26 +74,33 @@ class CasaofertademandaController extends Controller
                     $casa->idofertante = $ofertas->idanunciante;
 
                     //   $matches[$i]=$casa;
-                    $verifica = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemanda', '=', $casa->iddemanda)->count();
-                    //var_dump($matches[$i]);
+                    $verifica = Casaofertademanda::where('idoferta', '=', $ofertas->id)->where('iddemanda', '=', $demandas->id)->count();
+                    echo "<script>console.log($verifica);</script>";
                     if ($verifica == 0) {
-                        $verifica2 = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemandador', '=', $casa->iddemandador)->count();
-                        if($verifica2==0){
+                      //  $verifica2 = Casaofertademanda::where('idoferta', '=', $ofertas->id)->where('iddemanda', '=', $demandas->id)->count();
+
+                        //if($verifica2==0){
                             $casa->save();
+                            echo "<script>console.log('novo');</script>";
+                        //}
+                       /* else{
+                            $atualizar = Casaofertademanda::where('idoferta', '=', $ofertas->id)->where('iddemanda', '=', $demandas->id)->first();
 
-                        }}
+                            if ($atualizar->graucompatibilidade < $grau) {
+                                $atualizar->graucompatibilidade = $grau;
+                                $atualizar->save();
+                            }
+                        }*/
+                    }
                     else{
-                            $ver = Casaofertademanda::where('idoferta', '=', $casa->idoferta)->where('iddemandador', '=', $casa->iddemandador)->get();
+                            $veri = Casaofertademanda::where('idoferta', '=', $ofertas->id)->where('iddemanda', '=', $demandas->id)->first();
 
-                            foreach($ver as $veri) {
-
-                                if ($veri->graucompatibilidade < $grau) {
+                            if ($veri->graucompatibilidade < $grau) {
                                    // $verif = Casaofertademanda::where('id','=',$veri->id)->get();
                                     $verif = Casaofertademanda::findOrFail($veri->id);
                                     $verif->graucompatibilidade = $grau;
                                     $verif->save();
 
-                                }
                             }
                     }
                 }
@@ -125,18 +139,22 @@ class CasaofertademandaController extends Controller
 
 
                     if($ch == 0){
-                        $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('idofertante', '=', $casou->idofertante)->count();
-                        if($vv2==0) {
+                       // $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->count();
+                      //  if($vv2==0) {
                             $casou->save();
-                        }
+                       // }
+                      /*  else{
+                            $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->first();
+                            if($vv2->graucompatibilidade<$g){
+                                $vv2->graucompatibilidade=$g;
+                                $vv2->save();
+                            }
+                        }*/
                     }
                     else{
 
-                        $ch2=0;
-                        $ch2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->get();
+                        $c = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->first();
 
-
-                         foreach($ch2 as $c) {
 
                              if ($c->graucompatibilidade < $g) {
                                  // $verif = Casaofertademanda::where('id','=',$veri->id)->get();
@@ -144,8 +162,7 @@ class CasaofertademandaController extends Controller
                                  $cf->graucompatibilidade = $g;
                                  $cf>save();
 
-                             }
-                         }
+                        }
                     }
                 }
 
@@ -170,7 +187,7 @@ class CasaofertademandaController extends Controller
         ->where('casaofertademandas.iddemandador','=', Auth::user()->id)
         ->orwhere('casaofertademandas.idofertante','=', Auth::user()->id)
         ->orderby('casaofertademandas.graucompatibilidade','desc')
-        ->get();
+        ->paginate(25);
   //  var_dump($anu);
         /*$anu2 = Casaofertademanda
             ::join('anuncios', 'anuncios.id', '=', 'casaofertademandas.idoferta')
