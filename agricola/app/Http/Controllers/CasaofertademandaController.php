@@ -31,7 +31,7 @@ class CasaofertademandaController extends Controller
         
 
         $i=0;
-
+        echo "<script>console.log('minhas demandas');</script>";
         foreach ($deman as $demandas){
             echo "<script>console.log($demandas->id);</script>";
             foreach ($ofer as $ofertas) {
@@ -51,7 +51,7 @@ class CasaofertademandaController extends Controller
                 }*/
 
 
-                if ($ofertas->categoria == $demandas->categoria) {
+                if ($ofertas->classe == $demandas->classe) {
                     $grau = $grau +3;
                     echo "<script>console.log($grau.$ofertas->id);</script>";
                 }
@@ -111,19 +111,27 @@ class CasaofertademandaController extends Controller
         $minhasofertas = Anuncio::Meusanuncios()->Tipooferta()->Situacao()->get();
         $demandasoutros = Anuncio::Anunciante()->Tipodemanda()->Situacao()->get();
 
+        echo "<script>console.log('Minhas ofertas');</script>";
 
         foreach ($minhasofertas as $md){
+            echo "<script>console.log($md->id);</script>";
             foreach ($demandasoutros as $do){
                 $g=0;
                 if($md->titulo == $do->titulo){
                     $g = 2;
                 }
+                echo "<script>console.log($g.$do->id);</script>";
                 if($md->tipo == $do->tipo ){
                     $g=$g+5;
                 }
-                if($md->categoria == $do->categoria){
+                echo "<script>console.log($g.$do->id);</script>";
+                if($md->classe == $do->classe){
                     $g=$g+3;
+
                 }
+                echo "<script>console.log($md->categoria);</script>";
+                echo "<script>console.log($g.$do->id);</script>";
+
 
                 if($g>0) {
                     $casou = new Casaofertademanda;
@@ -218,7 +226,7 @@ class CasaofertademandaController extends Controller
 
      //   dd($request->grau);
         $grau = number_format($request->grau,2);
-        $query = Casaofertademanda::
+       /* $query = Casaofertademanda::
         join('anuncios as ofertas', 'ofertas.id', '=', 'casaofertademandas.idoferta')
         ->join('anuncios  as demandas', 'demandas.id', '=','casaofertademandas.iddemanda')
         ->join('users as ofertante', 'ofertante.id', '=','casaofertademandas.idofertante')
@@ -229,29 +237,51 @@ class CasaofertademandaController extends Controller
             'casaofertademandas.graucompatibilidade',
             'demandador.id as demandadorid', 'ofertante.id as idof',
             'demandador.name as demandadornome','ofertante.name as ofertantenome',
-            'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda');
+            'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda');*/
        // ->where('casaofertademandas.iddemandador','=', Auth::user()->id)
       //  ->orwhere('casaofertademandas.idofertante','=', Auth::user()->id);
 
-    /*   if($grau)
+
+
+            
+
+
+        /*if($grau)
             $query->where('casaofertademandas.graucompatibilidade', '=', $grau);*/
+
         if ($request->tipo){
-            if ($request->tipo == 'Oferta'){
-                $query ->where('casaofertademandas.iddemandador','=', Auth::user()->id);
+           if ($request->tipo == 'Oferta'){
+                $query = Casaofertademanda::where('casaofertademandas.iddemandador','=', Auth::user()->id)->where('casaofertademandas.idofertante','!=', Auth::user()->id);
                  
             }
-            elseif($request->tipo == 'Demanda'){
-                $query->where('casaofertademandas.idofertante','=', Auth::user()->id);
-            }
+           else{
+                $query = Casaofertademanda::where('casaofertademandas.idofertante','=', Auth::user()->id)->where('casaofertademandas.iddemandador','!=', Auth::user()->id);
+
+           }
         }
         else{
-                $query->where('casaofertademandas.iddemandador','=', Auth::user()->id)
-                    ->orwhere('casaofertademandas.idofertante','=', Auth::user()->id);
-
+            $query = Casaofertademanda::where('casaofertademandas.idofertante','=', Auth::user()->id)->orwhere('casaofertademandas.iddemandador','=', Auth::user()->id);
         }
+        /*if ($request->titulo){
+            $query ->where('ofertas.titulo','=', $request->titulo);
+        }*/
+
+        $query->join('anuncios as ofertas', 'ofertas.id', '=', 'casaofertademandas.idoferta')
+        ->join('anuncios  as demandas', 'demandas.id', '=','casaofertademandas.iddemanda')
+        ->join('users as ofertante', 'ofertante.id', '=','casaofertademandas.idofertante')
+        ->join('users as demandador', 'demandador.id', '=','casaofertademandas.iddemandador')
+        ->select('ofertas.titulo as titulooferta','ofertas.descricao as ofertadescricao','ofertas.datavalidade as validadeoferta',
+            'demandas.titulo as titulodemanda', 'demandas.descricao as demandadescricao','demandas.datavalidade as validadedemanda',
+            'demandas.tipoanuncio as demandatipo','ofertas.tipoanuncio as ofertatipo',
+            'casaofertademandas.graucompatibilidade',
+            'demandador.id as demandadorid', 'ofertante.id as idof',
+            'demandador.name as demandadornome','ofertante.name as ofertantenome',
+            'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda');
 
 
         $anu = $query->orderby('casaofertademandas.graucompatibilidade','desc')->paginate(25);
+
+      //  dd($anu);
 
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
