@@ -36,7 +36,7 @@
 
                         @isset($anu)
                         <div class="table-responsive">
-                            <table class="table table table-hover">
+                            <table id="example" class="table sortable table-hover">
                                 <thead>
                                 <tr>
                                     <th>Título</th>
