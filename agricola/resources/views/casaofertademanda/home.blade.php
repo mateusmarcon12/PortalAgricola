@@ -14,14 +14,6 @@
                               <option value="Oferta">Ofertas</option>
                               <option value="Demanda">Demandas</option>
                           </select>  
-                          <select name="grau" class="form-control">
-                              <option value="">Grau de compatibilidade</option>
-                              @for($i=1;$i<=10;$i++)
-                                <option value="{{$i}}">{{$i}}</option>
-                              @endfor
-
-                          </select> 
-                          <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
                           
                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
                         </form>
