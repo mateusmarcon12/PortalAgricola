@@ -1,0 +1,33 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `casaofertademandas`()
+    NO SQL
+BEGIN
+
+	SELECT MAX(id) INTO @quann FROM casaofertademandas;
+  	SET @i = 0;
+    WHILE @i<=@quann DO
+    	
+        SELECT iddemanda INTO @iddemanda FROM casaofertademandas WHERE id=@i;
+        SELECT situacao INTO @situacao FROM anuncios WHERE id=@iddemanda;
+        
+        IF @situacao='inativo' THEN
+        	DELETE FROM casaofertademandas WHERE id = @i;
+           
+        ELSEIF @situacao='negociacao' THEN
+        	DELETE FROM casaofertademandas WHERE id = @i;
+        ELSE
+        	SELECT idoferta INTO @idoferta FROM casaofertademandas WHERE id=@i;
+        	SELECT situacao INTO @situacao FROM anuncios WHERE id=@idoferta;
+        
+        	IF @situacao='inativo' THEN
+        		DELETE FROM casaofertademandas WHERE id = @i;
+           
+        	ELSEIF @situacao='negociacao' THEN
+        		DELETE FROM casaofertademandas WHERE id = @i;
+        	END IF;
+        END IF;
+        
+        SET @i=@i+1;
+    END WHILE;
+END$$
+DELIMITER ;
