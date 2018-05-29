@@ -36,7 +36,7 @@ class AnuncioController extends Controller
     {
         //
 
-        $anu = Anuncio::where('idanunciante','=', Auth::user()->id)->get();
+        $anu = Anuncio::where('idanunciante','=', Auth::user()->id)->paginate();
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
@@ -134,7 +134,7 @@ class AnuncioController extends Controller
         if($estado)
             $query->where('enderecos.iduf', '=', $estado);
 
-        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','!=', Auth::user()->id)->get();
+        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','!=', Auth::user()->id)->paginate(25);
 
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();

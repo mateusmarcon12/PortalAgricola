@@ -107,3 +107,5 @@ Route::get('/negociacaos/{id}','NegociacaoController@show')->name('negociacao.sh
 Route::post('/negociacaos/mensagem/{id}','NegociacaoController@store')->name('negociacao.store');
 
 Route::post('/negociacaos/finalizar/{id}','NegociacaoController@finalizar')->name('negociacao.finalizar');
+
+Route::post('casaofertademanda/filtrar','CasaofertademandaController@filtrar')->name('casamento.filtrar');

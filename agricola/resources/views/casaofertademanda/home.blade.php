@@ -5,6 +5,34 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
+                <div class="card-body">
+
+                        <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('casamento.filtrar') }}">
+                           @csrf
+                          <select name="tipo" class="form-control">
+                              <option value="">Tipo</option>
+                              <option value="Oferta">Ofertas</option>
+                              <option value="Demanda">Demandas</option>
+                          </select>  
+                          <select name="grau" class="form-control">
+                              <option value="">Grau de compatibilidade</option>
+                              @for($i=1;$i<=10;$i++)
+                                <option value="{{$i}}">{{$i}}</option>
+                              @endfor
+
+                          </select> 
+                          <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
+                          
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                        </form>
+                </div>            
+            </div>                
+        </div>        
+
+
+
+        <div class="col-md-10">
+            <div class="card">
                 <div class="card-header">Anúncios compatíveis com os seus</div>
 
                 <div class="card-body">
