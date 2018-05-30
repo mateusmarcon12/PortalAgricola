@@ -76,6 +76,29 @@ class NegociacaoController extends Controller
         //return "chegou";
     }
 
+    public function filtrar(Request $request){
+
+        if($request->resolucao == null){
+            $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->where('negociacaos.situacao','=',$request->situacao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+
+
+            $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->where('negociacaos.situacao','=',$request->situacao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+        }
+        else{
+            $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->where('negociacaos.resultado','=',$request->resolucao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+
+
+            $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->where('negociacaos.resultado','=',$request->resolucao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+        }
+      //dd($negociacaos2);
+
+
+       // dd($negociacaos2);
+        return view('negociacoes.home',compact('negociacaos2','negociacaos1'));
+
+        return "chegou";
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

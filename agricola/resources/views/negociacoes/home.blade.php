@@ -8,6 +8,33 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
+                <div class="card-body">
+
+                        <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('negociacao.filtrar') }}">
+                           @csrf
+
+                          <select name="situacao" class="form-control">
+                              <option value="">Situação</option>
+                              <option value="ativa">Em andamento</option>
+                              <option value="inativa">Finalizada</option>
+
+                          </select>  
+                          <select name="resolucao" class="form-control">
+                              <option value="">Resolução</option>
+                              <option value="sucesso">Sucesso</option>
+                              <option value="insucesso">Insucesso</option>
+                          </select>  
+                          
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                          
+                        </form>
+                          <i style="clear:both"><br>Selecionando uma resolução o campo "situação" será ignorado</i>
+                </div>            
+            </div>                
+        </div>
+
+        <div class="col-md-10">
+            <div class="card">
                 <div class="card-header">Suas Negociações</div>
 
                 <div class="card-body">
@@ -83,7 +110,7 @@
 
                             </tbody>
                         </table>
-                       
+                     
                         </div>
 
 

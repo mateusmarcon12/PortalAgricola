@@ -109,3 +109,5 @@ Route::post('/negociacaos/mensagem/{id}','NegociacaoController@store')->name('ne
 Route::post('/negociacaos/finalizar/{id}','NegociacaoController@finalizar')->name('negociacao.finalizar');
 
 Route::post('casaofertademanda/filtrar','CasaofertademandaController@filtrar')->name('casamento.filtrar');
+
+Route::post('negociacao/filtrar','NegociacaoController@filtrar')->name('negociacao.filtrar');
