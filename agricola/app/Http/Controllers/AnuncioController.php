@@ -174,7 +174,7 @@ class AnuncioController extends Controller
         if($situacao)
             $query->where('anuncios.situacao', '=', $situacao);
 
-        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','=', Auth::user()->id)->get();
+        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','=', Auth::user()->id)->paginate(25);
 
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
@@ -305,7 +305,7 @@ class AnuncioController extends Controller
         //return view('anuncios.exibe', compact('detanuncio','files'));
         //return view('anuncios.exibe')->with('anuncio', $anuncio);
        // return $anuncio->id;
-        return redirect()->route('anuncio.show',$anuncioa)->with('message','Anuncio atualizado');
+        return redirect()->route('anuncio.show',$anuncioa)->with('message','Anúncio atualizado');
 
     }
 
@@ -341,7 +341,7 @@ class AnuncioController extends Controller
         //dd($detanuncio);
        // Session::flash('flash_message', 'Anuncio inativado!');
         //return view('anuncios.exibe', compact('anu','files'));
-       return redirect()->route('anuncio.show',$staff)->with('message','Anuncio Inativado');    
+       return redirect()->route('anuncio.show',$staff)->with('message','Anúncio Inativado');    
 
     }
     public function destroy(Anuncio $anuncio)

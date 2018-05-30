@@ -17,7 +17,7 @@
 
                        
                               <h3>Título: {{$anu->titulo}}</h3><br>
-                                <h5>Detalhes</h5>
+                                <h5><b>Detalhes</b></h5>
                                 <p>
                                     Descrição: {{$anu->descricao}}<br>
                                     Tipo: {{$anu->tipoanuncio}}<br>
@@ -27,7 +27,7 @@
                                     Data de Validade: {{date( 'd/m/Y' , strtotime($anu->datavalidade))}}<br>
 
                                 </p>
-                              <h5 x>Anunciante</h5>
+                              <h5><b>Anunciante</b></h5>
                                 <p>
                                     Nome: {{$user->name}} <a href="{{route('usuario.exibeoutro', $anu->idanunciante)}}" class="btn btn-light">Ver Mais</a><br>
                                  
@@ -35,7 +35,7 @@
                                     
 
                                 </p>
-                              <h5>Endereço</h5>
+                              <h5><b>Endereço</b></h5>
                                 @foreach($ende as $e)
                                 <p>
                                     Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}

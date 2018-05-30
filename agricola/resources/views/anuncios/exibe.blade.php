@@ -15,12 +15,20 @@
                     @endif
                         <div class="table-responsive">
 
+                            @if(($anu->situacao != 'inativo') && ($anu->situacao != 'negociacao'))
                           
-                              <h3>Título: {{$anu->titulo}} <a href="{{action('AnuncioController@edit',$anu->id)}}" class="btn btn-light">Editar</a> <a href="{{action('AnuncioController@inativar',$anu->id)}}" class="btn btn-light">Inativar</a></h3><br>
-                                <h5>Detalhes</h5>
+                                <h3>Título: {{$anu->titulo}} <a href="{{action('AnuncioController@edit',$anu->id)}}" class="btn btn-light">Editar</a> <a href="{{action('AnuncioController@inativar',$anu->id)}}" class="btn btn-light">Inativar</a></h3>
+                            @else
+                                <h3>Título: {{$anu->titulo}}</h3>
+                            @endif
+                                <br>
+                                <h5><b>Detalhes</b></h5>
                                 <p>
                                     Descrição: {{$anu->descricao}}<br>
-                                    Situacao: {{$anu->situacao}}<br>
+                                    Situação: @if($anu->situacao != 'negociacao'){{$anu->situacao}}
+                                    @else
+                                    Em negociação <i><br>     (quando o anúncio está em negociação o mesmo fica bloqueado para edição dos dados)</i>
+                                    @endif<br>
                                     Tipo: {{$anu->tipoanuncio}}<br>
                                     Classificação: {{$classificacao->nome}} <br>
                                     Categoria: {{$categoria->nome}}<br>
@@ -28,13 +36,13 @@
                                     Data de Validade: {{date( 'd/m/Y' , strtotime($anu->datavalidade))}}<br>
 
                                 </p>
-                              <h5 x>Anunciante</h5>
+                              <h5><b>Anunciante</b></h5>
                                 <p>
                                     Nome: {{$user->name}} <br>
-                                    E-mail:{{$user->email}} <br>
+                                    E-mail: {{$user->email}} <br>
 
                                 </p>
-                              <h5>Endereço</h5>
+                              <h5><b>Endereço</b></h5>
                                 @foreach($ende as $e)
                                 <p>
                                     Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}

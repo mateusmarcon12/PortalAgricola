@@ -16,13 +16,13 @@
                         <div class="responsive">
 
                       
-                              <h3>Nome: {{ $user->name }}</h3>
+                              <h4><b>Nome: {{ $user->name }}</b></h4>
                                <br>
                             
                                 <p>
                                     E-mail:{{ $user->email }}
                                 </p>
-                              <h5>Perfil</h5>
+                              <h5><b>Perfil</b></h5>
                                 <p>
                                     Sexo: {{ $user->sexo }} <br>
                                     @if ($user->cpf != null)
@@ -36,7 +36,7 @@
 
                                 @isset($endereco)
                                     @foreach($endereco as $end)
-                                    <h6>Endereço </h6>
+                                    <h6><b>Endereço</b> </h6>
                                     <p>
                                         Rua {{$end->rua}}, nº {{$end->numero}}, bairro {{$end->bairro}}, cidade {{$end->cidade_descricao}} - {{$end->uf_descricao}}/{{$end->iso}}
 
@@ -44,7 +44,7 @@
                                     @endforeach
                                 @endisset 
                                 @empty($endereco)
-                                    <h6>Endereço <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h6>
+                                    <h5><b>Endereço</b> <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h5>
                                 @endempty
                                 <div style="clear:both" class="card-header">Fotos do Anunciante</div>
                                                                 <br><br>

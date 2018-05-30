@@ -17,16 +17,16 @@
                             {{ session()->get('message') }}
                         </div>
                     @endif
-                              <h3>Nome: {{ Auth::user()->name }} <a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>
+                              <h4><b> {{ Auth::user()->name }} </b><a href="{{action('UserController@edit', Auth::user()->id)}}" class="btn btn-light">Editar</a>
                                   <a class="btn btn-light" href="{{ route('usuario.alterarsenha') }}">
                                     {{ __('Alterar Senha') }}
-                                </a></h3>
+                                </a></h4>
                                <br>
                             
                                 <p>
                                     E-mail:{{ Auth::user()->email }}
                                 </p>
-                              <h5 x>Perfil</h5>
+                              <h5><b>Perfil</b></h5>
                                 <p>
                                     Sexo: {{ Auth::user()->sexo }} <br>
                                     @if (Auth::user()->cpf != null)
@@ -40,7 +40,7 @@
 
                                 @isset($endereco)
                                     @foreach($endereco as $end)
-                                    <h5>Endereço <a href="{{action('EnderecoController@edit', $end)}}" class="btn btn-light">Editar Endereço</a></h5>
+                                    <h5><b>Endereço</b> <a href="{{action('EnderecoController@edit', $end)}}" class="btn btn-light">Editar Endereço</a></h5>
                                     <p>
                                         Rua {{$end->rua}}, nº {{$end->numero}}, bairro {{$end->bairro}}, cidade {{$end->cidade_descricao}} - {{$end->uf_descricao}}/{{$end->iso}}
 
