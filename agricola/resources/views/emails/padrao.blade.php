@@ -3,7 +3,7 @@
 <h4>O seguinte usuário abriu negociação com você:
 {{$remetente}}</h4>
 
-<h4>Vá até o portal e continue a negociação ou finalize. enquanto a negociação em andamento, o seu anúncio não será exibido para os demais anunciantes.</h4>
+<h4>Vá até o portal e continue ou finalize a negociação. Enquanto a negociação estiver em andamento, o seu anúncio não será exibido para os demais anunciantes.</h4>
 
 <h4>Mensagem:</h4>
 <p>

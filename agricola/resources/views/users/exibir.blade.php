@@ -96,7 +96,7 @@
                                 </form>
                             </div>
 
-                        
+                                <div class="card-header"></div><br>
                  <br>
                  <h5 align="center">Deseja inativar sua conta no portal? <a href="{{route('usuario.inativar', Auth::user()->id)}}" class="btn btn-danger">Inativar</a></h5>
                 </div>

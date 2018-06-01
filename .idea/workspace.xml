@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/NegociacaoController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/NegociacaoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/negociacoes/home.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/negociacoes/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,14 +100,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NegociacaoController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NegociacaoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/NegociacaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29802513">
+            <state vertical-scroll-proportion="-6.3846154">
               <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
               <folding>
                 <element signature="e#40#59#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exibeoutro.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-29.0">
+              <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exibir.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.576923">
+              <caret line="98" column="67" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="padrao.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21364452">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_11_200227_create_avaliacaos_table.php" />
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_12_121622_add_coluno_avaliacao.php" />
         <option value="$PROJECT_DIR$/agricola/app/User.php" />
         <option value="$PROJECT_DIR$/agricola/app/Solicitacao.php" />
@@ -156,7 +184,6 @@
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/users/alterasenha.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/enderecos/cadastrar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" />
@@ -172,6 +199,8 @@
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/negociacoes/home.blade.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/NegociacaoController.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php" />
       </list>
     </option>
   </component>
@@ -774,7 +803,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37821484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37821484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1063,13 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.692308">
-          <caret line="101" column="26" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/alterasenha.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.307692">
@@ -1088,13 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.769231">
           <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1168,14 +1183,6 @@
             <marker date="1527852765561" expanded="true" signature="617:1436" placeholder="..." />
             <marker date="1527852765561" expanded="true" signature="840:1008" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6804309">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,11 +1261,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/NegociacaoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29802513">
+        <state vertical-scroll-proportion="-6.3846154">
           <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
           <folding>
             <element signature="e#40#59#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.0">
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.576923">
+          <caret line="98" column="67" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/emails/padrao.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21364452">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
