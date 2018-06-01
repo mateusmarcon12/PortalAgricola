@@ -56,7 +56,7 @@
                         <div class="table-responsive">
                             <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
                             <!--Ordenar:
-                            <a href="/usuario/todos/id/?gender=e-mail">E-mail</a>-->    
+                            <a href="/usuario/todos/id/?gender=e-mail">E-mail</a>-->
                             <table id="example" class="table table-hover sortable">
                                 <thead>
                                 <tr>
