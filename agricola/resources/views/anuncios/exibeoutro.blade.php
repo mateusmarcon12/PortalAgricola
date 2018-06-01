@@ -99,7 +99,7 @@
                                             <label for="mensagem" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
                                             <div class="col-md-6">
-                                                <textarea id="mensagem"  class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
+                                                <textarea id="mensagem" maxlength="450" class="form-control{{ $errors->has('mensagem') ? ' is-invalid' : '' }}" name="mensagem" value="{{ old('mensagem') }}" required autofocus>  </textarea>
 
                                                 @if ($errors->has('mensagem'))
                                                     <span class="invalid-feedback">

@@ -61,14 +61,18 @@
                             </thead>
                             <tbody id="myTable">
 
-                            @isset($negociacaos1)
-                            @foreach($negociacaos1 as $ticket)
+                            @isset($negociacaos)
+                            @foreach($negociacaos as $ticket)
 
                                 <tr>
                                     
                                     <td>{{$ticket->idnegociacao}}</td>
-                                    <td>{{$ticket->nomeanunciante}}</td>
-                                    @if($ticket->situacaonegociacao == 'inativa')</td>
+                                   @if($ticket->idanunciante1 == Auth::user()->id)
+                                        <td>{{$ticket->nomeanunciante2}}</td>
+                                   @elseif($ticket->idanunciante2 == Auth::user()->id)
+                                        <td>{{$ticket->nomeanunciante1}}</td>
+                                   @endif
+                                    @if($ticket->situacaonegociacao == 'inativa')
                                         <td>Finalizada</td>
                                     @else
                                         <td>Em andamento</td>
@@ -83,34 +87,10 @@
 
                             @endforeach
                             @endisset
-                            @isset($negociacaos2)
-                            @foreach($negociacaos2 as $ticket2)
-
-                                <tr>
-                                    
-                                    <td>{{$ticket2->idnegociacao}}</td>
-                                    <td>{{$ticket2->nomeanunciante}}</td>
-                                    @if($ticket2->situacaonegociacao == 'inativa')</td>
-                                        <td>Finalizada</td>
-                                    @else
-                                        <td>Em andamento</td>
-                                    @endif
-                                    @if($ticket2->resultadonegociacao!=null)
-                                        <td>{{$ticket2->resultadonegociacao}}</td>
-                                    @else
-                                        <td>-</td>
-                                    @endif
-                                      <td> <a href="{{action('NegociacaoController@show',$ticket2->idnegociacao)}}" class="btn btn-primary">Ver mais</a></td>
-                                </tr>
-                                <tr>
-
-                                </tr>
-                            @endforeach
-                            @endisset
 
                             </tbody>
                         </table>
-                     
+                            {!!$negociacaos->links()!!}
                         </div>
 
 

@@ -19,14 +19,38 @@ class NegociacaoController extends Controller
     public function index()
     {
         //
-        $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+        $meuid=Auth::user()->id;
+        $negociacaos = Negociacao::join('users as anunciantes1','anunciantes1.id','=','negociacaos.idusuario1')
+            ->join('users as anunciantes2','anunciantes2.id','=','negociacaos.idusuario2')
+            ->select('anunciantes1.name as nomeanunciante1', 'anunciantes2.name as nomeanunciante2',
+                'negociacaos.id as idnegociacao','anunciantes1.id as idanunciante1','anunciantes2.id as idanunciante2',
+                'negociacaos.situacao as situacaonegociacao',
+                'negociacaos.resultado as resultadonegociacao')
+            ->where('anunciantes2.id','=',$meuid)
+              ->orwhere('anunciantes1.id','=',$meuid)
+            ->paginate(25);
+          //  dd($negociacaos);
 
 
-        $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+
+/*
+
+        $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')
+            ->where('idusuario1','=', Auth::user()->id)
+            ->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao',
+                'negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+
+
+        $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')
+            ->where('idusuario2','=', Auth::user()->id)
+            ->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao',
+                'negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
       //dd($negociacaos2);
 
        // dd($negociacaos2);
         return view('negociacoes.home',compact('negociacaos2','negociacaos1'));
+*/
+        return view('negociacoes.home',compact('negociacaos'));
     }
 
     /**
@@ -76,27 +100,40 @@ class NegociacaoController extends Controller
         //return "chegou";
     }
 
-    public function filtrar(Request $request){
 
-        if($request->resolucao == null){
-            $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->where('negociacaos.situacao','=',$request->situacao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+    //filtrar anuncios
+    public function filtrar(Request $request)
+    {
+        $meuid = Auth::user()->id;
+        $resolucao = $request->resolucao;
+        $situacao = $request->situacao;
 
 
-            $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->where('negociacaos.situacao','=',$request->situacao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
+        $query = Negociacao::join('users as anunciantes1', 'anunciantes1.id', '=', 'negociacaos.idusuario1')
+            ->leftjoin('users as anunciantes2', 'anunciantes2.id', '=', 'negociacaos.idusuario2')
+            ->select('anunciantes1.name as nomeanunciante1', 'anunciantes2.name as nomeanunciante2',
+                'negociacaos.id as idnegociacao', 'anunciantes1.id as idanunciante1', 'anunciantes2.id as idanunciante2',
+                'negociacaos.situacao as situacaonegociacao',
+                'negociacaos.resultado as resultadonegociacao');
+
+
+        if ($resolucao) {
+            $query->where('negociacaos.resultado', '=', $resolucao);
+
+        } elseif ($situacao){
+            $query->where('negociacaos.situacao', '=', $situacao);
         }
-        else{
-            $negociacaos1 = Negociacao::join('users','users.id','=','negociacaos.idusuario2')->where('idusuario1','=', Auth::user()->id)->where('negociacaos.resultado','=',$request->resolucao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
 
 
-            $negociacaos2 = Negociacao::join('users','users.id','=','negociacaos.idusuario1')->where('idusuario2','=', Auth::user()->id)->where('negociacaos.resultado','=',$request->resolucao)->select('negociacaos.id as idnegociacao','negociacaos.situacao as situacaonegociacao','negociacaos.resultado as resultadonegociacao','users.name as nomeanunciante')->get();
-        }
       //dd($negociacaos2);
-
+        $negociacaos = $query->where(function ($query) use ($meuid) {
+            $query->where('anunciantes2.id','=',$meuid)
+                ->orwhere('anunciantes1.id','=',$meuid);})->paginate(25);
 
        // dd($negociacaos2);
-        return view('negociacoes.home',compact('negociacaos2','negociacaos1'));
+        return view('negociacoes.home',compact('negociacaos'));
 
-        return "chegou";
+      //  return "chegou";
     }
 
     /**
