@@ -30,9 +30,15 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ url('/') }}">
-                  <img align="center" class="img-responsive rounded" width="60" src="{{ url('storage/logo.png') }}"  alt="Anuncio">  {{ config('app.name', 'Laravel') }}
+                    <img align="center" class="img-responsive rounded" width="60" src="{{ url('storage/logo.png') }}"  alt="Anuncio">
                 </a>
+                <a class="navbar-brand responsive" href="{{ url('/') }}">
+                   <!-- {{ config('app.name', 'Laravel') }} -->
+                    Portal de trocas agrícolas
+                </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

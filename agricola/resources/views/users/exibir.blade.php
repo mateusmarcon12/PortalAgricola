@@ -74,10 +74,16 @@
                                     </a>
                                 </div>
                                 <br>
-                            <div>
+                            </div>
+                        </div>
+
+                    <div class="table-responsive">
+                    <div style="clear:both" class="container">
+                        <div class="card-body">
                                 <form method="POST" enctype="multipart/form-data" action="{{ route('foto.store') }}">
                                     @csrf
-                                    <div class="row justify-content-center">
+
+
                                     <div class="form-group row">
                                         <label for="Imagem" class="col-md-4 col-form-label text-md-right">{{ __('Adicionar imagem') }}</label>
 
@@ -85,21 +91,26 @@
                                              <input type="file" name="images" id="file">
 
                                         </div>
-                                        <div class="col-md-5 offset-md-4">
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-light">
                                                 {{ __('Salvar') }}
                                             </button>
                                         </div>
                                     </div>
 
-                                    </div>
-                                </form>
-                            </div>
 
-                                <div class="card-header"></div><br>
+                                </form>
+                        </div>
+                    </div>
+                        </div>
+                        <div class="card-header"></div><br>
                  <br>
                  <h5 align="center">Deseja inativar sua conta no portal? <a href="{{route('usuario.inativar', Auth::user()->id)}}" class="btn btn-danger">Inativar</a></h5>
-                </div>
+                <br>
+                            <div class="card-header"></div><br>
+                            <br>
                 <div align="center" class="align-content-center">
                     <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
                 </div>
