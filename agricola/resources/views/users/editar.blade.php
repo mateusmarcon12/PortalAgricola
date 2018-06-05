@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -84,7 +85,7 @@
                                         <label for="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ $usuario->cpf  }}">
+                                            <input type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" id="cpf" value="{{ $usuario->cpf  }}">
 
                                             @if ($errors->has('cpf'))
                                                 <span class="invalid-feedback">
@@ -162,6 +163,7 @@ function verificartipo() {
         $("#cpfa").show(1000);
         $("#sexoa").show(1000);
         $("#cnpja").hide(1000);
+
     }
     if(x=='CNPJ'){
         $("#cnpja").show(1000);
