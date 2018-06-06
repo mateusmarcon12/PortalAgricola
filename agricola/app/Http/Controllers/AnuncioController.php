@@ -300,6 +300,19 @@ class AnuncioController extends Controller
         $detanuncio = Anuncio::selecionaum($request)->get();
 
         $files = Storage::allFiles('Anuncios/'.$anu.'/');
+
+        $endereco = Endereco::findOrFail($anuncioa->idendereco);
+        $endereco->idpais=$request->get('pais');
+        $endereco->iduf=$request->get('estado');
+        $endereco->idcidade=$request->get('cidade');
+        $endereco->bairro=$request->get('bairro');
+        $endereco->rua=$request->get('rua');
+        $endereco->numero=$request->get('numero');
+        $endereco->observacao=$request->get('endobservacao');
+        $endereco->save();
+
+
+
         //Session::flash('flash_message', 'Task successfully added!');
        
         //return view('anuncios.exibe', compact('detanuncio','files'));

@@ -268,7 +268,7 @@
    window.onload = function(){
         var x = document.getElementById("classificacaoSelect").value;
         var ar = <?php echo json_encode($categorias,JSON_PRETTY_PRINT) ?>;
-        $("#categoria").empty();
+        //$("#categoria").empty();
         for (var i = 0; i < ar.length; i++) {
             if(x==ar[i].idclassificacao){
             $('#categoria').append('<option name="categoria" value="' + ar[i].id + '">' + ar[i].nome + '</option>');
@@ -282,7 +282,7 @@
         var cidades = <?php echo json_encode($result,JSON_PRETTY_PRINT) ?>;
         var endereco = <?php echo json_encode($endereco,JSON_PRETTY_PRINT) ?>;
         
-        $("#cidade").empty();
+       // $("#cidade").empty();
         for (var i = 0; i < cidades.length; i++) {
             
             if(uf==cidades[i].uf_codigo){
