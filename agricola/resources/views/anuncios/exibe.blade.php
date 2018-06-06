@@ -45,7 +45,7 @@
                               <h5><b>Endereço</b></h5>
                                 @foreach($ende as $e)
                                 <p>
-                                    Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}
+                                    Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->uf_descricao}} - {{$e->nome}}
                                 </p>
                                 @endforeach
 
