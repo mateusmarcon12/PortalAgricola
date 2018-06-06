@@ -168,7 +168,7 @@ class CasaofertademandaController extends Controller
                                  // $verif = Casaofertademanda::where('id','=',$veri->id)->get();
                                  $cf = Casaofertademanda::findOrFail($c->id);
                                  $cf->graucompatibilidade = $g;
-                                 $cf>save();
+                                 $cf->save();
 
                         }
                     }
