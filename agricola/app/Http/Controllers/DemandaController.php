@@ -83,7 +83,7 @@ class DemandaController extends Controller
         $a->unidademedida=$request->get('unidademedida');
         $a->situacao='ativo';
         $a->idendereco=$ideste;
-        $a->tipoanuncio='demanda';
+        $a->tipoanuncio='Demanda';
         $a->save();
         $fotoend=$a->id;
         if ($request->hasFile('images')){
