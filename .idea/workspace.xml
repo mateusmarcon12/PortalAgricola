@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,102 +25,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="exibiroutro.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php">
+      <file leaf-file-name="recomendados.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.0573478">
-              <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="135" selection-end-column="38" />
+            <state vertical-scroll-proportion="-34.884617">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="71" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exibir.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibir.blade.php">
+      <file leaf-file-name="RecomendacaoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+            <state vertical-scroll-proportion="-37.26923">
+              <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemandaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="68" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConversaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/ConversaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OfertaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/OfertaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CasaofertademandaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/CasaofertademandaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="172" column="25" selection-start-line="172" selection-start-column="25" selection-end-line="172" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="284" column="9" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnuncioController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AnuncioController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="303" column="64" selection-start-line="303" selection-start-column="64" selection-end-line="303" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exibe.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.461538">
-              <caret line="47" column="126" selection-start-line="47" selection-start-column="126" selection-end-line="47" selection-end-column="126" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exibeoutro.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-90.23077">
-              <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="35" />
-              <folding />
+            <state vertical-scroll-proportion="0.011363637">
+              <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+              <folding>
+                <element signature="e#40#56#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,7 +94,6 @@
         <option value="$PROJECT_DIR$/agricola/database/migrations/2018_05_19_135807_create_avalicaointernas_table.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/enderecos/editar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/users/alterasenha.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/enderecos/cadastrar.blade.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/cadastrar.blade.php" />
@@ -182,8 +113,9 @@
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php" />
         <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/CasaofertademandaController.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php" />
-        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
         <option value="$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php" />
+        <option value="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
       </list>
     </option>
   </component>
@@ -227,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -504,32 +437,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PortalAgricola" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PortalAgricola" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agricola" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="anuncios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -722,7 +629,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -783,10 +689,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.408472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41452345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -894,14 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385">
           <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,13 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="71" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1172,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="226" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1180,6 +1070,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="68" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1200,22 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="284" column="9" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/DemandaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/CasaofertademandaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1224,17 +1106,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="64" selection-start-line="303" selection-start-column="64" selection-end-line="303" selection-end-column="64" />
+          <caret line="284" column="9" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibe.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.461538">
+        <state vertical-scroll-proportion="0.0">
           <caret line="47" column="126" selection-start-line="47" selection-start-column="126" selection-end-line="47" selection-end-column="126" />
           <folding />
         </state>
@@ -1242,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/exibeoutro.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-90.23077">
+        <state vertical-scroll-proportion="0.0">
           <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="35" />
           <folding />
         </state>
@@ -1250,9 +1132,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/users/exibiroutro.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0573478">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="135" selection-end-column="38" />
+        <state vertical-scroll-proportion="-13.5">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/recomendados.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.884617">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="71" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/RecomendacaoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.26923">
+          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.011363637">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

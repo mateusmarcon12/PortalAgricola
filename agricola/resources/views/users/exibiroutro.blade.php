@@ -43,9 +43,7 @@
                                     </p>
                                     @endforeach
                                 @endisset 
-                                @empty($endereco)
-                                    <h5><b>Endereço</b> <a href="{{action('EnderecoController@create')}}" class="btn btn-light">Cadastrar Endereço</a></h5>
-                                @endempty
+
                                 <div style="clear:both" class="card-header">Fotos do Anunciante</div>
                                                                 <br><br>
                                     <div class="container">
