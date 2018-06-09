@@ -9,6 +9,7 @@ use App\Endereco;
 use App\Anuncio;
 use App\avaliacao;
 use Auth;
+use App\Negociacao;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 class UserController extends Controller
@@ -133,6 +134,11 @@ class UserController extends Controller
             ->select('avaliacaos.comentario as comentario','users.name as avaliador',
                 'avaliacaos.created_at as datapost','avaliacaos.nota as nota')->orderby('datapost','desc')
             ->get();
+
+        $negociacaos1 = Negociacao::where('idusuario1','=',Auth::user()->id)->where('idusuario2','=',$user->id)->count();
+        $negociacaos2 = Negociacao::where('idusuario2','=',Auth::user()->id)->where('idusuario1','=',$user->id)->count();
+
+       // dd($negociacaos2);
         //dd($avaliacao);
         foreach($avaliacao as $a){
             $media=$media+$a->nota;
@@ -146,7 +152,8 @@ class UserController extends Controller
         else{
             $media = 'ainda não possui avaliação';
         }
-        return view('users.exibiroutro',compact('user','endereco','files','avaliacao','media'));
+        return view('users.exibiroutro',compact('user','endereco','files','avaliacao','media',
+            'negociacaos1','negociacaos2'));
     }
 
 

@@ -66,54 +66,57 @@
                                     <br>
                                     <h5 align="center">Este anunciante é classificado em média como nota: {{$media}}</h5>
                                     <br>
-                                    <h5 align="center">Já negociou com este anunciate? Deixe sua avaliação e comentário!</h5>
-                                <br>
+                                @if(($negociacaos1>0)or($negociacaos2>0))
+                                            <h5 align="center">Já negociou com este anunciate? Deixe sua avaliação e comentário!</h5>
+                                        <br>
 
-                              <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
-                                        @csrf
+                                      <form method="POST" enctype="multipart/form-data" action="{{ route('avaliacao.gravar', $user->id) }}">
+                                                @csrf
 
-                                        <div class="form-group row">
-                                            <label for="nota" class="col-md-4 col-form-label text-md-right">{{ __('Nota:') }}</label>
+                                                <div class="form-group row">
+                                                    <label for="nota" class="col-md-4 col-form-label text-md-right">{{ __('Nota:') }}</label>
 
-                                            <div class="col-md-6">
-                                                <label class="btn btn-secondary active"> 1 <input type="radio" name="nota" value="1"></label>
-                                                    <label class="btn btn-secondary active"> 2<input type="radio" name="nota" value="2"></label>
-                                                        <label class="btn btn-secondary active">  3<input type="radio" name="nota" value="3"></label>
-                                                            <label class="btn btn-secondary active"> 4<input type="radio" name="nota" value="4"></label>
-                                                                <label class="btn btn-secondary active">  5<input type="radio" name="nota" value="5"></label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="comentario" class="col-md-4 col-form-label text-md-right">{{ __('Comentário') }}</label>
+                                                    <div class="col-md-6">
+                                                        <label class="btn btn-secondary active"> 1 <input type="radio" name="nota" value="1"></label>
+                                                            <label class="btn btn-secondary active"> 2<input type="radio" name="nota" value="2"></label>
+                                                                <label class="btn btn-secondary active">  3<input type="radio" name="nota" value="3"></label>
+                                                                    <label class="btn btn-secondary active"> 4<input type="radio" name="nota" value="4"></label>
+                                                                        <label class="btn btn-secondary active">  5<input type="radio" name="nota" value="5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="comentario" class="col-md-4 col-form-label text-md-right">{{ __('Comentário') }}</label>
 
-                                            <div class="col-md-6">
-                                                <textarea id="comentario"  class="form-control{{ $errors->has('comentario') ? ' is-invalid' : '' }}" name="comentario" value="{{ old('comentario') }}" required autofocus>  </textarea>
+                                                    <div class="col-md-6">
+                                                        <textarea id="comentario"  class="form-control{{ $errors->has('comentario') ? ' is-invalid' : '' }}" name="comentario" value="{{ old('comentario') }}" required autofocus>  </textarea>
 
-                                                @if ($errors->has('comentario'))
-                                                    <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('comentario') }}</strong>
-                                            </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-6 offset-md-4">
-                                                <button type="submit" class="btn btn-light">
-                                                    {{ __('Enviar') }}
-                                                </button>
-                                            </div>
-                                        </div>
+                                                        @if ($errors->has('comentario'))
+                                                            <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('comentario') }}</strong>
+                                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-6 offset-md-4">
+                                                        <button type="submit" class="btn btn-light">
+                                                            {{ __('Enviar') }}
+                                                        </button>
+                                                    </div>
+                                                </div>
 
-                               </form>
+                                       </form>
+                                @endif
 
                         <br>
+                        @isset($avaliacao)
                                 <div class="table-responsive">
                                     <table class="table table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Avaliador</th>
                                                 <th>Nota</th>
-                                                <th>Comentario</th>
+                                                <th>Comentário</th>
                                                 <th>Data Avaliação</th>
                                             </tr>
                                         </thead>
@@ -133,6 +136,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                  <p><i>*As avaliações aqui exibidas são de usuários que já realizaram transações com este anunciante</i></p>
+                            @endisset
                             </div>
                                 <div align="center" class="align-content-center">
                                     <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>
