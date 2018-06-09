@@ -87,7 +87,19 @@ class AnuncioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function recomendados(){
-        $recomendacoes = Recomendacao::join('anuncios','anuncios.id','=','recomendacaos.idanuncio')->join('users','users.id','=','anuncios.idanunciante')->where('recomendacaos.idrecomendado','=',Auth::user()->id)->where('anuncios.situacao','=','ativo')->select('anuncios.titulo as titulo','users.name as nome','recomendacaos.idanuncio as idanuncio','anuncios.datavalidade as datavalidade','users.email as email','recomendacaos.id as idrecomendacao')->get();
+        $recomendacoes = Recomendacao::join('anuncios','anuncios.id','=','recomendacaos.idanuncio')
+            ->join('users as recidanunciante','recidanunciante.id','=','anuncios.idanunciante')
+            ->join('users as recidanunciado','recidanunciado.id','=','recomendacaos.idrecomendante')
+            ->where('recomendacaos.idrecomendado','=',Auth::user()->id)
+            ->where('anuncios.situacao','=','ativo')
+            ->select('anuncios.titulo as titulo','recidanunciante.name as nome',
+                'recidanunciado.name as recomendante',
+                'recidanunciante.email as anuemail',
+                'recomendacaos.idanuncio as idanuncio',
+                'anuncios.datavalidade as datavalidade',
+                'recomendacaos.id as idrecomendacao')->
+            orderby('recomendacaos.created_at','desc')
+            ->paginate(25);
         $tamanho = count($recomendacoes);
         $rep =0;
 

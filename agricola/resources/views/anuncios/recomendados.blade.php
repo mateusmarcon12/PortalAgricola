@@ -28,6 +28,7 @@
                                     <th>Anunciante</th>
                                     <th>E-mail</th>
                                     <th>Validade</th>
+                                    <th>Recomendante</th>
                                     <th></th>
                                     <th></th>
 
@@ -44,11 +45,12 @@
 
                                                 <td>{{$anu->titulo}}</td>
                                                 <td>{{$anu->nome}}</td>
-                                                <td>{{$anu->email}}</td>
+                                                <td>{{$anu->anuemail}}</td>
                                                
 
 
                                             <td>{{date( 'd/m/Y' , strtotime($anu->datavalidade))}}</td>
+                                            <td>{{$anu->recomendante}}</td>
                                             <td> <a href="{{action('AnuncioController@show',$anu->idanuncio)}}" class="btn btn-primary">Ver Mais</a> </td>
                                             <td> <a href="{{action('RecomendacaoController@excluir',$anu->idrecomendacao)}}" class="btn btn-primary">Excluir</a> </td>
 
@@ -64,6 +66,7 @@
 
                                 </tbody>
                             </table>
+                            {!!$recomendacoes->links()!!}
                             @endisset
                         </div>
 
