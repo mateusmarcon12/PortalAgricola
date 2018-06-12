@@ -16,7 +16,7 @@
                         <div class="responsive">
 
                       
-                              <h4><b>Nome: {{ $user->name }}</b></h4>
+                              <h4><b>Anunciante: {{ $user->name }}</b></h4>
                                <br>
                             <h5><b>Perfil</b></h5>
                                 <p>
