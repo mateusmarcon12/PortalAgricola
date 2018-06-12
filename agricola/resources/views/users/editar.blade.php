@@ -85,7 +85,7 @@
                                         <label for="cpf" class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" id="cpf" value="{{ $usuario->cpf  }}">
+                                            <input type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" id="cpf" onchange="habilitacadastrarcpf()" value="{{ $usuario->cpf  }}">
 
                                             @if ($errors->has('cpf'))
                                                 <span class="invalid-feedback">
@@ -119,7 +119,7 @@
                                         <label for="cnpj" class="col-md-4 col-form-label text-md-right">{{ __('CNPJ') }}</label>
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" name="cnpj" value="{{ $usuario->cnpj }}">
+                                            <input type="text" id="cnpj" onchange="habilitacadastrarcnpj()" class="form-control{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" name="cnpj" value="{{ $usuario->cnpj }}">
 
                                             @if ($errors->has('cnpj'))
                                                 <span class="invalid-feedback">
@@ -131,7 +131,7 @@
 
                                     <div class="form-group row mb-0 justify-content-center">
                                         <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" id="cadastrar" class="btn btn-primary">
                                                 {{ __('Salvar') }}
                                             </button>
                                         </div>
@@ -154,28 +154,111 @@
         if(x!=''){
             verificartipo();
         }
+        $("#cadastrar").hide(1000);
         //example function call.
     };
 
-function verificartipo() {
-    var x = document.getElementById("classificacaoSelect").value;
-    if(x=='CPF'){
-        $("#cpfa").show(1000);
-        $("#sexoa").show(1000);
-        $("#cnpja").hide(1000);
+    function verificartipo() {
+        var x = document.getElementById("classificacaoSelect").value;
+        if(x=='CPF'){
+            $("#cnpj").val("");
+            $("#sexoa").show(1000);
+            $("#cpfa").show(1000);
+            $("#cnpja").hide(1000);
+            
+
+        }
+        if(x=='CNPJ'){
+            $("#cpf").val("");
+            $("#cnpja").show(1000);
+            $("#cpfa").hide(1000);
+            $("#sexoa").hide(1000);
+        }
+        if(x==''){
+            $("#cnpj").val("");
+            $("#cpf").val("");
+            $("#cpfa").hide(1000);
+            $("#cnpja").hide(1000);
+            $("#sexoa").hide(1000);
+            $("#cadastrar").hide(1000);
+        }
 
     }
-    if(x=='CNPJ'){
-        $("#cnpja").show(1000);
-        $("#cpfa").hide(1000);
-        $("#sexoa").hide(1000);
-    }
-    if(x==''){
-        $("#cpfa").hide(1000);
-        $("#cnpja").hide(1000);
-        $("#sexoa").hide(1000);
-    }
-    
-}
+    function habilitacadastrarcpf(){
 
+        var strCPF = document.getElementById("cpf").value;
+        strCPF = strCPF.replace(/[^\d]+/g,'');
+        var Soma;
+        var Resto;
+        Soma = 0;
+        if (strCPF == "00000000000"){ $("#cadastrar").hide(1000); return false;}
+
+        for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(9, 10)) ){ $("#cadastrar").hide(1000); return false;}
+
+        Soma = 0;
+        for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(10, 11) ) ) { $("#cadastrar").hide(1000); return false;}
+
+        $("#cadastrar").show(1000);
+    }
+
+    function habilitacadastrarcpnj(){
+        var cnpj = document.getElementById("cnpj").value;
+        cnpj = cnpj.replace(/[^\d]+/g,'');
+
+        if(cnpj == '') return false;
+
+        if (cnpj.length != 14)
+            return false;
+
+        // Elimina CNPJs invalidos conhecidos
+        if (cnpj == "00000000000000" ||
+                cnpj == "11111111111111" ||
+                cnpj == "22222222222222" ||
+                cnpj == "33333333333333" ||
+                cnpj == "44444444444444" ||
+                cnpj == "55555555555555" ||
+                cnpj == "66666666666666" ||
+                cnpj == "77777777777777" ||
+                cnpj == "88888888888888" ||
+                cnpj == "99999999999999")
+            return false;
+
+        // Valida DVs
+        tamanho = cnpj.length - 2;
+        numeros = cnpj.substring(0,tamanho);
+        digitos = cnpj.substring(tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+            soma += numeros.charAt(tamanho - i) * pos--;
+            if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0))
+            return false;
+
+        tamanho = tamanho + 1;
+        numeros = cnpj.substring(0,tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+            soma += numeros.charAt(tamanho - i) * pos--;
+            if (pos < 2)
+                pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1))
+            return false;
+
+        $("#cadastrar").show(1000);
+    }
 </script>
