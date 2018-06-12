@@ -49,7 +49,11 @@
 
                                         
 
+                                        @if($ticket->tipoanuncio=='Oferta')
+                                           <tr bgcolor="#e6e6fa">
+                                        @else
                                             <tr>
+                                        @endif
 
                                             <td>{{$ticket->titulo}}</td>
                                             <td>{{$ticket->tipoanuncio}}</td>
