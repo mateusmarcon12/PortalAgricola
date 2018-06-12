@@ -216,6 +216,9 @@ class UserController extends Controller
         //
         $usuario = User::FindorFail(Auth::user()->id);
         $usuario->name = $request->name;
+        $usuario->celular = $request->celular;
+        $usuario->telefone = $request->telefone;
+        
         $usuario->email =$request->email;
         $usuario->datanasc = $request->datanasc;
         $usuario->tipo = $request->tipo;

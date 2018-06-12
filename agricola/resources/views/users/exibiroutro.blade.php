@@ -18,11 +18,11 @@
                       
                               <h4><b>Nome: {{ $user->name }}</b></h4>
                                <br>
-                            
+                            <h5><b>Perfil</b></h5>
                                 <p>
                                     E-mail:{{ $user->email }}
                                 </p>
-                              <h5><b>Perfil</b></h5>
+                              
                                 <p>
                                     Sexo: {{ $user->sexo }} <br>
                                     @if ($user->cpf != null)
@@ -31,6 +31,8 @@
                                     @if ($user->cnpj != null) 
                                         CNPJ: {{ $user->cnpj }}   
                                     @endif
+                                    Telefone: {{$user->telefone}} <br>
+                                    Celular: {{$user->celular}}
                                 </p>
                                
 

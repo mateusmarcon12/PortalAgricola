@@ -27,6 +27,32 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="telefone" class="col-md-4 col-form-label text-md-right">{{ __('Telefone') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input id="telefone" type="text" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" name="telefone" value="{{ $usuario->telefone}}">
+
+                                            @if ($errors->has('telefone'))
+                                                <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('telefone') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="celular" class="col-md-4 col-form-label text-md-right">{{ __('Celular') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input id="celular" type="text" class="form-control{{ $errors->has('celular') ? ' is-invalid' : '' }}" name="celular" value="{{ $usuario->celular}}">
+
+                                            @if ($errors->has('celular'))
+                                                <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('celular') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                         <div class="col-md-6">

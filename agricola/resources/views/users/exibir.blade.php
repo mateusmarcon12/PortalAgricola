@@ -22,11 +22,11 @@
                                     {{ __('Alterar Senha') }}
                                 </a></h4>
                                <br>
-                            
+                            <h5><b>Perfil</b></h5>
                                 <p>
-                                    E-mail:{{ Auth::user()->email }}
+                                    E-mail: {{ Auth::user()->email }}
                                 </p>
-                              <h5><b>Perfil</b></h5>
+                              
                                 <p>
                                     Sexo: {{ Auth::user()->sexo }} <br>
                                     @if (Auth::user()->cpf != null)
@@ -35,6 +35,8 @@
                                     @if (Auth::user()->cnpj != null) 
                                         CNPJ: {{ Auth::user()->cnpj }}   
                                     @endif
+                                    Telefone: {{Auth::user()->telefone}} <br>
+                                    Celular: {{Auth::user()->celular}}
                                 </p>
                                
 
