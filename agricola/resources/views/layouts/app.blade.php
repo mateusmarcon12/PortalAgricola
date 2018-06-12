@@ -61,16 +61,17 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   Amigos<span class="caret"></span>
+                                   Amigos | Anunciantes<span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('usuario.todos',Auth::user()->id) }}">
-                                        {{ __('Todos anunciantes') }}
-                                    </a>
                                     <a class="dropdown-item" href="{{ route('amizades.show',Auth::user()->id) }}">
                                         {{ __('Meus Amigos') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('usuario.todos',Auth::user()->id) }}">
+                                        {{ __('Todos anunciantes') }}
+                                    </a>
+
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -80,9 +81,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('anuncio.index') }}">
-                                        {{ __('Meus Anúncios') }}
-                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('oferta.create') }}">
                                         {{ __('Cadastrar Oferta') }}
                                     </a>
@@ -95,30 +94,34 @@
                                     <a class="dropdown-item" href="{{ route('anuncio.listtodos') }}">
                                         {{ __('Exibir todos anúncios') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('anuncio.index') }}">
+                                        {{ __('Meus Anúncios') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('negociacao.index') }}">
+                                        {{ __('Minhas Negociações') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('anuncio.recomendados') }}">
                                         {{ __('Recomendados por amigos') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('negociacao.index') }}">
-                                        {{ __('Minhas Negociações') }}
-                                    </a>
+
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Usuário: {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                    <a class="dropdown-item" href="{{ route('user.show', Auth::user()->id) }}">
+                                        {{ __('Perfil') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('user.show', Auth::user()->id) }}">
-                                        {{ __('Perfil') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
