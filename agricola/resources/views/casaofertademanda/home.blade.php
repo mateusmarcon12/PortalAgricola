@@ -58,10 +58,9 @@
                                 @foreach($anu as $ticket)
 
 
-
                                         @if($ticket->idof == Auth::user()->id)
 
-                                            <tr bgcolor="white">
+                                            <tr bgcolor="00FF7F">
 
                                             <td>{{$ticket->titulodemanda}}</td>
                                             <td>{{$ticket->demandatipo}}</td>
@@ -75,7 +74,7 @@
                                             </tr>
 
                                         @else
-                                            <tr bgcolor="#e6e6fa">
+                                            <tr bgcolor="#98FB98">
                                             <td>{{$ticket->titulooferta}}</td>
                                             <td>{{$ticket->ofertatipo}}</td>
                                             <td>{{$ticket->ofertadescricao}}</td>

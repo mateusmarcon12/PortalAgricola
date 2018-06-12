@@ -105,9 +105,9 @@
 
                                         
                                           @if($ticket->tipoanuncio=='Oferta')
-                                           <tr bgcolor="#e6e6fa">
+                                           <tr bgcolor="#98FB98">
                                           @else
-                                            <tr>
+                                            <tr bgcolor="#00FF7F">
                                           @endif
                                             <td>{{$ticket->titulo}}</td>
                                             <td>{{$ticket->tipoanuncio}}</td>

@@ -83,11 +83,11 @@
 
                             @foreach($anu as $ticket)
 
-                                @if($ticket->tipoanuncio=='Oferta')
-                                    <tr bgcolor="#e6e6fa">
-                                @else
-                                    <tr>
-                                @endif
+                                          @if($ticket->tipoanuncio=='Oferta')
+                                           <tr bgcolor="#98FB98">
+                                          @else
+                                            <tr bgcolor="#00FF7F">
+                                          @endif
                                
                                     <td>{{$ticket->titulo}}</td>
                                     <td>{{$ticket->tipoanuncio}}</td>
