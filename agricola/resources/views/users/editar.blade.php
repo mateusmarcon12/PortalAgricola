@@ -154,7 +154,7 @@
         if(x!=''){
             verificartipo();
         }
-        $("#cadastrar").hide(1000);
+       
         //example function call.
     };
 
