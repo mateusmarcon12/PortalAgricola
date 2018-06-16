@@ -29,7 +29,7 @@
                                         CPF: {{ $user->cpf }}<br>
                                     @endif
                                     @if ($user->cnpj != null) 
-                                        CNPJ: {{ $user->cnpj }}   
+                                        CNPJ: {{ $user->cnpj }}  <br>
                                     @endif
                                     Telefone: {{$user->telefone}} <br>
                                     Celular: {{$user->celular}}
