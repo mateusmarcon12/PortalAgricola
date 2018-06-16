@@ -33,7 +33,7 @@
                                         CPF: {{ Auth::user()->cpf }}<br>
                                     @endif
                                     @if (Auth::user()->cnpj != null) 
-                                        CNPJ: {{ Auth::user()->cnpj }}   
+                                        CNPJ: {{ Auth::user()->cnpj }}   <br>
                                     @endif
                                     Telefone: {{Auth::user()->telefone}} <br>
                                     Celular: {{Auth::user()->celular}}
