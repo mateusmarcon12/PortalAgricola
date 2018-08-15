@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Anuncio.php" afterPath="$PROJECT_DIR$/agricola/app/Anuncio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Foto.php" afterPath="$PROJECT_DIR$/agricola/app/Foto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
@@ -40,12 +35,11 @@
         <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6337522">
-              <caret line="46" column="103" selection-start-line="46" selection-start-column="103" selection-end-line="46" selection-end-column="103" />
+              <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
               <folding>
-                <element signature="e#1811#1844#0#HTML" expanded="true" />
-                <element signature="e#1952#1984#0#HTML" expanded="true" />
-                <element signature="e#2370#2412#0#HTML" expanded="true" />
-                <element signature="e#3195#3214#0#HTML" expanded="true" />
+                <element signature="e#2196#2240#0#HTML" expanded="true" />
+                <element signature="e#2595#2633#0#HTML" expanded="true" />
+                <element signature="e#2841#2879#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1256,12 +1250,11 @@
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6337522">
-          <caret line="46" column="103" selection-start-line="46" selection-start-column="103" selection-end-line="46" selection-end-column="103" />
+          <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
           <folding>
-            <element signature="e#1811#1844#0#HTML" expanded="true" />
-            <element signature="e#1952#1984#0#HTML" expanded="true" />
-            <element signature="e#2370#2412#0#HTML" expanded="true" />
-            <element signature="e#3195#3214#0#HTML" expanded="true" />
+            <element signature="e#2196#2240#0#HTML" expanded="true" />
+            <element signature="e#2595#2633#0#HTML" expanded="true" />
+            <element signature="e#2841#2879#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
