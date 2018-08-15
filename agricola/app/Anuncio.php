@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class Anuncio extends Model
 {
     //
     protected $fillable = [
-        'titulo', 'descricao', 'classe','datavalidade','observacao','situacao','idanunciante','fotos','tipo','idendereco','tipoanuncio','quantidade','unidademedida',
+        'titulo', 'descricao', 'classe','datavalidade','observacao','situacao','idanunciante','fotos','tipo','idendereco','tipoanuncio','quantidade','unidademedida','img',
     ];
 
     public function scopeTipooferta ($query)
@@ -77,6 +78,7 @@ class Anuncio extends Model
         return ($detanuncio);
 
     }
+
 
 
 

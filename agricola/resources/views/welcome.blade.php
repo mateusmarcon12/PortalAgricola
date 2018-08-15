@@ -10,7 +10,7 @@
                     <div class="card-body">
 
 
-                    @if (session('status'))
+                        @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
                             </div>
@@ -25,63 +25,56 @@
                             é possível identificar os melhores e mais confiáveis anunciantes do portal.</p>
 
                         <div class="card-header">Anúncios</div>
-                        <div class="table-responsive">
-                            <table class="table table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Título</th>
-                                    <th>Típo</th>
-                                    <th>Descrição</th>
-                                    <th>Anunciante</th>
-                                    <th>Validade</th>
-                                    
+
+                        <div class="row">
+
+                            @foreach($anu as $ticket)
+
+                                <div class="col-lg-6 portfolio-item">
+                                    @if($ticket->tipoanuncio=='Demanda')
+                                        <div class="card h-100" style="background-color: #B0E0E6">
+                                    @else
+                                        <div class="card h-100" style="background-color:#B0C4DE">
+                                    @endif
 
 
 
-                                </tr>
-                                </thead>
-                                <tbody>
+                                        @for($i=0;$i<sizeof($imagens);$i++)
+                                                @if($imagens[$i]['anuncio'] == $ticket->id)
+                                                    @if($imagens[$i]['imagem'] != null)
+                                                        <img class="card-img-top" style="max-height:150px; max-width:700px;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
+                                                    @else
+                                                        <img class="card-img-top" style="max-height:150px; max-width:700px;" src="{{ url('storage/erro.jpg')}}">
+                                                    @endif
+                                                @endif
+                                        @endfor
+                                    <!--      <a href="#" id="43" name="{{$ticket->id}}"><img class="card-img-top" src="http://placehold.it/700x400"></a>-->
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="#" style="color:green">{{$ticket->titulo}}</a>
+                                            </h4>
+                                            <p class="card-text">
+                                                        Tipo: {{$ticket->tipoanuncio}} <br>
+                                                        Descrição: {{$ticket->descricao}} <br>
+                                                        Anunciante: {{$ticket->name}}<br>
+                                                        Validade: {{date( 'd/m/Y' , strtotime($ticket->validade))}}</td>
+                                                        <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary"> Ver Mais</a>
 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                @foreach($anu as $ticket)
+                            @endforeach
+                        </div>
 
+                        {!!$anu->links()!!}
+                        @endisset
 
-
-                                        
-
-                                          @if($ticket->tipoanuncio=='Oferta')
-                                           <tr bgcolor="#98FB98">
-                                          @else
-                                            <tr bgcolor="#00FF7F">
-                                          @endif
-
-                                            <td>{{$ticket->titulo}}</td>
-                                            <td>{{$ticket->tipoanuncio}}</td>
-                                            <td>{{$ticket->descricao}}</td>
-                                            <td>{{$ticket->name}}</td>
-                                            
-
-                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validade))}}</td>
-
-
-                                            </tr>
-
-                                    <tr>
-
-                                    </tr>
-
-                                @endforeach
-
-
-
-                                </tbody>
-                            </table>
-                            {!!$anu->links()!!}
-                            @endisset
-                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
