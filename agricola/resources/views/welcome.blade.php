@@ -138,7 +138,9 @@
                             @endforeach
                         </div>
 
-                        {!!$anu->links()!!}
+
+                        {{ $anu->appends(Input::get())->links() }}
+
                         @endisset
 
                     </div>

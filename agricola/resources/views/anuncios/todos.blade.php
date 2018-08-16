@@ -168,7 +168,7 @@
 
                                         <!--    </tbody>
                             </table> -->
-                            {!!$anu->links()!!}
+                            {{ $anu->appends(Input::get())->links() }}
                             @endisset
                         </div>
 

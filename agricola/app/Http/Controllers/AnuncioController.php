@@ -169,7 +169,10 @@ class AnuncioController extends Controller
         $estado = Input::get('estado');
         $tipo = Input::get('tipo');
 
-        $query = Anuncio::join('enderecos','enderecos.id','=','Anuncios.idendereco')->leftjoin('users','users.id','=','anuncios.idanunciante')->select('anuncios.*','enderecos.iduf','users.name as name')->where('anuncios.situacao','=','ativo');
+        $query = Anuncio::join('enderecos','enderecos.id','=','Anuncios.idendereco')
+        ->leftjoin('users','users.id','=','anuncios.idanunciante')
+        ->select('anuncios.*','enderecos.iduf','users.name as name')
+        ->where('anuncios.situacao','=','ativo');
 
         if($titulo)
             $query->where('titulo', 'LIKE', '%' . $titulo . '%');
