@@ -85,8 +85,12 @@ class ResumidoController extends Controller
 		if ($estado)
 			$query->where('enderecos.iduf', '=', $estado);
 
-		$anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante', '!=', Auth::user()->id)->paginate(10);
-
+		if(Auth::guest()){
+			$anu = $query->orderBy('anuncios.created_at', 'desc')->paginate(10);
+		}
+		else {
+			$anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante', '!=', Auth::user()->id)->paginate(10);
+		}
 		$estados = DB::table('ufs')->get();
 		$classificacoes = DB::table('classificacaos')->get();
 		$categorias = DB::table('categorias')->get();
