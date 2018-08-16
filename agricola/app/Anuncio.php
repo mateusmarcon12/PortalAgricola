@@ -2,10 +2,14 @@
 
 namespace App;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\Cast\Object_;
+
 class Anuncio extends Model
 {
     //
@@ -86,5 +90,6 @@ class Anuncio extends Model
     {
         return $this->hasOne('App\Endereco', 'idendereco');
     }
+
 
 }

@@ -16,6 +16,7 @@ Route::get('/', function () {
     return redirect()->route('resumido');
     //return view('welcome');
 });
+Route::get('/welcome/search','resumidoController@filtra');
 
 
 
@@ -43,7 +44,8 @@ Route::post('/anuncio/update/{id}','AnuncioController@update')->name('upd');
 Route::get('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
 Route::post('/anuncio/intativar/{id}','AnuncioController@inativar')->name('anuncio.inativar');
 
-Route::post('/anuncio/filt','AnuncioController@filtra')->name('anuncio.filtraranuncio');
+//Route::post('/anuncio/filt','AnuncioController@filtra')->name('anuncio.filtraranuncio');
+Route::get('lib/search','AnuncioController@filtra');
 Route::post('/anuncio/filtrar','AnuncioController@filtrarmeus')->name('anuncio.filtrarmeus');
 Route::get('/anuncios/dem','AnuncioController@listarofertas')->name('anuncio.dem');
 Route::get('/anuncios/ofer','AnuncioController@listarofertas')->name('anuncio.ofer');

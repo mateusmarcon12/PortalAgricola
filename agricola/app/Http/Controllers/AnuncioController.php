@@ -18,6 +18,7 @@ use Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Amizades;
 use App\Recomendacao;
+use Illuminate\Support\Facades\Input;
 
 class AnuncioController extends Controller
 {
@@ -36,11 +37,15 @@ class AnuncioController extends Controller
     {
         //
 
-        $anu = Anuncio::where('idanunciante','=', Auth::user()->id)->paginate();
+        $anu = Anuncio::where('idanunciante','=', Auth::user()->id)->paginate(10);
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
       //  return view('anuncios.home')->with('anu', $anu);
+
+
+
+
         return view('anuncios.home',compact('anu','estados','classificacoes','categorias'));
 
     }
@@ -49,12 +54,41 @@ class AnuncioController extends Controller
     //exibir todos os anúncios ativos de outros usuários
     public function todosanuncios(){
 
-        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')->orderby('anuncios.created_at','desc')->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id', 'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as datavalidade')->paginate(20);
+        $anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')
+            ->where('idanunciante','!=', Auth::user()->id)->where('anuncios.situacao','=','ativo')
+            ->orderby('anuncios.created_at','desc')->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id',
+                'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as datavalidade')
+            ->paginate(10);
+
          $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
        //dd($anu);
-        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
+
+
+        $num = 0;
+        $imagens = collect();
+
+        foreach ($anu as $a){
+            $dir = $a->id;
+            $f= Storage::allFiles('Anuncios/'.$dir.'/');
+
+            if($f != null){
+                $im = $f[0];
+            } else{
+                $im=null;
+            }
+
+
+            $imagens[$num] = array(
+                'imagem' => $im,
+                'anuncio' => $a->id,
+            );
+            $num = $num+1;
+        }
+        //$imagens = Anuncio::imagem($anu);
+
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias','imagens'));
     }
 
     public function listardemandas(){
@@ -119,15 +153,21 @@ class AnuncioController extends Controller
         return view('anuncios.cadastrar', compact('result','estados','classificacoes','categorias','tipoanuncio'));
     }
 
-    public function filtra(Request $request)
+  //  public function filtra(Request $request)
+    public function filtra()
     {
-
-        $categoria = $request->categoria;
+        //dd('chegou');
+        /*$categoria = $request->categoria;
         $classificacao = $request->classificacao;
         $titulo = $request->titulo;
         $estado = $request->estado;
-        $tipo = $request->tipo;
+        $tipo = $request->tipo;*/
 
+        $categoria = Input::get('categoria');
+        $classificacao = Input::get('classificacao');
+        $titulo = Input::get('titulo');
+        $estado = Input::get('estado');
+        $tipo = Input::get('tipo');
 
         $query = Anuncio::join('enderecos','enderecos.id','=','Anuncios.idendereco')->leftjoin('users','users.id','=','anuncios.idanunciante')->select('anuncios.*','enderecos.iduf','users.name as name')->where('anuncios.situacao','=','ativo');
 
@@ -146,13 +186,37 @@ class AnuncioController extends Controller
         if($estado)
             $query->where('enderecos.iduf', '=', $estado);
 
-        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','!=', Auth::user()->id)->paginate(25);
+        $anu = $query->orderBy('anuncios.created_at', 'desc')->where('idanunciante','!=', Auth::user()->id)->paginate(10);
 
         $estados = DB::table('ufs')->get();
         $classificacoes = DB::table('classificacaos')->get();
         $categorias = DB::table('categorias')->get();
 
-        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias'));
+
+        $num = 0;
+        $imagens = collect();
+
+        foreach ($anu as $a){
+            $dir = $a->id;
+            $f= Storage::allFiles('Anuncios/'.$dir.'/');
+
+            if($f != null){
+                $im = $f[0];
+            } else{
+                $im=null;
+            }
+
+
+            $imagens[$num] = array(
+                'imagem' => $im,
+                'anuncio' => $a->id,
+            );
+            $num = $num+1;
+        }
+
+
+        //return View::make('site/libraries/list', compact('posts', 'search'));
+        return view('anuncios.todos',compact('anu','estados','classificacoes','categorias','imagens'));
 
     }
 

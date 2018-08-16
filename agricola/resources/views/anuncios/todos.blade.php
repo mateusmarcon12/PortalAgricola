@@ -22,8 +22,9 @@
                           </li>
                         </ul>
 -->
-                        <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('anuncio.filtraranuncio') }}">
-                           @csrf
+
+                    <form class="form-inline my-2 my-lg-0" method="get" action="{{{ URL::to('lib/search') }}}">
+                    @csrf
                           <select name="categoria" class="form-control">
                               <option value="">Categoria</option>
                                     @foreach($categorias as $cat)
@@ -80,9 +81,9 @@
                 <div class="container">
 
                          @isset($anu)
-                        <div class="table-responsive">
+                        <div>
                           <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
-                            <table id="example" class="table sortable table-hover">
+                          <!--  <table id="example" class="table sortable table-hover">
                                 <thead>
                                 <tr>
                                     <th>Título</th>
@@ -96,14 +97,14 @@
 
                                 </tr>
                                 </thead>
-                                <tbody id="myTable">
+                                <tbody id="myTable"> -->
 
-
+                            <div class="row">
                                 @foreach($anu as $ticket)
 
 
 
-                                        
+                                   <!--
                                           @if($ticket->tipoanuncio=='Oferta')
                                            <tr bgcolor="#98FB98">
                                           @else
@@ -122,14 +123,51 @@
 
                                     <tr>
 
-                                    </tr>
+                                    </tr> -->
+                                            <div class="col-lg-6 portfolio-item">
 
+                                                <!--   @if($ticket->tipoanuncio=='Demanda')
+                                                        <div class="card h-100" style="border-color: #2ab27b">
+                                                    @else
+                                                        <div class="card h-100" style="border-color: #0b2e13 ">
+                                                    @endif -->
+                                                <div class="card h-100">
+
+                                                    <div align="center" style="max-height:100px; max-height: 700px;">
+                                                        @for($i=0;$i<sizeof($imagens);$i++)
+                                                            @if($imagens[$i]['anuncio'] == $ticket->id)
+                                                                @if($imagens[$i]['imagem'] != null)
+                                                                    <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
+                                                                @else
+                                                                    <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/erro.jpg')}}">
+                                                                @endif
+                                                            @endif
+                                                        @endfor
+                                                    </div>
+                                                    <!--      <a href="#" id="43" name="{{$ticket->id}}"><img class="card-img-top" src="http://placehold.it/700x400"></a>-->
+                                                    <div class="card-body ">
+                                                        <h2 class="card-title" style="color:green; text-transform: uppercase;">
+                                                            {{$ticket->titulo}}
+                                                        </h2>
+
+                                                        <p class="card-text">
+                                                            <b> Tipo: {{$ticket->tipoanuncio}} </b><br>
+                                                            Descrição: {{$ticket->descricao}} <br>
+
+                                                        </p>
+
+
+                                                        <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary"> Ver Mais</a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                 @endforeach
 
+                                </div>
 
-
-                                </tbody>
-                            </table>
+                                        <!--    </tbody>
+                            </table> -->
                             {!!$anu->links()!!}
                             @endisset
                         </div>
