@@ -7,6 +7,7 @@ use App\Oferta;
 use Illuminate\Http\Request;
 use App\Anuncio;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 use Illuminate\Support\Facades\Input;
 
@@ -204,7 +205,34 @@ class CasaofertademandaController extends Controller
          //  $casou = Casaofertademanda::where('idinteressado','=',Auth::user()->id)->get();
 
       //  return $anu;
-     return view('casaofertademanda.home')->with('anu', $anu,'minhademanda',$minhademanda);
+
+        $num = 0;
+        $imagens = collect();
+        foreach ($anu as $a){
+            if(Auth::user()->id == $a->demandadorid){
+                $dir = $a->idoferta;
+            }
+            else{
+                $dir = $a->iddemanda;
+            }
+            
+            $f= Storage::allFiles('Anuncios/'.$dir.'/');
+
+            if($f != null){
+                $im = $f[0];
+            } else{
+                $im=null;
+            }
+
+
+            $imagens[$num] = array(
+                    'imagem' => $im,
+                    'anuncio' => $dir,
+            );
+            $num = $num+1;
+        }
+
+     return view('casaofertademanda.home',  compact('anu','minhademanda','imagens'));
     }
 
     /**
@@ -248,8 +276,36 @@ class CasaofertademandaController extends Controller
 
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
+        $num = 0;
+        $imagens = collect();
+        foreach ($anu as $a){
+            if(Auth::user()->id == $a->demandadorid){
+                $dir = $a->idoferta;
+            }
+            else{
+                $dir = $a->iddemanda;
+            }
+            
+            $f= Storage::allFiles('Anuncios/'.$dir.'/');
+
+            if($f != null){
+                $im = $f[0];
+            } else{
+                $im=null;
+            }
+
+
+            $imagens[$num] = array(
+                    'imagem' => $im,
+                    'anuncio' => $dir,
+            );
+            $num = $num+1;
+        }
+
+     //dd($imagens);
+
     // return view('casaofertademanda.home')->with('anu', $anu,'minhademanda',$minhademanda);
-     return view('casaofertademanda.home',  compact('anu','minhademanda'));
+     return view('casaofertademanda.home',  compact('anu','minhademanda','imagens'));
     }
 
 

@@ -6,108 +6,121 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
-                         <form class="form-inline my-2 my-lg-0" method="get" action="{{ URL::to('/relevantes/search') }}">
-              
-                           @csrf
-                          <select name="tipo" class="form-control">
-                              <option value="">Tipo</option>
-                              <option value="Oferta">Ofertas</option>
-                              <option value="Demanda">Demandas</option>
-                          </select>  
-                          
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
-                        </form>
-                </div>            
-            </div>                
-        </div>        
+                   <form class="form-inline my-2 my-lg-0" method="get" action="{{ URL::to('/relevantes/search') }}">
+
+                     @csrf
+                     <select name="tipo" class="form-control">
+                      <option value="">Tipo</option>
+                      <option value="Oferta">Ofertas</option>
+                      <option value="Demanda">Demandas</option>
+                  </select>  
+
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+              </form>
+          </div>            
+      </div>                
+  </div>        
 
 
 
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais recentes</a></div>
-                
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                        @isset($anu)
-                        <div class="table-responsive">
-                            <table id="example" class="table sortable table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Título</th>
-                                    <th>Típo</th>
-                                    <th>Descrição</th>
-                                    <th>Anunciante</th>
-                                    <th>Validade</th>
-                                    <th>Meu Anúncio</th>
-                                    <th>Grau</th>
-                                    <th></th>
-                                    <th></th>
+  <div class="col-md-10">
+    <div class="card">
+        <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais recentes</a></div>
 
 
-                                </tr>
-                                </thead>
-                                <tbody>
+        <div class="card-body">
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
 
+            @isset($anu)
 
-                                @foreach($anu as $ticket)
+            <div class="row">
+                @foreach($anu as $ticket)
 
+                <div class="col-lg-6 portfolio-item">
 
-                                        @if($ticket->idof == Auth::user()->id)
-
-                                            <tr bgcolor="00FF7F">
-
-                                            <td>{{$ticket->titulodemanda}}</td>
-                                            <td>{{$ticket->demandatipo}}</td>
-                                            <td>{{$ticket->demandadescricao}}</td>
-                                            <td>{{$ticket->demandadornome}}</td>
-                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validadedemanda))}}</td>
-                                            <td>{{$ticket->titulooferta}}</td>
-                                            <td>{{$ticket->graucompatibilidade}}</td>
-                                            <td> <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary">Ver Mais</a> </td>
-
-                                            </tr>
-
+                    <div class="card h-100">
+                        @if($ticket->idof == Auth::user()->id)
+                            <div align="center" style="max-height:100px; max-height: 700px;">
+                            
+                                @for($i=0;$i<sizeof($imagens);$i++)
+                                    @if($imagens[$i]['anuncio'] == $ticket->iddemanda)
+                                        @if($imagens[$i]['imagem'] != null)
+                                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
                                         @else
-                                            <tr bgcolor="#98FB98">
-                                            <td>{{$ticket->titulooferta}}</td>
-                                            <td>{{$ticket->ofertatipo}}</td>
-                                            <td>{{$ticket->ofertadescricao}}</td>
-                                            <td>{{$ticket->ofertantenome}}</td>
-                                            <td>{{date( 'd/m/Y' , strtotime($ticket->validadeoferta))}}</td>
-                                            <td>{{$ticket->titulodemanda}}</td>
-                                            <td>{{$ticket->graucompatibilidade}}</td>
-                                            <td> <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary">Ver Mais</a> </td>
-                                            </tr>
+                                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/erro.jpg')}}">
                                         @endif
+                                        @break
+                                    @endif
+                                @endfor
+                            </div>
+
+                            <div class="card-body ">
+                                <h2 class="card-title" style="color:green; text-transform: uppercase;">
+                                    {{$ticket->titulodemanda}}
+                                </h2>
+
+                                <p class="card-text">
+                                   <b> Tipo: {{$ticket->demandatipo}} </b><br>
+                                   Descrição: {{$ticket->demandadescricao}} <br>
+                                   Anunciante: {{$ticket->demandadornome}} <br>
+                                   Minha oferta: {{$ticket->titulooferta}} <br>
+                                   Grau de relevância: {{$ticket->graucompatibilidade}} <br>
+                               </p>
 
 
-                                    <tr>
+                               <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary"> Ver Mais</a>
 
-                                    </tr>
+                           </div>                         
 
-                                @endforeach
+                        @else
+                            <div align="center" style="max-height:100px; max-height: 700px;">
+                            
+                                @for($i=0;$i<sizeof($imagens);$i++)
+                                    @if($imagens[$i]['anuncio'] == $ticket->idoferta)
+                                        @if($imagens[$i]['imagem'] != null)
+                                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
+                                        @else
+                                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/erro.jpg')}}">
+                                        @endif
+                                        @break
+                                    @endif
+                                @endfor
+                            </div>
+
+                            <div class="card-body ">
+                                <h2 class="card-title" style="color:green; text-transform: uppercase;">
+                                    {{$ticket->titulooferta}}
+                                </h2>
+
+                                <p class="card-text">
+                                   <b> Tipo: {{$ticket->ofertatipo}} </b><br>
+                                   Descrição: {{$ticket->ofertadescricao}} <br>
+                                   Anunciante: {{$ticket->ofertantenome}} <br>
+                                   Minha demanda: {{$ticket->titulodemanda}} <br>
+                                   Grau de relevância: {{$ticket->graucompatibilidade}} <br>
+                               </p>
 
 
+                               <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary"> Ver Mais</a>
 
-                                </tbody>
-                            </table>
-                              {{ $anu->appends(Input::get())->links() }}
-                             
-                            @endisset
-                        </div>
+                           </div>    
+                        @endif 
 
-
+                    </div>
                 </div>
+
+                @endforeach
+                {{ $anu->appends(Input::get())->links() }}
+                @endisset
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection
 
