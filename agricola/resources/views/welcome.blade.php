@@ -87,13 +87,14 @@
 
                         <div align="center" style="max-height:100px; max-height: 700px;">
                             @for($i=0;$i<sizeof($imagens);$i++)
-                            @if($imagens[$i]['anuncio'] == $ticket->id)
-                            @if($imagens[$i]['imagem'] != null)
-                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
-                            @else
-                            <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/erro.jpg')}}">
-                            @endif
-                            @endif
+                                @if($imagens[$i]['anuncio'] == $ticket->id)
+                                    @if($imagens[$i]['imagem'] != null)
+                                        <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/'.$imagens[$i]['imagem']) }}">
+                                    @else
+                                        <img class="card-img-top img-responsive" style="max-height:100px; width: auto;" src="{{ url('storage/erro.jpg')}}">
+                                    @endif
+                                    @break
+                                @endif
                             @endfor
                         </div>
 
