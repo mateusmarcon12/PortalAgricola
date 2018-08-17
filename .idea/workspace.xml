@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ffaf70-cf1c-4425-9a03-822c02ef32bf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php" afterPath="$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/config/app.php" afterPath="$PROJECT_DIR$/agricola/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/agricola/resources/views/welcome.blade.php" />
     </list>
     <ignored path="PortalAgricola.iws" />
@@ -36,14 +39,9 @@
       <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42045453">
+            <state vertical-scroll-proportion="0.43727598">
               <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-              <folding>
-                <element signature="e#5343#5387#0#HTML" expanded="true" />
-                <element signature="e#5742#5780#0#HTML" expanded="true" />
-                <element signature="e#5988#6026#0#HTML" expanded="true" />
-                <element signature="e#6561#6608#0#HTML" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,14 +49,9 @@
       <file leaf-file-name="todos.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="109" selection-start-line="25" selection-start-column="109" selection-end-line="25" selection-end-column="109" />
-              <folding>
-                <element signature="e#6252#6296#0#HTML" expanded="true" />
-                <element signature="e#6703#6741#0#HTML" expanded="true" />
-                <element signature="e#6973#7011#0#HTML" expanded="true" />
-                <element signature="e#7638#7685#0#HTML" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +59,8 @@
       <file leaf-file-name="AnuncioController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923">
-              <caret line="192" column="53" selection-start-line="192" selection-start-column="53" selection-end-line="192" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="195" column="53" selection-start-line="195" selection-start-column="53" selection-end-line="195" selection-end-column="53" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
@@ -78,7 +71,7 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="58.192307">
+            <state vertical-scroll-proportion="0.0">
               <caret line="128" column="57" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="57" />
               <folding />
             </state>
@@ -88,7 +81,7 @@
       <file leaf-file-name="ResumidoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.730769">
+            <state vertical-scroll-proportion="0.0">
               <caret line="91" column="125" selection-start-line="91" selection-start-column="125" selection-end-line="91" selection-end-column="125" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
@@ -100,7 +93,7 @@
       <file leaf-file-name="Endereco.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agricola/app/Endereco.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
+            <state vertical-scroll-proportion="0.0">
               <caret line="13" column="6" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="6" />
               <folding />
             </state>
@@ -685,8 +678,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -750,7 +743,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27836612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28290468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1007,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="199" column="34" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="152" column="62" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1126,7 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="148" selection-start-line="61" selection-start-column="124" selection-end-line="61" selection-end-column="148" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,13 +1119,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="148" selection-start-line="55" selection-start-column="124" selection-end-line="55" selection-end-column="148" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Endereco.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
+        <state vertical-scroll-proportion="0.0">
           <caret line="13" column="6" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
@@ -1148,20 +1132,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/anuncios/todos.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="109" selection-start-line="25" selection-start-column="109" selection-end-line="25" selection-end-column="109" />
-          <folding>
-            <element signature="e#6252#6296#0#HTML" expanded="true" />
-            <element signature="e#6703#6741#0#HTML" expanded="true" />
-            <element signature="e#6973#7011#0#HTML" expanded="true" />
-            <element signature="e#7638#7685#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="58.192307">
+        <state vertical-scroll-proportion="0.0">
           <caret line="128" column="57" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="57" />
           <folding />
         </state>
@@ -1179,16 +1158,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.001996008">
           <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="e#7#389#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/AnuncioController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="192" column="53" selection-start-line="192" selection-start-column="53" selection-end-line="192" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="53" selection-start-line="195" selection-start-column="53" selection-end-line="195" selection-end-column="53" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
@@ -1197,7 +1173,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/app/Http/Controllers/ResumidoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.730769">
+        <state vertical-scroll-proportion="0.0">
           <caret line="91" column="125" selection-start-line="91" selection-start-column="125" selection-end-line="91" selection-end-column="125" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
@@ -1207,14 +1183,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agricola/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42045453">
+        <state vertical-scroll-proportion="0.43727598">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="e#5343#5387#0#HTML" expanded="true" />
-            <element signature="e#5742#5780#0#HTML" expanded="true" />
-            <element signature="e#5988#6026#0#HTML" expanded="true" />
-            <element signature="e#6561#6608#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
