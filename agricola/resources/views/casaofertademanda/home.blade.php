@@ -42,7 +42,7 @@
 
                 <div class="col-lg-6 portfolio-item">
 
-                    <div class="card h-100">
+                    <div class="card">
                         @if($ticket->idof == Auth::user()->id)
                             <div align="center" style="max-height:100px; max-height: 700px;">
                             
@@ -58,22 +58,24 @@
                                 @endfor
                             </div>
 
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <h2 class="card-title" style="color:green; text-transform: uppercase;">
                                     {{$ticket->titulodemanda}}
                                 </h2>
-
-                                <p class="card-text">
-                                   <b> Tipo: {{$ticket->demandatipo}} </b><br>
-                                   Descrição: {{$ticket->demandadescricao}} <br>
-                                   Anunciante: {{$ticket->demandadornome}} <br>
-                                   Minha oferta: {{$ticket->titulooferta}} <br>
-                                   Grau de relevância: {{$ticket->graucompatibilidade}} <br>
-                               </p>
-
-
-                               <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary"> Ver Mais</a>
-
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <p class="card-text">
+                                           <b> Tipo: {{$ticket->demandatipo}} </b><br>
+                                           Descrição: {{$ticket->demandadescricao}} <br>
+                                           Anunciante: {{$ticket->demandadornome}} <br>
+                                           Minha oferta: {{$ticket->titulooferta}} <br>
+                                           Grau de relevância: {{$ticket->graucompatibilidade}} <br>
+                                       </p>
+                                    </div>
+                                    <div class=" col-md-3">
+                                        <a href="{{action('AnuncioController@show',$ticket->iddemanda)}}" class="btn btn-primary"> Ver Mais</a>
+                                    </div>
+                                </div>        
                            </div>                         
 
                         @else
@@ -95,18 +97,20 @@
                                 <h2 class="card-title" style="color:green; text-transform: uppercase;">
                                     {{$ticket->titulooferta}}
                                 </h2>
-
-                                <p class="card-text">
-                                   <b> Tipo: {{$ticket->ofertatipo}} </b><br>
-                                   Descrição: {{$ticket->ofertadescricao}} <br>
-                                   Anunciante: {{$ticket->ofertantenome}} <br>
-                                   Minha demanda: {{$ticket->titulodemanda}} <br>
-                                   Grau de relevância: {{$ticket->graucompatibilidade}} <br>
-                               </p>
-
-
-                               <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary"> Ver Mais</a>
-
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p class="card-text">
+                                               <b> Tipo: {{$ticket->ofertatipo}} </b><br>
+                                               Descrição: {{$ticket->ofertadescricao}} <br>
+                                               Anunciante: {{$ticket->ofertantenome}} <br>
+                                               Minha demanda: {{$ticket->titulodemanda}} <br>
+                                               Grau de relevância: {{$ticket->graucompatibilidade}} <br>
+                                           </p>
+                                        </div>
+                                        <div class=" col-md-3">
+                                            <a href="{{action('AnuncioController@show',$ticket->idoferta)}}" class="btn btn-primary"> Ver Mais</a>
+                                        </div>
+                                    </div>        
                            </div>    
                         @endif 
 

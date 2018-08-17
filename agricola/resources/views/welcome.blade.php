@@ -83,7 +83,7 @@
 
                 <div class="col-lg-6 portfolio-item">
 
-                    <div class="card h-100">
+                    <div class="card">
 
                         <div align="center" style="max-height:100px; max-height: 700px;">
                             @for($i=0;$i<sizeof($imagens);$i++)
@@ -101,16 +101,19 @@
                             <h2 class="card-title" style="color:green; text-transform: uppercase;">
                                 {{$ticket->titulo}}
                             </h2>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <p class="card-text">
+                                       <b> Tipo: {{$ticket->tipoanuncio}} </b><br>
+                                       Descrição: {{$ticket->descricao}} <br>
 
-                            <p class="card-text">
-                               <b> Tipo: {{$ticket->tipoanuncio}} </b><br>
-                               Descrição: {{$ticket->descricao}} <br>
+                                    </p>
+                                </div>
+                                <div class=" col-md-3">
+                                    <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary" > Ver Mais</a>   
+                                </div>
 
-                           </p>
-
-
-                           <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary"> Ver Mais</a>
-
+                           </div>
                        </div>
                    </div>
                </div>
