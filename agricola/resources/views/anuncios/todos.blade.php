@@ -5,24 +5,9 @@
 
     <div class="row justify-content-center">
         <div class="col-md-10">
+          <div class="card-header">Anúncios <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais recentes</a></div>
             <div class="card">
                 <div class="card-body">
-<!--
-                        <ul class="navbar-nav mr-auto">
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Tipo de Anuncio
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{{ route('anuncio.ofer') }}">Ofertas</a>
-                              <a class="dropdown-item" href="{{ route('anuncio.dem') }}">Demandas</a>
-                                                 
-                            </div>
-                          </li>
-                        </ul>
--->
-
                     <form class="form-inline my-2 my-lg-0" method="get" action="{{{ URL::to('lib/search') }}}">
                     @csrf
                           <select name="categoria" class="form-control">
@@ -51,7 +36,7 @@
                               <option value="">UF</option>
                                     @foreach($estados as $uf)
 
-                                        <option value="{{$uf->uf_codigo}}"> {{$uf->uf_descricao}}<br>
+                                        <option value="{{$uf->uf_codigo}}"> {{$uf->uf_sigla}}<br>
                                         </option>  
                                     @endforeach
                           </select>
@@ -63,14 +48,8 @@
             </div>                
         </div>
 
-
-
-
         <div class="col-md-10">
-
             <div class="card">
-                <div class="card-header">Anúncios</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">

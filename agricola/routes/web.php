@@ -18,16 +18,10 @@ Route::get('/', function () {
 });
 Route::get('/welcome/search','resumidoController@filtra');
 
-
-
 Route::group(['prefix' => 'admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'AdminAuth\LoginController@login');
   Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
-/*
-  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
-  Route::post('/register', 'AdminAuth\RegisterController@register');
-*/
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
@@ -110,6 +104,7 @@ Route::post('/negociacaos/mensagem/{id}','NegociacaoController@store')->name('ne
 
 Route::post('/negociacaos/finalizar/{id}','NegociacaoController@finalizar')->name('negociacao.finalizar');
 
-Route::post('casaofertademanda/filtrar','CasaofertademandaController@filtrar')->name('casamento.filtrar');
+//Route::post('casaofertademanda/filtrar','CasaofertademandaController@filtrar')->name('casamento.filtrar');
+Route::get('/relevantes/search','CasaofertademandaController@filtrar');
 
 Route::post('negociacao/filtrar','NegociacaoController@filtrar')->name('negociacao.filtrar');

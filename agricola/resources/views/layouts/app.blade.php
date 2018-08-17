@@ -91,7 +91,7 @@
                                     <a class="dropdown-item" href="{{ route('casaofertademanda.index') }}">
                                         {{ __('Casar Anúncios') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('anuncio.listtodos') }}">
+                                    <a class="dropdown-item" href="{{ url('/') }}">
                                         {{ __('Exibir todos anúncios') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('anuncio.index') }}">

@@ -33,7 +33,7 @@
                 </div>
             </div>
         
-
+            <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais recentes</a></div>
             <div class="col-md-14">
                 <div class="card">
                     <div class="card-body">
@@ -65,7 +65,7 @@
                                 <option value="">UF</option>
                                 @foreach($estados as $uf)
 
-                                <option value="{{$uf->uf_codigo}}"> {{$uf->uf_descricao}}<br>
+                                <option value="{{$uf->uf_codigo}}"> {{$uf->uf_sigla}}<br>
                                 </option>
                                 @endforeach
                             </select>
@@ -73,10 +73,11 @@
 
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
                         </form>
+
                     </div>
                 </div>
             </div>
-            <div class="card-header">Anúncios</div>
+     
             <div class="row">
                 @foreach($anu as $ticket)
 
@@ -95,7 +96,7 @@
                             @endif
                             @endfor
                         </div>
-                        <!--      <a href="#" id="43" name="{{$ticket->id}}"><img class="card-img-top" src="http://placehold.it/700x400"></a>-->
+
                         <div class="card-body ">
                             <h2 class="card-title" style="color:green; text-transform: uppercase;">
                                 {{$ticket->titulo}}

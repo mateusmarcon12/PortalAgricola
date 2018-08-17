@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Anuncio;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Support\Facades\Input;
 
 class CasaofertademandaController extends Controller
 {
@@ -195,17 +196,8 @@ class CasaofertademandaController extends Controller
         ->where('casaofertademandas.iddemandador','=', Auth::user()->id)
         ->orwhere('casaofertademandas.idofertante','=', Auth::user()->id)
         ->orderby('casaofertademandas.graucompatibilidade','desc')
-        ->paginate(25);
-  //  var_dump($anu);
-        /*$anu2 = Casaofertademanda
-            ::join('anuncios', 'anuncios.id', '=', 'casaofertademandas.idoferta')
-            ->join('users', 'users.id','=','anuncios.idanunciante')
-            ->select('anuncios.*', 'casaofertademandas.graucompatibilidade','casaofertademandas.iddemanda', 'users.name')
-            ->where('casaofertademandas.idinteressado','=', Auth::user()->id)
-            ->where('anuncios.situacao','=','ativo')
-            ->orderby('casaofertademandas.graucompatibilidade','desc')
-            ->get();
-*/
+        ->paginate(10);
+
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
 
@@ -221,12 +213,12 @@ class CasaofertademandaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function filtrar(Request $request){
+    public function filtrar(){
+       
+        $tipo = Input::get('tipo');
 
-
-
-        if ($request->tipo){
-           if ($request->tipo == 'Oferta'){
+        if ($tipo){
+           if ($tipo == 'Oferta'){
                 $query = Casaofertademanda::where('casaofertademandas.iddemandador','=', Auth::user()->id)->where('casaofertademandas.idofertante','!=', Auth::user()->id);
                  
             }
@@ -252,11 +244,12 @@ class CasaofertademandaController extends Controller
             'demandador.name as demandadornome','ofertante.name as ofertantenome',
             'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda');
 
-        $anu = $query->orderby('casaofertademandas.graucompatibilidade','desc')->paginate(25);
+        $anu = $query->orderby('casaofertademandas.graucompatibilidade','desc')->paginate(10);
 
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
-     return view('casaofertademanda.home')->with('anu', $anu,'minhademanda',$minhademanda);
+    // return view('casaofertademanda.home')->with('anu', $anu,'minhademanda',$minhademanda);
+     return view('casaofertademanda.home',  compact('anu','minhademanda'));
     }
 
 

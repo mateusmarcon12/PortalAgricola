@@ -6,8 +6,8 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
-
-                        <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('casamento.filtrar') }}">
+                         <form class="form-inline my-2 my-lg-0" method="get" action="{{ URL::to('/relevantes/search') }}">
+              
                            @csrf
                           <select name="tipo" class="form-control">
                               <option value="">Tipo</option>
@@ -25,7 +25,8 @@
 
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Anúncios compatíveis com os seus</div>
+                <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais recentes</a></div>
+                
 
                 <div class="card-body">
                     @if (session('status'))
@@ -97,7 +98,8 @@
 
                                 </tbody>
                             </table>
-                             {!!$anu->links()!!}
+                              {{ $anu->appends(Input::get())->links() }}
+                             
                             @endisset
                         </div>
 
