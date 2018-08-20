@@ -5,7 +5,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-10">
-          <div class="card-header">Anúncios <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais recentes</a></div>
+          <div class="card-header">Anúncios <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0">Ver mais recentes</a></div>
             <div class="card">
                 <div class="card-body">
                     <form class="form-inline my-2 my-lg-0" method="get" action="{{{ URL::to('lib/search') }}}">

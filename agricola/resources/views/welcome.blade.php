@@ -33,7 +33,7 @@
                 </div>
             </div>
         
-            <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais relevantes</a> <a href="{{ url('/') }}" class="btn btn-outline-success my-2 my-sm-0"> Mais recentes</a></div>
+            <div class="card-header">Anúncios  <a href="{{ route('casaofertademanda.index') }}" class="btn btn-outline-success my-2 my-sm-0"> Ver mais relevantes</a></div>
             <div class="col-md-14">
                 <div class="card">
                     <div class="card-body">
