@@ -13,7 +13,9 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        <div class="responsive">
+                        <div class="row">
+
+                            <div class="responsive col-md-6">
 
                        
                               <h3>Título: {{$anu->titulo}}</h3><br>
@@ -41,24 +43,25 @@
                                     Rua {{$e->rua}}, nº {{$e->numero}}, bairro {{$e->bairro}}, cidade {{$e->cidade_descricao}} - {{$e->cidade_cep}} - {{$e->uf_descricao}} - {{$e->nome}}
                                 </p>
                                 @endforeach
-                                <div class="card-header">Fotos</div>
-                          
 
-                                                                <br><br>
+                          
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-header">Fotos</div>
                                     <div class="container">
                                         <div class="row justify-content-center">
                                             <div class="gallery">
                                                 @foreach($files as $f)
                                                     <figure class="float-left">
-                                                        <img align="center" class="img-responsive rounded" width="400" src="{{ url('storage/'.$f) }}"  alt="Anuncio">
-                                                        
+                                                        <a target="_blank" class="example-image-link" href="{{ url('storage/'.$f) }}" data-lightbox="example-1"><img align="center" class="img-responsive rounded border-20" height="100" src="{{ url('storage/'.$f) }}" alt="image" /></a>
                                                     </figure>
                                                 @endforeach
                                             </div>
                                         </div>
                                     </div>
-                          
                             <br>
+                            </div>
+                        </div>
                             @if($anu->situacao == 'ativo')
                                 <div class="card-header">Abrir negociação e enviar e-mail</div>
                                 <br>
