@@ -11,16 +11,22 @@
 
                      @csrf
                      <select name="tipo" class="form-control">
-                      <option value="">Tipo</option>
-                      <option value="Oferta">Ofertas</option>
-                      <option value="Demanda">Demandas</option>
-                  </select>  
+                        <option value="">Tipo</option>
+                        <option value="Oferta">Ofertas</option>
+                        <option value="Demanda">Demandas</option>
+                     </select>
+                       <select name="grau" class="form-control">
+                           <option value="">Grau</option>
+                           <option value="5">1-5</option>
+                           <option value="10">6-10</option>
+                       </select>
+                       <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
 
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
-              </form>
-          </div>            
-      </div>                
-  </div>        
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                   </form>
+                </div>
+              </div>
+            </div>
 
 
 
@@ -32,7 +38,11 @@
                 {{ session('status') }}
             </div>
             @endif
-
+            @if (count($anu) === 0)
+                <div class="alert alert-success">
+                Você não possuí anúncios cadastrados ou compatíveis com os demais cadastrados no portal!
+                </div>
+            @endif
             @isset($anu)
 
             <div class="row">
@@ -66,7 +76,7 @@
                                            <b> Tipo: {{$ticket->demandatipo}} </b><br>
                                            Descrição: {{$ticket->demandadescricao}} <br>
                                            Anunciante: {{$ticket->demandadornome}} <br>
-                                           Minha oferta: {{$ticket->titulooferta}} <br>
+                                           <b>Minha oferta: {{$ticket->titulooferta}} </b> <br>
                                            Grau de relevância: {{$ticket->graucompatibilidade}} <br>
                                        </p>
                                     </div>
@@ -101,7 +111,7 @@
                                                <b> Tipo: {{$ticket->ofertatipo}} </b><br>
                                                Descrição: {{$ticket->ofertadescricao}} <br>
                                                Anunciante: {{$ticket->ofertantenome}} <br>
-                                               Minha demanda: {{$ticket->titulodemanda}} <br>
+                                           <b> Minha demanda: {{$ticket->titulodemanda}} </b><br>
                                                Grau de relevância: {{$ticket->graucompatibilidade}} <br>
                                            </p>
                                         </div>
@@ -116,6 +126,7 @@
                 </div>
 
                 @endforeach
+                </div>
                 {{ $anu->appends(Input::get())->links() }}
                 @endisset
             </div>
