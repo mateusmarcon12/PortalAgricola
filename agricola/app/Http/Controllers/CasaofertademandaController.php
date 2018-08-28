@@ -298,8 +298,8 @@ class CasaofertademandaController extends Controller
 
         if($titulo){
 
-            $query->where(function ($query) {
-                $query->where('anuncios.titulo','=',$titulo)
+            $query->where(function ($query) use ($titulo){
+                $query->where('ofertas.titulo','=',$titulo)
                     ->orWhere('demandas.titulo','=', $titulo);
             });
         }

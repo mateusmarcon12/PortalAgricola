@@ -20,6 +20,7 @@
                            <option value="5">1-5</option>
                            <option value="10">6-10</option>
                        </select>
+                       <input class="form-control mr-sm-2" name="titulo" type="search" placeholder="titulo" aria-label="Search">
 
                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
                    </form>

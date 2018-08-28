@@ -55,24 +55,9 @@ class AmizadesController extends Controller
             ->where('solicitacaos.situacao','=','pendente')
             ->join('users','users.id','solicitacaos.idsolicitante')
             ->select('users.name as name','users.email as email','solicitacaos.id as idsolicitacao')
-            ->get();
+            ->orderby('users.name','asc')
+            ->paginate(10);
 
-/*
-        $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
-            ->join('users','users.id','amizades.idsolicitante')
-            ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
-                'amizades.id as idamizade')
-            ->where('amizades.situacao','=','ativa')
-            ->get();
-
-        $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
-            ->join('users','users.id','amizades.idsolicitado')
-            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
-                'amizades.id as idamizade')
-            ->where('amizades.situacao','=','ativa')
-            ->get();
-
-*/
         $amizades = Amizades::leftjoin('users as solicitante','solicitante.id','=','amizades.idsolicitante')
             ->leftjoin('users as solicitado','solicitado.id','=','amizades.idsolicitado')
             ->where(function ($query) {
@@ -133,35 +118,46 @@ class AmizadesController extends Controller
     }
 
     public  function filtrar(){
+        $solicitacoes = Solicitacao::where('idsolicitado','=',Auth::user()->id)
+            ->where('solicitacaos.situacao','=','pendente')
+            ->join('users','users.id','solicitacaos.idsolicitante')
+            ->select('users.name as name','users.email as email','solicitacaos.id as idsolicitacao')
+            ->orderby('users.name','asc')
+            ->paginate(10);
+
+
         $nome = Input::get('nome');
         $email = Input::get('email');
 
-/*
-        $amizades = Amizades::where('idsolicitado', '=', Auth::user()->id)
-            ->join('users','users.id','amizades.idsolicitante')
-            ->select('users.name as nome','amizades.idsolicitante as idanunciante','users.email as email',
+
+        $q = Amizades::join('users as solicitante','solicitante.id','=','amizades.idsolicitante')
+            ->join('users as solicitado','solicitado.id','=','amizades.idsolicitado')
+            ->where(function ($query) {
+                $query->where('idsolicitado', '=', Auth::user()->id)
+                    ->orWhere('idsolicitante', '=', Auth::user()->id);
+            })
+            ->select('solicitante.id as idsolicitante','solicitante.name as namesolicitante','solicitante.email as emailsolicitante',
+                'solicitado.id as idsolicitado','solicitado.name as namesolicitado','solicitado.email as emailsolicitado',
                 'amizades.id as idamizade')
-            ->where('amizades.situacao','=','ativa')
-            ->get();
-
-        $amizades2 = Amizades::where('idsolicitante', '=', Auth::user()->id)
-            ->join('users','users.id','amizades.idsolicitado')
-            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
-                'amizades.id as idamizade')
-            ->where('amizades.situacao','=','ativa')
-            ->get();
-        */
-        $query = Amizades::join('users','users.id','amizades.idsolicitado')
-            ->select('amizades.idsolicitado as idanunciante','users.name as nome','users.email as email',
-                'amizades.id as idamizade');
-
-        $query ->where('amizades.situacao','=','ativa');
-
-        $query ->where('amizades.idofertante','=', Auth::user()->id)->orwhere('casaofertademandas.iddemandador','=', Auth::user()->id);
+            ->where('amizades.situacao','=','ativa');
 
 
+        if($nome){
+            $q->where(function ($q) use ($nome) {
+                $q->where('solicitado.name', '=', $nome)
+                    ->orWhere('solicitante.name', '=', $nome);
+            });
+        }
+        if($email){
+            $q->where(function ($q) use ($email) {
+                $q->where('solicitado.email', '=', $email)
+                    ->orWhere('solicitante.email', '=', $email);
+            });
+        }
 
+        $amizades = $q->paginate(10);
 
+        return view('amizades.home',compact('amizades','solicitacoes'));
     }
 
 }

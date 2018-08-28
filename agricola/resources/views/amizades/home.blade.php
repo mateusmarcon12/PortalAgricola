@@ -35,6 +35,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{ $solicitacoes->appends(Input::get())->links() }}
                             </div>
 
                         </div>
@@ -103,7 +104,9 @@
                                     @endforeach
 
                                     </tbody>
+
                                 </table>
+                                {{ $amizades->appends(Input::get())->links() }}
                                 @endisset
 
                         </div>
