@@ -156,12 +156,6 @@ class AnuncioController extends Controller
   //  public function filtra(Request $request)
     public function filtra()
     {
-        //dd('chegou');
-        /*$categoria = $request->categoria;
-        $classificacao = $request->classificacao;
-        $titulo = $request->titulo;
-        $estado = $request->estado;
-        $tipo = $request->tipo;*/
 
         $categoria = Input::get('categoria');
         $classificacao = Input::get('classificacao');

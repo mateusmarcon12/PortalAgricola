@@ -9,7 +9,7 @@ class Casaofertademanda extends Model
 {
     //
     protected $fillable = [
-        'iddemandador','idanuncio','graucompatibilidade','tipoanuncio','id','idofertante',
+        'iddemandador','idoferta','iddemanda','graucompatibilidade','tipoanuncio','id','idofertante',
     ];
 
 

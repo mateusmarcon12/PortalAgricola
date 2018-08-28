@@ -8,6 +8,7 @@
 
         <div class="col-md-10">
             <div class="card">
+                <div class="card-header">Meus Anúncios</div>
                 <div class="card-body">
 
                     <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('anuncio.filtrarmeus') }}">
@@ -50,7 +51,7 @@
         </div>
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Meus Anúncios</div>
+
 
                 <div class="card-body">
                     @if (session('status'))

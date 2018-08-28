@@ -39,6 +39,23 @@
 
                         </div>
                     <div class="card-header">Meus amigos</div>
+                        <div class="col-md-12">
+
+                            <div class="card">
+
+                                <div class="card-body">
+
+                                    <form class="form-inline my-2 my-lg-0" method="get" action="{{ URL::to('/amizades/filtrar') }}">
+                                        @csrf
+
+                                        <input class="form-control mr-sm-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
+                                        <input class="form-control mr-sm-2" name="email" type="email" placeholder="E-mail" aria-label="Search">
+
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
 
                             @isset($amizades)
@@ -55,40 +72,34 @@
                                     </thead>
                                     <tbody>
 
-
                                     @foreach($amizades as $ticket)
+                                        @if($ticket->idsolicitado != Auth::user()->id)
+                                            <tr>
 
-                                                <tr>
-
-                                                <td>{{$ticket->nome}}</td>
-                                                <td>{{$ticket->email}}</td>
-                                                <td><a href="{{route('usuario.exibeoutro', $ticket->idanunciante)}}" class="btn btn-primary">Ver Mais</a></td>
+                                                <td>{{$ticket->namesolicitado}}</td>
+                                                <td>{{$ticket->emailsolicitado}}</td>
+                                                <td><a href="{{route('usuario.exibeoutro', $ticket->idsolicitado)}}" class="btn btn-primary">Ver Mais</a></td>
                                                 <td><a href="{{route('amizade.excluir', $ticket->idamizade)}}" class="btn btn-primary">Excluir Amizade</a></td>
 
-                                                </tr>
+                                            </tr>
 
-                                        <tr>
+                                            <tr>
 
-                                        </tr>
+                                            </tr>
+                                        @else
+                                            <tr>
 
-                                    @endforeach
+                                                <td>{{$ticket->namesolicitante}}</td>
+                                                <td>{{$ticket->emailsolicitante}}</td>
+                                                <td><a href="{{route('usuario.exibeoutro', $ticket->idsolicitante)}}" class="btn btn-primary">Ver Mais</a></td>
+                                                <td><a href="{{route('amizade.excluir', $ticket->idamizade)}}" class="btn btn-primary">Excluir Amizade</a></td>
 
+                                            </tr>
 
-                                    @foreach($amizades2 as $ticket2)
+                                            <tr>
 
-                                        <tr>
-
-                                            <td>{{$ticket2->nome}}</td>
-                                            <td>{{$ticket2->email}}</td>
-                                            <td><a href="{{route('usuario.exibeoutro', $ticket2->idanunciante)}}" class="btn btn-primary">Ver Mais</a></td>
-                                            <td><a href="{{route('amizade.excluir', $ticket2->idamizade)}}" class="btn btn-primary">Excluir Amizade</a></td>
-
-                                        </tr>
-
-                                        <tr>
-
-                                        </tr>
-
+                                            </tr>
+                                        @endif
                                     @endforeach
 
                                     </tbody>

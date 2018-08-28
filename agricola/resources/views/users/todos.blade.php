@@ -3,27 +3,15 @@
 
 @section('content')
     <div class="container">
+
         <div class="row justify-content-center">
 
             <div class="col-md-10">
 
                 <div class="card">
+                    <div class="card-header">Anunciantes do Portal</div>
                     <div class="card-body">
-                        <!--
-                        <ul class="navbar-nav mr-auto">
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Tipo de Anuncio
-                            </a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{{ route('anuncio.ofer') }}">Ofertas</a>
-                              <a class="dropdown-item" href="{{ route('anuncio.dem') }}">Demandas</a>
-
-                            </div>
-                          </li>
-                        </ul>
--->
                         <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action="{{ route('usuario.filtrar') }}">
                             @csrf
 
@@ -43,7 +31,7 @@
             <div class="col-md-10">
 
                 <div class="card">
-                    <div class="card-header">Anunciantes do Portal</div>
+
 
                     <div class="card-body">
 

@@ -89,6 +89,7 @@ Route::get('/fotos/excluiranuncio/{id}','FotoController@excluiranuncio')->name('
 Route::post('/fotos/apagar/{id}','FotoController@apagar')->name('fotos.apagar');
 
 Route::get('/amizades','AmizadesController@show')->name('amizades.show');
+Route::get('/amizades/filtrar','AmizadesController@filtrar');
 Route::get('/amizades/{id}','AmizadesController@excluir')->name('amizade.excluir');
 
 Route::get('recomendacao/excluir{id}','RecomendacaoController@excluir')->name('recomendacao.excluir');

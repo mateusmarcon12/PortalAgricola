@@ -254,7 +254,9 @@ class CasaofertademandaController extends Controller
         $grau = Input::get('grau');
         $titulo = Input::get('titulo');
 
-        $query=Casaofertademanda::join('anuncios as ofertas', 'ofertas.id', '=', 'casaofertademandas.idoferta')
+
+        $query = Casaofertademanda::
+        join('anuncios as ofertas', 'ofertas.id', '=', 'casaofertademandas.idoferta')
             ->join('anuncios  as demandas', 'demandas.id', '=','casaofertademandas.iddemanda')
             ->join('users as ofertante', 'ofertante.id', '=','casaofertademandas.idofertante')
             ->join('users as demandador', 'demandador.id', '=','casaofertademandas.iddemandador')
@@ -267,38 +269,42 @@ class CasaofertademandaController extends Controller
                 'casaofertademandas.idoferta as idoferta','casaofertademandas.iddemanda as iddemanda');
 
 
-
-        if($titulo){
-            $query->where('ofertas.titulo', '=', $titulo);
-
-        }
-
         if($grau){
             if($grau == '5'){
-                $query ->where('casaofertademandas.graucompatibilidade','<=',5);
+                $query ->where('casaofertademandas.graucompatibilidade','<',6);
             }
             if($grau == '10'){
                 $query ->where('casaofertademandas.graucompatibilidade', '>',5);
             }
         }
 
-
         if ($tipo){
-           if ($tipo == 'Oferta'){
+            if ($tipo == 'Oferta'){
                 $query->where('casaofertademandas.iddemandador','=', Auth::user()->id)->where('casaofertademandas.idofertante','!=', Auth::user()->id);
-                 
+
             }
-           else{
+            else{
                 $query->where('casaofertademandas.idofertante','=', Auth::user()->id)->where('casaofertademandas.iddemandador','!=', Auth::user()->id);
 
-           }
+            }
         }
         else{
-            $query ->where('casaofertademandas.idofertante','=', Auth::user()->id)->orwhere('casaofertademandas.iddemandador','=', Auth::user()->id);
+            $query->where(function ($query) {
+                $query->where('casaofertademandas.iddemandador','=', Auth::user()->id)
+                    ->orWhere('casaofertademandas.idofertante','=', Auth::user()->id);
+            });
         }
 
 
-        $anu = $query->orderby('casaofertademandas.graucompatibilidade','desc')->paginate(10);
+        if($titulo){
+
+            $query->where(function ($query) {
+                $query->where('anuncios.titulo','=',$titulo)
+                    ->orWhere('demandas.titulo','=', $titulo);
+            });
+        }
+
+         $anu = $query->orderby('casaofertademandas.graucompatibilidade','desc')->paginate(10);
 
         $minhademanda = Anuncio::Meusanuncios()->Situacao()->Tipodemanda()->get();
 
