@@ -77,7 +77,12 @@
                     </div>
                 </div>
             </div>
-     
+
+                        <div class="col-md-14">
+                            <div class="card">
+                                <div class="card-body">
+
+
             <div class="row">
                 @foreach($anu as $ticket)
 
@@ -126,11 +131,13 @@
             {{ $anu->appends(Input::get())->links() }}
 
             @endisset
-
+                    </div>
+                </div>
             </div>
             </div>
         </div>
     </div>
 </div>
+
 
 @endsection
