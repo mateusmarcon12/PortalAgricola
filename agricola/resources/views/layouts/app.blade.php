@@ -53,9 +53,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Cadastrar') }}</a></li>
+
                         @else
 
                             <li class="nav-item dropdown">
@@ -130,6 +132,7 @@
                                 </div>
                             </li>
                         @endguest
+                            <li><a class="nav-link" href="{{ route('ajuda') }}">{{ __('Ajuda') }}</a></li>
                     </ul>
                 </div>
             </div>

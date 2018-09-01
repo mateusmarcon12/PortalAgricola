@@ -149,17 +149,7 @@ class CasaofertademandaController extends Controller
 
 
                     if($ch == 0){
-                       // $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->count();
-                      //  if($vv2==0) {
                             $casou->save();
-                       // }
-                      /*  else{
-                            $vv2 = Casaofertademanda::where('idoferta', '=', $casou->idoferta)->where('iddemanda', '=', $casou->iddemanda)->first();
-                            if($vv2->graucompatibilidade<$g){
-                                $vv2->graucompatibilidade=$g;
-                                $vv2->save();
-                            }
-                        }*/
                     }
                     else{
 

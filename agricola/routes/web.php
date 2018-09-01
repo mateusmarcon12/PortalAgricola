@@ -109,3 +109,5 @@ Route::post('/negociacaos/finalizar/{id}','NegociacaoController@finalizar')->nam
 Route::get('/relevantes/search','CasaofertademandaController@filtrar');
 
 Route::post('negociacao/filtrar','NegociacaoController@filtrar')->name('negociacao.filtrar');
+
+Route::get('/ajuda/','AjudaController@ajuda')->name('ajuda');
