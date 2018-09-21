@@ -18,19 +18,28 @@ use Auth;
 class ResumidoController extends Controller
 {
     //
-    public function index(){
+    public function index()
+	{
 
 		$estados = DB::table('ufs')->get();
 		$classificacoes = DB::table('classificacaos')->get();
 		$categorias = DB::table('categorias')->get();
 
+		if(Auth::guest()) {
 
-		$anu = Anuncio::join('users','users.id','=','anuncios.idanunciante')->where('anuncios.situacao','=','ativo')
-				->orderby('anuncios.created_at','desc')
-				->select('anuncios.id as idanuncio','users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id',
-						'anuncios.descricao as descricao','anuncios.tipoanuncio as tipoanuncio','anuncios.datavalidade as validade')
-				->paginate(10);
-
+			$anu = Anuncio::join('users', 'users.id', '=', 'anuncios.idanunciante')->where('anuncios.situacao', '=', 'ativo')
+					->orderby('anuncios.created_at', 'desc')
+					->select('anuncios.id as idanuncio', 'users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id',
+							'anuncios.descricao as descricao', 'anuncios.tipoanuncio as tipoanuncio', 'anuncios.datavalidade as validade')
+					->paginate(10);
+		}else{
+			$anu = Anuncio::join('users', 'users.id', '=', 'anuncios.idanunciante')->where('anuncios.situacao', '=', 'ativo')
+					->where('anuncios.idanunciante', '!=', Auth::user()->id)
+					->orderby('anuncios.created_at', 'desc')
+					->select('anuncios.id as idanuncio', 'users.name as name', 'anuncios.titulo as titulo', 'anuncios.id as id',
+							'anuncios.descricao as descricao', 'anuncios.tipoanuncio as tipoanuncio', 'anuncios.datavalidade as validade')
+					->paginate(10);
+		}
 		$num = 0;
 		$imagens = collect();
 		foreach ($anu as $a){
