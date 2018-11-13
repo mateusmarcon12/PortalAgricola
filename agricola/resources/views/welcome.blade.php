@@ -88,9 +88,9 @@
 
                 <div class="col-lg-6 portfolio-item">
 
-                    <div class="card">
+                    <div class="card" style="height: 300px;">
 
-                        <div align="center" style="max-height:100px; max-height: 700px;">
+                        <div align="center" style="max-height:100px;">
                             @for($i=0;$i<sizeof($imagens);$i++)
                                 @if($imagens[$i]['anuncio'] == $ticket->id)
                                     @if($imagens[$i]['imagem'] != null)
@@ -104,9 +104,11 @@
                         </div>
 
                         <div class="card-body ">
-                            <h2 class="card-title" style="color:green; text-transform: uppercase;">
+                            <div style="min-height: 60px; width:100%; align-items: center;">
+                            <h2 class="card-title align-items-center " style="color:green; text-transform: uppercase;">
                                 {{$ticket->titulo}}
                             </h2>
+                            </div>
                             <div class="row">
                                 <div class="col-md-9">
                                     <p class="card-text">
@@ -119,7 +121,7 @@
                                     <a href="{{action('AnuncioController@show',$ticket->id)}}" class="btn btn-primary" > Ver Mais</a>   
                                 </div>
 
-                           </div>
+                            </div>
                        </div>
                    </div>
                </div>

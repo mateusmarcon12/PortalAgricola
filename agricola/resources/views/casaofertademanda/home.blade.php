@@ -50,9 +50,9 @@
 
                 <div class="col-lg-6 portfolio-item">
 
-                    <div class="card">
+                    <div class="card" style="height: 350px;">
                         @if($ticket->idof == Auth::user()->id)
-                            <div align="center" style="max-height:100px; max-height: 700px;">
+                            <div align="center" style="max-height:100px;">
                             
                                 @for($i=0;$i<sizeof($imagens);$i++)
                                     @if($imagens[$i]['anuncio'] == $ticket->iddemanda)
@@ -67,9 +67,11 @@
                             </div>
 
                             <div class="card-body">
-                                <h2 class="card-title" style="color:green; text-transform: uppercase;">
-                                    {{$ticket->titulodemanda}}
-                                </h2>
+                                <div style="min-height: 60px;">
+                                    <h2 class="card-title align-items-center " style="color:green; text-transform: uppercase;">
+                                        {{$ticket->titulodemanda}}
+                                    </h2>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-9">
                                         <p class="card-text">
@@ -87,7 +89,7 @@
                            </div>                         
 
                         @else
-                            <div align="center" style="max-height:100px; max-height: 700px;">
+                            <div align="center" style="max-height:100px;">
                             
                                 @for($i=0;$i<sizeof($imagens);$i++)
                                     @if($imagens[$i]['anuncio'] == $ticket->idoferta)
@@ -102,9 +104,12 @@
                             </div>
 
                             <div class="card-body ">
-                                <h2 class="card-title" style="color:green; text-transform: uppercase;">
-                                    {{$ticket->titulooferta}}
-                                </h2>
+                                <div style="min-height: 60px;">
+                                    <h2 class="card-title align-items-center " style="color:green; text-transform: uppercase;">
+                                        {{$ticket->titulooferta}}
+                                    </h2>
+                                </div>
+
                                     <div class="row">
                                         <div class="col-md-9">
                                             <p class="card-text">
