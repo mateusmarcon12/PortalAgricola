@@ -95,7 +95,7 @@ class OfertaController extends Controller
         $a->tipoanuncio='Oferta';
         $a->save();
         $fotoend=$a->id;
-        if ($request->hasFile('images')){
+    /*    if ($request->hasFile('images')){
             $this->validate($request, [
                 'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
             ]);
@@ -106,8 +106,20 @@ class OfertaController extends Controller
             //$file->move('uploads/anuncio'.$fotoend.'/', $file->getClientOriginalName());
             $file = $request->file('images')->store('Anuncios/'.$fotoend);
         }
+*/
+        if ($request->hasFile('images')){
 
-        return redirect('anuncio')->with('success', 'Oferta Cadastrada');
+            $this->validate($request, [
+                'images' => 'mimes:jpeg,bmp,png', //only allow this type extension file.
+            ]);
+
+            //$file = $request->file('images');
+            //$extension=$file->getClientOriginalExtension();
+            // image upload in public/upload folder.
+            //$file->move('uploads/anuncio/'.$fotoend.'/', $file->getClientOriginalName());
+            $file = $request->file('images')->store('Anuncios/'.$fotoend);
+        }
+        return redirect('anuncio')->with('success', 'Oferta Cadastrada teste');
     }
 
     /**
